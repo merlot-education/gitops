@@ -11,8 +11,8 @@ applications:
     helmValues:
       - "../../environments/demo/marketplace.yaml"
 
-  - name: dev-shared-resources
-    namespace: dev
+  - name: demo-shared-resources
+    namespace: demo
     enabled: true
     sourcePath: charts/shared-resources
     helmValues:
