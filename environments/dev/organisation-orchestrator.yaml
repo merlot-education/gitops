@@ -1,0 +1,39 @@
+image:
+  repository: ghcr.io/merlot-education/organisations-orchestrator
+  tag: 0.0.1-SNAPSHOT-5f934ef
+
+service:
+  port: 8082
+
+env:
+  SERVER_SERVLET_CONTEXT-PATH: /organisations
+
+ingress:
+  hosts:
+    - host: api.dev.merlot-education.eu
+      paths:
+        - path: /organisations
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - api.dev.merlot-education.eu
+      secretName: api-certificate
+
+command: ["/bin/sh", "-c"]
+args:
+  - source /vault/secrets/config;
+    java -jar /opt/organisations-orchestrator.jar;
+
+podAnnotations:
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/tls-skip-verify: "true"
+  vault.hashicorp.com/role: "orchestrator"
+  vault.hashicorp.com/agent-inject-secret-config: "secrets/orchestrator/organisations"
+  vault.hashicorp.com/agent-inject-template-config: |
+    {{`
+    {{- with secret "secrets/orchestrator/organisations" -}}
+    export KEYCLOAK_GXFSCATALOG-USER="{{ .Data.keycloakUser }}"
+    export KEYCLOAK_GXFSCATALOG-PASS="{{ .Data.keycloakPass }}"
+    export KEYCLOAK_CLIENT-SECRET="{{ .Data.keycloakClientSecret }}"
+    {{- end }}
+    `}}

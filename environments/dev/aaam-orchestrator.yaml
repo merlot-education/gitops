@@ -1,8 +1,13 @@
 image:
   repository: ghcr.io/merlot-education/aaam-orchestrator
   tag: 0.0.1-SNAPSHOT-9ef818e
+
 service:
   port: 8083
+
+env:
+  SERVER_SERVLET_CONTEXT-PATH: /aaam
+
 ingress:
   hosts:
     - host: api.dev.merlot-education.eu
@@ -13,9 +18,12 @@ ingress:
     - hosts:
         - api.dev.merlot-education.eu
       secretName: api-certificate
+
 command: ["/bin/sh", "-c"]
 args:
-  - source /vault/secrets/config; java -jar /opt/aaam-orchestrator.jar;
+  - source /vault/secrets/config;
+    java -jar /opt/aaam-orchestrator.jar;
+
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"

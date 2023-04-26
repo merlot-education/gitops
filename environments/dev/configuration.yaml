@@ -17,3 +17,10 @@ applications:
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/aaam-orchestrator.yaml"
+
+  - name: dev-organisations-orchestrator
+    namespace: dev
+    enabled: true
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/dev/organisations-orchestrator.yaml"
