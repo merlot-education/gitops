@@ -8,7 +8,7 @@ applications:
     enabled: true
     sourcePath: charts/app-of-apps
     helmValues:
-      - ../../environments/app-of-apps.yaml
+      - ../../global-configuration.yaml
 
   - name: common
     project: common
