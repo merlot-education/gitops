@@ -1,0 +1,66 @@
+source: https://github.com/merlot-education/gitops.git
+sourceRef: main
+namespace: argocd
+
+applications:
+  - name: app-of-apps
+    project: gitops
+    enabled: true
+    sourcePath: charts/app-of-apps
+    helmValues:
+      - ../../environments/app-of-apps.yaml
+
+  - name: common
+    project: common
+    enabled: true
+    sourcePath: charts/app-of-apps
+    helmValues:
+      - ../../environments/common/configuration.yaml
+
+  - name: dev
+    project: dev
+    enabled: true
+    sourcePath: charts/app-of-apps
+    helmValues:
+      - ../../environments/dev/configuration.yaml
+
+  - name: demo
+    project: demo
+    enabled: true
+    sourcePath: charts/app-of-apps
+    helmValues:
+      - ../../environments/demo/configuration.yaml
+
+projects:
+  - name: gitops
+    enabled: true
+    destinations:
+      - namespace: "*"
+        server: "*"
+    clusterResourceWhitelist:
+      - group: "*"
+        kind: "*"
+  - name: common
+    enabled: true
+    destinations:
+      - namespace: "*"
+        server: "*"
+    clusterResourceWhitelist:
+      - group: "*"
+        kind: "*"
+  - name: dev
+    enabled: true
+    destinations:
+      - namespace: "*"
+        server: "*"
+    clusterResourceWhitelist:
+      - group: "*"
+        kind: "*"
+  - name: demo
+    enabled: true
+    destinations:
+      - namespace: "*"
+        server: "*"
+    clusterResourceWhitelist:
+      - group: "*"
+        kind: "*"

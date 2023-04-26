@@ -1,0 +1,12 @@
+source: https://github.com/merlot-education/gitops.git
+sourceRef: main
+namespace: argocd
+project: dev
+
+applications:
+  - name: marketplace
+    namespace: dev
+    enabled: true
+    sourcePath: charts/marketplace
+    helmValues:
+      - "../../environments/dev/marketplace.yaml"
