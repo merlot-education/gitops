@@ -1,0 +1,6 @@
+apiVersion: v2
+name: shared-resources
+description: A Helm chart for shared resources
+
+type: library
+version: 1.0.0

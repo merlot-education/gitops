@@ -11,6 +11,13 @@ applications:
     helmValues:
       - "../../environments/dev/marketplace.yaml"
 
+  - name: dev-shared-resources
+    namespace: dev
+    enabled: true
+    sourcePath: charts/shared-resources
+    helmValues:
+      - "../../environments/dev/shared-resources.yaml"
+
   - name: dev-aaam-orchestrator
     namespace: dev
     enabled: true
