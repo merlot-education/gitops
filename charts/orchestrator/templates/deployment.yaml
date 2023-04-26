@@ -46,9 +46,9 @@ spec:
           #    path: /
           #    port: http
           env:
-            {{- range .Values.env }}
-            - name: {{ .name }}
-              value: {{ .value }}
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key }}
+              value: {{ $value }}
             {{- end }} 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
