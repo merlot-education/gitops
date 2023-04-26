@@ -14,6 +14,6 @@ applications:
   - name: dev-aaam-orchestrator
     namespace: dev
     enabled: true
-    sourcePath: charts/marketplace
+    sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/aaam-orchestrator.yaml"

@@ -14,6 +14,6 @@ applications:
   - name: demo-aaam-orchestrator
     namespace: demo
     enabled: true
-    sourcePath: charts/marketplace
+    sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/demo/aaam-orchestrator.yaml"
