@@ -4,14 +4,14 @@ namespace: argocd
 project: dev
 
 applications:
-  - name: marketplace-dev
+  - name: dev-marketplace
     namespace: dev
     enabled: true
     sourcePath: charts/marketplace
     helmValues:
       - "../../environments/dev/marketplace.yaml"
 
-  - name: aaam-orchestrator-dev
+  - name: dev-aaam-orchestrator
     namespace: dev
     enabled: true
     sourcePath: charts/marketplace
