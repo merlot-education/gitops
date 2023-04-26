@@ -9,6 +9,7 @@ env:
   SERVER_SERVLET_CONTEXT-PATH: /organisations
 
 ingress:
+  enabled: true
   hosts:
     - host: api.demo.merlot-education.eu
       paths:

@@ -9,6 +9,7 @@ env:
   SERVER_SERVLET_CONTEXT-PATH: /aaam
 
 ingress:
+  enabled: true
   hosts:
     - host: api.dev.merlot-education.eu
       paths:
