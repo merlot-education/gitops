@@ -1,0 +1,47 @@
+name: Image Update
+
+on:
+  repository_dispatch:
+    types:
+      - image_update
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup yq
+        run: |
+          sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
+          sudo chmod +x /usr/bin/yq
+
+      - name: Update image tag
+        run: |
+          app=${{ github.event.client_payload.app }}
+          key=${{ github.event.client_payload.key }}
+          tag=${{ github.event.client_payload.tag }}
+          environment=${{ github.event.client_payload.environment }}
+          if [ "$environment" = "*" ]; then
+            for dir in environments/*/
+            do
+              dir=${dir%*/}
+              yq e -i "$key = \"${tag}\"" environments/${dir}/${app}.yaml
+            done
+          else
+            yq e -i "$key = \"${tag}\"" environments/${environment}/${app}.yaml
+          fi
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m 'update ${{ github.event.client_payload.app }} to version ${{ github.event.client_payload.tag }}' --allow-empty 
+          git push -u origin HEAD
