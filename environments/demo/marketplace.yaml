@@ -2,6 +2,7 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.0.0-rc.1-1-gbacea06
 ingress:
+  enabled: true
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/proxy-body-size: "128m"
