@@ -3,5 +3,4 @@ name: shared-resources
 description: A Helm chart for shared resources
 
 type: application
-version: 1.0.0
-appVersion: 0.0.0
+version: 1.0.2
