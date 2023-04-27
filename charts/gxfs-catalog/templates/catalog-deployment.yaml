@@ -44,7 +44,7 @@ spec:
             - name: {{ $key | quote }}
               value: {{ $value | quote }}
             {{- end }} 
-            - name: GRAPH_STORE_URI
+            - name: GRAPHSTORE_URI
               value: bolt://{{ include "gxfs-catalog.fullname" . }}-neo4j:7687
           #livenessProbe:
           #  httpGet:

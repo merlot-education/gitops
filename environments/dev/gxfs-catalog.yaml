@@ -18,8 +18,8 @@ catalog:
     vault.hashicorp.com/agent-inject-secret-neo4j: "secrets/gxfs-catalog/neo4j"
     vault.hashicorp.com/agent-inject-template-neo4j: |
       {{- with secret "secrets/gxfs-catalog/neo4j" -}}
-      export GRAPH_STORE_USER="{{ .Data.user }}"
-      export GRAPH_STORE_PASSWORD="{{ .Data.password }}"
+      export GRAPHSTORE_USER="{{ .Data.user }}"
+      export GRAPHSTORE_PASSWORD="{{ .Data.password }}"
       {{- end }}
     vault.hashicorp.com/agent-inject-secret-database: "secrets/gxfs-catalog/database"
     vault.hashicorp.com/agent-inject-template-database: |
