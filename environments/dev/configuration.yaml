@@ -11,6 +11,13 @@ applications:
     helmValues:
       - "../../environments/dev/marketplace.yaml"
 
+  - name: dev-gxfs-catalog
+    namespace: dev
+    enabled: true
+    sourcePath: charts/gxfs-catalog
+    helmValues:
+      - "../../environments/dev/gxfs-catalog.yaml"
+
   - name: dev-shared-resources
     namespace: dev
     enabled: true
