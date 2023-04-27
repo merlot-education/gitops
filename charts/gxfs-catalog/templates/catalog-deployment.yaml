@@ -41,8 +41,8 @@ spec:
             {{- toYaml .Values.catalog.args | nindent 12 }}
           env:
             {{- range $key, $value := .Values.catalog.envs }}
-            - name: {{ $key }}
-              value: {{ $value }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote }}
             {{- end }} 
             - name: GRAPH_STORE_URI
               value: bolt://{{ include "gxfs-catalog.fullname" . }}-neo4j:7687

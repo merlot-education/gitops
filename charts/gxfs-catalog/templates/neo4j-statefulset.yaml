@@ -39,8 +39,8 @@ spec:
               protocol: TCP
           env:
             {{- range $key, $value := .Values.neo4j.envs }}
-            - name: {{ $key }}
-              value: {{ $value }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote }}
             {{- end }} 
           command:
             {{- toYaml .Values.neo4j.command | nindent 12 }}
