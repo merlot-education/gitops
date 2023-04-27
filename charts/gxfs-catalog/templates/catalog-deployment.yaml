@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "gxfs-catalog.fullname" . }}
+  labels:
+    {{- include "gxfs-catalog.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "gxfs-catalog.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.catalog.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "gxfs-catalog.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "gxfs-catalog.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: fc-server
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.catalog.repository }}:{{ .Values.catalog.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          command:
+            {{- toYaml .Values.catalog.command | nindent 12 }}
+          args:
+            {{- toYaml .Values.catalog.args | nindent 12 }}
+          env:
+            {{- range $key, $value := .Values.catalog.envs }}
+            - name: {{ $key }}
+              value: {{ $value }}
+            {{- end }} 
+            - name: GRAPH_STORE_URI
+              value: bolt://{{ include "gxfs-catalog.fullname" . }}-neo4j:7687
+          #livenessProbe:
+          #  httpGet:
+          #    path: /
+          #    port: http
+          #readinessProbe:
+          #  httpGet:
+          #    path: /
+          #    port: http

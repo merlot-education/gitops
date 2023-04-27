@@ -1,0 +1,8 @@
+apiVersion: v2
+name: gxfs-catalog
+description: A Helm chart for deploying the gxfs-catalog server
+
+type: application
+
+version: 1.0.0
+appVersion: 1.0.1

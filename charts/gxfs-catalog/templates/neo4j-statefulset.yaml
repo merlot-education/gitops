@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Statefulset
+metadata:
+  name: {{ include "gxfs-catalog.fullname" . }}-neo4j
+  labels:
+    {{- include "gxfs-catalog.neo4jLabels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "gxfs-catalog.neo4jSelectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.neo4j.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "gxfs-catalog.neo4jSelectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "gxfs-catalog.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: neo4j
+          image: "{{ .Values.neo4j.repository }}:{{ .Values.neo4j.tag }}"
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports:
+            - name: http
+              containerPort: 7474
+              protocol: TCP
+            - name: bolt
+              containerPort: 7687
+              protocol: TCP
+          env:
+            {{- range $key, $value := .Values.neo4j.envs }}
+            - name: {{ $key }}
+              value: {{ $value }}
+            {{- end }} 
+          command:
+            {{- toYaml .Values.neo4j.command | nindent 12 }}
+          args:
+            {{- toYaml .Values.neo4j.args | nindent 12 }}
+          volumeMounts:
+            - name: data
+              mountPath: /data
+              subPath: /data
+            - name: data
+              mountPath: /conf
+              subPath: /conf
+          #livenessProbe:
+          #  httpGet:
+          #    path: /
+          #    port: http
+          #readinessProbe:
+          #  httpGet:
+          #    path: /
+          #    port: http
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+        labels:
+          {{- include "gxfs-catalog.neo4jSelectorLabels" . | nindent 8 }}
+      spec:
+        accessModes:
+        {{- range .Values.neo4j.persistence.accessModes }}
+          - {{ . | quote }}
+        {{- end }}
+        storageClassName: {{ .Values.neo4j.persistence.storageClass }}
+        resources:
+          requests:
+            storage: {{ .Values.neo4j.persistence.size | quote }}
