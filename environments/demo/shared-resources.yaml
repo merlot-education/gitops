@@ -18,7 +18,7 @@ ingresses:
             servicePort: 8082
           - path: /aaam
             pathType: ImplementationSpecific
-            serviceName: dev-demo-orchestrator
+            serviceName: demo-aaam-orchestrator
             servicePort: 8083
     tls:
       - hosts:
