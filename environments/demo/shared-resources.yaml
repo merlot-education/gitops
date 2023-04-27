@@ -1,2 +1,26 @@
 serviceAccounts:
   - name: orchestrator
+
+ingresses:
+  - name: orchestrator-api-gateway
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+      nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    hosts:
+      - host: api.demo.merlot-education.eu
+        paths:
+          - path: /organisations
+            pathType: ImplementationSpecific
+            serviceName: demo-organisations-orchestrator
+            servicePort: 8082
+          - path: /aaam
+            pathType: ImplementationSpecific
+            serviceName: dev-demo-orchestrator
+            servicePort: 8083
+    tls:
+      - hosts:
+          - api.demo.merlot-education.eu
+        secretName: api-staging-certificate
