@@ -39,7 +39,7 @@ neo4j:
   tag: 4.4.12
   command: ["/bin/sh", "-c"]
   args:
-    - source /vault/secrets/config;
+    - . /vault/secrets/config;
       tini -g -- /startup/docker-entrypoint.sh neo4j;
   envs:
     NEO4J_dbms_connector_http_listen__address: :7474
