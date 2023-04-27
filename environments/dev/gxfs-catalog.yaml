@@ -17,28 +17,22 @@ catalog:
     vault.hashicorp.com/role: "gxfs-catalog"
     vault.hashicorp.com/agent-inject-secret-neo4j: "secrets/gxfs-catalog/neo4j"
     vault.hashicorp.com/agent-inject-template-neo4j: |
-      {{`
       {{- with secret "secrets/gxfs-catalog/neo4j" -}}
       export GRAPH_STORE_USER="{{ .Data.user }}"
       export GRAPH_STORE_PASSWORD="{{ .Data.password }}"
       {{- end }}
-      `}}
     vault.hashicorp.com/agent-inject-secret-database: "secrets/gxfs-catalog/database"
     vault.hashicorp.com/agent-inject-template-database: |
-      {{`
       {{- with secret "secrets/gxfs-catalog/database" -}}
       export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
       export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
       export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
       {{- end }}
-      `}}
     vault.hashicorp.com/agent-inject-secret-keycloak: "secrets/gxfs-catalog/keycloak"
     vault.hashicorp.com/agent-inject-template-keycloak: |
-      {{`
       {{- with secret "secrets/gxfs-catalog/keycloak" -}}
       export KEYCLOAK_CREDENTIALS_SECRET="{{ .Data.clientSecret }}"
       {{- end }}
-      `}}
 
 neo4j:
   repository: neo4j
@@ -59,11 +53,9 @@ neo4j:
     vault.hashicorp.com/role: "gxfs-catalog"
     vault.hashicorp.com/agent-inject-secret-config: "secrets/gxfs-catalog/neo4j"
     vault.hashicorp.com/agent-inject-template-config: |
-      {{`
       {{- with secret "secrets/gxfs-catalog/neo4j" -}}
       export NEO4J_AUTH="{{ .Data.user }}/{{ .Data.password }}"
       {{- end }}
-      `}}
 
 serviceAccount:
   create: true
