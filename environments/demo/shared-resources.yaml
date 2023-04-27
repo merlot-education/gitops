@@ -9,7 +9,7 @@ ingresses:
       nginx.ingress.kubernetes.io/ssl-redirect: "true"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       cert-manager.io/cluster-issuer: "letsencrypt-staging"
-    hosts:
+    rules:
       - host: api.demo.merlot-education.eu
         paths:
           - path: /organisations
