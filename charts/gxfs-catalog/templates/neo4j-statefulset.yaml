@@ -49,10 +49,10 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-              subPath: /data
+              subPath: data
             - name: data
               mountPath: /conf
-              subPath: /conf
+              subPath: conf
           #livenessProbe:
           #  httpGet:
           #    path: /
