@@ -5,6 +5,7 @@ metadata:
   labels:
     {{- include "gxfs-catalog.neo4jLabels" . | nindent 4 }}
 spec:
+  serviceName: {{ include "gxfs-catalog.fullname" . }}-neo4j
   replicas: 1
   selector:
     matchLabels:
