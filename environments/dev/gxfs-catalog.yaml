@@ -11,6 +11,8 @@ catalog:
     KEYCLOAK_REALM: gxfscatalog
     KEYCLOAK_AUTH_SERVER_URL: https://sso.common.merlot-education.eu
     SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI: https://sso.common.merlot-education.eu/realms/gxfscatalog
+    FEDERATEDCATALOGUE_VERIFICATION_PARTICIPANT_TYPE: http://w3id.org/gaia-x/core#Participant
+    FEDERATEDCATALOGUE_VERIFICATION_SERVICEOFFERING_TYPE: http://w3id.org/gaia-x/core#ServiceOffering
   podAnnotations:
     vault.hashicorp.com/agent-inject: "true"
     vault.hashicorp.com/tls-skip-verify: "true"
