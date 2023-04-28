@@ -62,7 +62,9 @@ spec:
           #    path: /
           #    port: http
   volumeClaimTemplates:
-    - metadata:
+    - apiVersion: v1	
+      kind: PersistentVolumeClaim
+      metadata:
         name: data
         labels:
           {{- include "gxfs-catalog.neo4jSelectorLabels" . | nindent 8 }}
