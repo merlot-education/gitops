@@ -5,8 +5,8 @@ service:
   port: 8083
 env:
   SERVER_SERVLET_CONTEXT-PATH: /aaam
-  KEYCLOAK_BASEURI: https://sso.common.merlot-education.eu
-  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.common.merlot-education.eu/realms/POC1
+  KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
 command: ["/bin/sh", "-c"]
 args:
   - source /vault/secrets/config; java -jar /opt/aaam-orchestrator.jar;
