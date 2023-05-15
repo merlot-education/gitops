@@ -1,20 +1,15 @@
 image:
   repository: ghcr.io/merlot-education/organisations-orchestrator
-  tag: 0.0.1-SNAPSHOT-5f934ef
-
+  tag: 1.0.0
 service:
   port: 8082
-
 env:
   SERVER_SERVLET_CONTEXT-PATH: /organisations
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
   GXFSCATALOG_BASE-URI: http://demo-gxfs-catalog.demo.svc.cluster.local:8081
-
 command: ["/bin/sh", "-c"]
 args:
-  - source /vault/secrets/config;
-    java -jar /opt/organisations-orchestrator.jar;
-
+  - source /vault/secrets/config; java -jar /opt/organisations-orchestrator.jar;
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
