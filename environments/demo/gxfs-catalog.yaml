@@ -26,7 +26,7 @@ catalog:
     vault.hashicorp.com/agent-inject-secret-database: "secrets/gxfs-catalog/database"
     vault.hashicorp.com/agent-inject-template-database: |
       {{- with secret "secrets/gxfs-catalog/database" -}}
-      export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}-demo"
+      export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}_demo"
       export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
       export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
       {{- end }}
