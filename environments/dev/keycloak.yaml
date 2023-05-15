@@ -13,7 +13,7 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: "128m"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
   rules:
     - host: sso.dev.merlot-education.eu
       paths:
@@ -22,7 +22,7 @@ ingress:
   tls:
     - hosts:
         - sso.dev.merlot-education.eu
-      secretName: keycloak-staging-certificate
+      secretName: keycloak-certificate
 
 serviceAccount:
   create: true
