@@ -1,0 +1,82 @@
+catalog:
+  repository: ghcr.io/merlot-education/gxfs-catalog
+  tag: 1.0.1
+  command: ["/bin/sh", "-c"]
+  args:
+    - source /vault/secrets/database;
+      source /vault/secrets/keycloak;
+      source /vault/secrets/neo4j;
+      java -jar /opt/fc-service-server.jar;
+  envs:
+    KEYCLOAK_REALM: gxfscatalog
+    KEYCLOAK_AUTH_SERVER_URL: https://sso.demo.merlot-education.eu
+    SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI: https://sso.demo.merlot-education.eu/realms/gxfscatalog
+    FEDERATEDCATALOGUE_VERIFICATION_PARTICIPANT_TYPE: http://w3id.org/gaia-x/core#Participant
+    FEDERATEDCATALOGUE_VERIFICATION_SERVICEOFFERING_TYPE: http://w3id.org/gaia-x/core#ServiceOffering
+  podAnnotations:
+    vault.hashicorp.com/agent-inject: "true"
+    vault.hashicorp.com/tls-skip-verify: "true"
+    vault.hashicorp.com/role: "gxfs-catalog"
+    vault.hashicorp.com/agent-inject-secret-neo4j: "secrets/gxfs-catalog/neo4j"
+    vault.hashicorp.com/agent-inject-template-neo4j: |
+      {{- with secret "secrets/gxfs-catalog/neo4j" -}}
+      export GRAPHSTORE_USER="{{ .Data.user }}"
+      export GRAPHSTORE_PASSWORD="{{ .Data.password }}"
+      {{- end }}
+    vault.hashicorp.com/agent-inject-secret-database: "secrets/gxfs-catalog/database"
+    vault.hashicorp.com/agent-inject-template-database: |
+      {{- with secret "secrets/gxfs-catalog/database" -}}
+      export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}-demo"
+      export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
+      export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
+      {{- end }}
+    vault.hashicorp.com/agent-inject-secret-keycloak: "secrets/gxfs-catalog/keycloak"
+    vault.hashicorp.com/agent-inject-template-keycloak: |
+      {{- with secret "secrets/gxfs-catalog/keycloak" -}}
+      export KEYCLOAK_CREDENTIALS_SECRET="{{ .Data.clientSecret }}"
+      {{- end }}
+
+neo4j:
+  repository: neo4j
+  tag: 4.4.12
+  command: ["/bin/sh", "-c"]
+  args:
+    - . /vault/secrets/config;
+      tini -g -- /startup/docker-entrypoint.sh neo4j;
+  envs:
+    NEO4J_dbms_connector_http_listen__address: :7474
+    NEO4J_dbms_connector_bolt_listen__address: :7687
+    NEO4JLABS_PLUGINS: '["apoc", "graph-data-science", "n10s"]'
+    NEO4J_dbms_security_procedures_unrestricted: gds.*,apoc.*,n10s.*
+    NEO4J_dbms_security_procedures_allowlist: gds.*,apoc.*,n10s.*
+  podAnnotations:
+    vault.hashicorp.com/agent-inject: "true"
+    vault.hashicorp.com/tls-skip-verify: "true"
+    vault.hashicorp.com/role: "gxfs-catalog"
+    vault.hashicorp.com/agent-inject-secret-config: "secrets/gxfs-catalog/neo4j"
+    vault.hashicorp.com/agent-inject-template-config: |
+      {{- with secret "secrets/gxfs-catalog/neo4j" -}}
+      export NEO4J_AUTH="{{ .Data.user }}/{{ .Data.password }}"
+      {{- end }}
+
+serviceAccount:
+  create: true
+  name: gxfs-catalog
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  rules:
+    - host: gxfscatalog.demo.merlot-education.eu
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - gxfscatalog.demo.merlot-education.eu
+      secretName: gxfscatalog-staging-certificate

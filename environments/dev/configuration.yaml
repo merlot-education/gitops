@@ -11,6 +11,17 @@ applications:
     helmValues:
       - "../../environments/dev/marketplace.yaml"
 
+  - name: dev-keycloak
+    namespace: dev
+    enabled: true
+    sources:
+      - ref: keycloak
+      - repoURL: https://codecentric.github.io/helm-charts
+        sourceRef: 18.4.0
+        chartName: keycloak
+        helmValues:
+          - "$keycloak/environments/dev/keycloak.yaml"
+
   - name: dev-gxfs-catalog
     namespace: dev
     enabled: true

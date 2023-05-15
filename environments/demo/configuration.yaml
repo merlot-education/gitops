@@ -11,6 +11,24 @@ applications:
     helmValues:
       - "../../environments/demo/marketplace.yaml"
 
+  - name: demo-keycloak
+    namespace: demo
+    enabled: true
+    sources:
+      - ref: keycloak
+      - repoURL: https://codecentric.github.io/helm-charts
+        sourceRef: 18.4.0
+        chartName: keycloak
+        helmValues:
+          - "$keycloak/environments/demo/keycloak.yaml"
+
+  - name: demo-gxfs-catalog
+    namespace: demo
+    enabled: true
+    sourcePath: charts/gxfs-catalog
+    helmValues:
+      - "../../environments/demo/gxfs-catalog.yaml"
+
   - name: demo-shared-resources
     namespace: demo
     enabled: true
