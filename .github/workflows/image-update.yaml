@@ -32,7 +32,9 @@ jobs:
             for dir in environments/*/
             do
               dir=${dir%*/}
-              yq e -i "$key = \"${tag}\"" environments/${dir}/${app}.yaml
+              if [ -f "environments/${dir}/${app}.yaml" ]; then
+                  yq e -i "$key = \"${tag}\"" environments/${dir}/${app}.yaml
+              fi
             done
           else
             yq e -i "$key = \"${tag}\"" environments/${environment}/${app}.yaml
