@@ -49,3 +49,17 @@ applications:
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/organisations-orchestrator.yaml"
+
+  - name: dev-creation-wizard-api
+    namespace: dev
+    enabled: true
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/dev/creation-wizard-api.yaml"
+
+  - name: dev-serviceoffering-orchestrator
+    namespace: dev
+    enabled: true
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/dev/serviceoffering-orchestrator.yaml"

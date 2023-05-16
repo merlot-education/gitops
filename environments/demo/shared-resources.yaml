@@ -20,6 +20,10 @@ ingresses:
             pathType: ImplementationSpecific
             serviceName: demo-aaam-orchestrator
             servicePort: 8083
+          - path: /serviceoffering
+            pathType: ImplementationSpecific
+            serviceName: demo-serviceoffering-orchestrator
+            servicePort: 8084
     tls:
       - hosts:
           - api.demo.merlot-education.eu

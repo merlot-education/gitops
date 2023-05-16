@@ -43,9 +43,23 @@ applications:
     helmValues:
       - "../../environments/demo/aaam-orchestrator.yaml"
 
+  - name: demo-creation-wizard-api
+    namespace: demo
+    enabled: true
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/demo/creation-wizard-api.yaml"
+
   - name: demo-organisations-orchestrator
     namespace: demo
     enabled: true
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/demo/organisations-orchestrator.yaml"
+
+  - name: demo-serviceoffering-orchestrator
+    namespace: demo
+    enabled: true
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/demo/serviceoffering-orchestrator.yaml"
