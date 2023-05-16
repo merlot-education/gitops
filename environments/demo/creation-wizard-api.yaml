@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/sd-creation-wizard-api
-  tag: ceb4bab
+  tag: 68fc384
 service:
   port: 8085
 ingress:
