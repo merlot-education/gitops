@@ -6,12 +6,14 @@ service:
 env:
   SERVER_SERVLET_CONTEXT-PATH: /serviceoffering
   KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
+  GXFSWIZARD_BASEURI: http://demo-creation-wizard-api.dev.svc.cluster.local:8080
   GXFSCATALOG_BASE-URI: http://dev-gxfs-catalog.dev.svc.cluster.local:8081
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
-  GXFSWIZARD_BASEURI: http://demo-creation-wizard-api.dev.svc.cluster.local:8080
 command: ["/bin/sh", "-c"]
 args:
-  - source /vault/secrets/config; java -jar /opt/serviceoffering-orchestrator.jar;
+  - source /vault/secrets/config;
+    source /vault/secrets/database;
+    java -jar /opt/serviceoffering-orchestrator.jar;
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
@@ -22,4 +24,11 @@ podAnnotations:
     export KEYCLOAK_GXFSCATALOGUSER="{{ .Data.username }}"
     export KEYCLOAK_GXFSCATALOGPASS="{{ .Data.password }}"
     export KEYCLOAK_CLIENTSECRET="{{ .Data.clientSecret }}"
+    {{- end }}
+  vault.hashicorp.com/agent-inject-secret-database: "secrets/orchestrator/serviceoffering"
+  vault.hashicorp.com/agent-inject-template-database: |
+    {{- with secret "secrets/orchestrator/serviceoffering" -}}
+    export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}_demo"
+    export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
+    export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
     {{- end }}

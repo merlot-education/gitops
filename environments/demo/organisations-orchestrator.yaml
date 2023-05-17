@@ -6,8 +6,8 @@ service:
 env:
   SERVER_SERVLET_CONTEXT-PATH: /organisations
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
-  GXFSCATALOG_BASE-URI: http://demo-gxfs-catalog.demo.svc.cluster.local:8081
   GXFSWIZARD_BASEURI: http://demo-creation-wizard-api.dev.svc.cluster.local:8080
+  GXFSCATALOG_BASE-URI: http://demo-gxfs-catalog.demo.svc.cluster.local:8081
 command: ["/bin/sh", "-c"]
 args:
   - source /vault/secrets/config; java -jar /opt/organisations-orchestrator.jar;
