@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/serviceoffering-orchestrator
-  tag: 0.0.1-SNAPSHOT-c258a08
+  tag: 0.0.1-SNAPSHOT-274a993
 service:
   port: 8084
 env:
@@ -11,9 +11,7 @@ env:
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
 command: ["/bin/sh", "-c"]
 args:
-  - source /vault/secrets/config;
-    source /vault/secrets/database;
-    java -jar /opt/serviceoffering-orchestrator.jar;
+  - source /vault/secrets/config; source /vault/secrets/database; java -jar /opt/serviceoffering-orchestrator.jar;
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
