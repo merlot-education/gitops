@@ -5,10 +5,10 @@ service:
   port: 8084
 env:
   SERVER_SERVLET_CONTEXT-PATH: /serviceoffering
-  KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
+  KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
   GXFSWIZARD_BASEURI: http://demo-creation-wizard-api.dev.svc.cluster.local:8080
-  GXFSCATALOG_BASE-URI: http://dev-gxfs-catalog.dev.svc.cluster.local:8081
-  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
+  GXFSCATALOG_BASE-URI: http://demo-gxfs-catalog.dev.svc.cluster.local:8081
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/POC1
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
 command: ["/bin/sh", "-c"]
 args:
