@@ -1,3 +1,5 @@
+fullnameOverride: demo-creation-wizard-api
+
 image:
   repository: ghcr.io/merlot-education/sd-creation-wizard-api
   tag: 68fc384
