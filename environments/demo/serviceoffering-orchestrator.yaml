@@ -5,6 +5,7 @@ service:
   port: 8084
 env:
   SERVER_SERVLET_CONTEXT-PATH: /serviceoffering
+  KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
   GXFSCATALOG_BASE-URI: http://dev-gxfs-catalog.dev.svc.cluster.local:8081
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
   GXFSWIZARD_BASEURI: http://demo-creation-wizard-api.dev.svc.cluster.local:8085
