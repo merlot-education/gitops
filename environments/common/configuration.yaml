@@ -3,14 +3,4 @@ sourceRef: main
 namespace: argocd
 project: common
 
-applications:
-  - name: keycloak
-    namespace: keycloak
-    enabled: true
-    sources:
-      - ref: keycloak
-      - repoURL: https://codecentric.github.io/helm-charts
-        sourceRef: 18.4.0
-        chartName: keycloak
-        helmValues:
-          - "$keycloak/environments/common/keycloak.yaml"
+applications: []
