@@ -1,20 +1,15 @@
 image:
   repository: ghcr.io/merlot-education/aaam-orchestrator
-  tag: 0.0.1-SNAPSHOT-9ef818e
-
+  tag: 0.0.3
 service:
   port: 8083
-
 env:
   SERVER_SERVLET_CONTEXT-PATH: /aaam
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/POC1
-
 command: ["/bin/sh", "-c"]
 args:
-  - source /vault/secrets/config;
-    java -jar /opt/aaam-orchestrator.jar;
-
+  - source /vault/secrets/config; java -jar /opt/aaam-orchestrator.jar;
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
