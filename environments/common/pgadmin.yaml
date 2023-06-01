@@ -13,3 +13,21 @@ command: ["/bin/sh","-c"]
 args: 
   - source /vault/secrets/admin;
     /entrypoint.sh;
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  hosts:
+    - host: pgadmin.common.merlot-education.eu
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - pgadmin.common.merlot-education.eu
+      secretName: pgadmin-staging-certificate
