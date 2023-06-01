@@ -3,4 +3,21 @@ sourceRef: main
 namespace: argocd
 project: common
 
-applications: []
+applications:
+  - name: sonarqube
+    namespace: common
+    enabled: false
+    sources:
+      - ref: sonarqube
+      - repoURL: https://SonarSource.github.io/helm-chart-sonarqube
+        sourceRef: 8.0.1
+        chartName: sonarqube/sonarqube
+        helmValues:
+          - "$sonarqube/environments/common/sonarqube.yaml"
+  - name: pgadmin
+    namespace: common
+    enabled: true
+    sourcePath: charts/pgadmin
+    helmValues:
+      - "../../environments/common/pgadmin.yaml"
+

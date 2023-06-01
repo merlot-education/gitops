@@ -1,0 +1,15 @@
+podAnnotations:
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/tls-skip-verify: "true"
+  vault.hashicorp.com/role: "pgadmin"
+  vault.hashicorp.com/agent-inject-secret-admin: "secrets/pgadmin"
+  vault.hashicorp.com/agent-inject-template-admin: |
+    {{- with secret "secrets/pgadmin" -}}
+    export PGADMIN_DEFAULT_EMAIL="{{ .Data.email }}"
+    export PGADMIN_DEFAULT_PASSWORD="{{ .Data.password }}"
+    {{- end }}
+
+command: ["/bin/sh","-c"]
+args: 
+  - source /vault/secrets/admin;
+    /entrypoint.sh;
