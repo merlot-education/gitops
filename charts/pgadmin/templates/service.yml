@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
     - name: http
-      port: "{{ .Values.service.port }}"
+      port: {{ .Values.service.port }}
       protocol: TCP
-      targetPort: "{{ .Values.service.port }}"
+      targetPort: {{ .Values.service.port }}
   selector: 
     {{- include "pgadmin.selectorLabels" . | nindent 4 }}
