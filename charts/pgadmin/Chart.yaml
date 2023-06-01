@@ -3,6 +3,6 @@ name: pgadmin4
 description: A Helm chart for Kubernetes for deploying pgadmin which connects to cloud sql in T-Systems Sovereign Cloud
 
 type: application
-version: "1.0"
+version: "1.1"
 appVersion: "6.15"
 icon: https://www.postgresql.org/media/img/about/press/elephant.png
