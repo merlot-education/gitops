@@ -1,0 +1,5 @@
+fullnameOverride: dev-rabbitmq
+
+auth:
+  username: admin
+  password: admin

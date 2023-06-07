@@ -22,6 +22,17 @@ applications:
         helmValues:
           - "$keycloak/environments/demo/keycloak.yaml"
 
+  - name: demo-rabbitmq
+    namespace: demo
+    enabled: true
+    sources:
+      - ref: rabbitmq
+      - repoURL: https://charts.bitnami.com/bitnami
+        sourceRef: 11.16.2
+        chartName: bitnami/rabbitmq
+        helmValues:
+          - "$rabbitmq/environments/demo/rabbitmq.yaml"
+
   - name: demo-gxfs-catalog
     namespace: demo
     enabled: true
