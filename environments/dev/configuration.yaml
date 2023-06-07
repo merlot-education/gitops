@@ -74,3 +74,10 @@ applications:
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/serviceoffering-orchestrator.yaml"
+
+  - name: dev-contract-orchestrator
+    namespace: dev
+    enabled: true
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/dev/contract-orchestrator.yaml"
