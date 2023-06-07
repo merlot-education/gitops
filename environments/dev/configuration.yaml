@@ -29,7 +29,7 @@ applications:
       - ref: rabbitmq
       - repoURL: https://charts.bitnami.com/bitnami
         sourceRef: 11.16.2
-        chartName: bitnami/rabbitmq
+        chartName: rabbitmq
         helmValues:
           - "$rabbitmq/environments/dev/rabbitmq.yaml"
 
