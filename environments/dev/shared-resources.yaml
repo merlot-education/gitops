@@ -24,6 +24,10 @@ ingresses:
             pathType: ImplementationSpecific
             serviceName: dev-serviceoffering-orchestrator
             servicePort: 8084
+          - path: /contract
+            pathType: ImplementationSpecific
+            serviceName: dev-contract-orchestrator
+            servicePort: 8086
     tls:
       - hosts:
           - api.dev.merlot-education.eu
