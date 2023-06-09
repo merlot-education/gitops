@@ -10,6 +10,10 @@ env:
   GXFSCATALOG_BASE-URI: http://dev-gxfs-catalog.dev.svc.cluster.local:8081
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
+  SPRING_RABBITMQ_HOST: dev-rabbitmq.dev.svc.cluster.local
+  SPRING_RABBITMQ_PORT: "5672"
+  SPRING_RABBITMQ_USERNAME: admin
+  SPRING_RABBITMQ_PASSWORD: admin
 command: ["/bin/sh", "-c"]
 args:
   - source /vault/secrets/config; source /vault/secrets/database; java -jar /opt/serviceoffering-orchestrator.jar;
