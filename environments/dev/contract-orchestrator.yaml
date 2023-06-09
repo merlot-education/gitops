@@ -6,8 +6,8 @@ service:
 env:
   SERVER_SERVLET_CONTEXTPATH: /contract
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
-  SERVICEOFFERINGORCHESTRATOR_BASEURI: http://dev-serviceoffering-orchestrator.dev.svc.cluster.local:8084
-  ORGANISATIONSORCHESTRATOR_BASEURI: http://dev-organisations-orchestrator.dev.svc.cluster.local:8082
+  SERVICEOFFERINGORCHESTRATOR_BASEURI: http://dev-serviceoffering-orchestrator.dev.svc.cluster.local:8084/serviceoffering
+  ORGANIZATIONSORCHESTRATOR_BASEURI: http://dev-organisations-orchestrator.dev.svc.cluster.local:8082/organisations
   SPRING_RABBITMQ_HOST: dev-rabbitmq.dev.svc.cluster.local
   SPRING_RABBITMQ_PORT: "5672"
   SPRING_RABBITMQ_USERNAME: admin
