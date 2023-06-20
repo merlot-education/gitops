@@ -14,7 +14,7 @@ applications:
 
   - name: keycloak
     namespace: keycloak
-    enabled: true
+    enabled: false
     serverName: dev-cluster
     sources:
       - ref: keycloak
