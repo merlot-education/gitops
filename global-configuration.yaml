@@ -44,7 +44,7 @@ projects:
     enabled: true
     destinations:
       - namespace: "*"
-        server: "in-cluster"
+        name: "in-cluster"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
@@ -52,7 +52,7 @@ projects:
     enabled: true
     destinations:
       - namespace: "*"
-        server: "dev-cluster"
+        name: "dev-cluster"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
@@ -60,7 +60,7 @@ projects:
   #  enabled: true
   #  destinations:
   #    - namespace: "*"
-  #      server: "*"
+  #      name: "*"
   #  clusterResourceWhitelist:
   #    - group: "*"
   #      kind: "*"
