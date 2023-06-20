@@ -6,11 +6,12 @@ service:
 env:
   SERVER_SERVLET_CONTEXT-PATH: /serviceoffering
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
-  GXFSWIZARD_BASEURI: http://demo-creation-wizard-api.demo.svc.cluster.local:8080
-  GXFSCATALOG_BASEURI: http://demo-gxfs-catalog.demo.svc.cluster.local:8081
+  GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
+  GXFSCATALOG_BASE-URI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/POC1
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
-  SPRING_RABBITMQ_HOST: demo-rabbitmq.demo.svc.cluster.local
+  SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
+  SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
   SPRING_RABBITMQ_PORT: "5672"
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
@@ -21,9 +22,9 @@ podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
   vault.hashicorp.com/role: "orchestrator"
-  vault.hashicorp.com/agent-inject-secret-config: "secrets/orchestrator/keycloak"
+  vault.hashicorp.com/agent-inject-secret-config: "secrets/gxfs-catalog/keycloak"
   vault.hashicorp.com/agent-inject-template-config: |
-    {{- with secret "secrets/orchestrator/keycloak" -}}
+    {{- with secret "secrets/gxfs-catalog/keycloak" -}}
     export KEYCLOAK_GXFSCATALOGUSER="{{ .Data.username }}"
     export KEYCLOAK_GXFSCATALOGPASS="{{ .Data.password }}"
     export KEYCLOAK_CLIENTSECRET="{{ .Data.clientSecret }}"
@@ -31,7 +32,7 @@ podAnnotations:
   vault.hashicorp.com/agent-inject-secret-database: "secrets/orchestrator/serviceoffering"
   vault.hashicorp.com/agent-inject-template-database: |
     {{- with secret "secrets/orchestrator/serviceoffering" -}}
-    export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}_demo"
+    export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
     export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
     export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
     {{- end }}

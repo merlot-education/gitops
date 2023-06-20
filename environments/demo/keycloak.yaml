@@ -53,7 +53,7 @@ podAnnotations:
     export KC_DB="postgres"
     export KC_DB_PASSWORD="{{ .Data.password }}"
     export KC_DB_USERNAME="{{ .Data.username }}"
-    export KC_DB_URL="jdbc:postgresql://{{ .Data.host }}/{{ .Data.database }}_demo"
+    export KC_DB_URL="jdbc:postgresql://{{ .Data.host }}/{{ .Data.database }}"
     {{- end }}
     `}}
   vault.hashicorp.com/agent-inject-secret-admin: "secrets/keycloak/admin"

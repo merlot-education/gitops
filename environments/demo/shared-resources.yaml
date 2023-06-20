@@ -14,19 +14,19 @@ ingresses:
         paths:
           - path: /organisations
             pathType: ImplementationSpecific
-            serviceName: demo-organisations-orchestrator
+            serviceName: organisations-orchestrator
             servicePort: 8082
           - path: /aaam
             pathType: ImplementationSpecific
-            serviceName: demo-aaam-orchestrator
+            serviceName: aaam-orchestrator
             servicePort: 8083
           - path: /serviceoffering
             pathType: ImplementationSpecific
-            serviceName: demo-serviceoffering-orchestrator
+            serviceName: serviceoffering-orchestrator
             servicePort: 8084
           - path: /contract
             pathType: ImplementationSpecific
-            serviceName: demo-contract-orchestrator
+            serviceName: contract-orchestrator
             servicePort: 8086
     tls:
       - hosts:

@@ -4,16 +4,18 @@ namespace: argocd
 project: demo
 
 applications:
-  - name: demo-marketplace
-    namespace: demo
+  - name: marketplace
+    namespace: merlot
     enabled: true
     sourcePath: charts/marketplace
+    serverName: demo-cluster
     helmValues:
       - "../../environments/demo/marketplace.yaml"
 
-  - name: demo-keycloak
-    namespace: demo
+  - name: keycloak
+    namespace: keycloak
     enabled: true
+    serverName: demo-cluster
     sources:
       - ref: keycloak
       - repoURL: https://codecentric.github.io/helm-charts
@@ -22,9 +24,10 @@ applications:
         helmValues:
           - "$keycloak/environments/demo/keycloak.yaml"
 
-  - name: demo-rabbitmq
-    namespace: demo
+  - name: rabbitmq
+    namespace: rabbitmq
     enabled: true
+    serverName: demo-cluster
     sources:
       - ref: rabbitmq
       - repoURL: https://charts.bitnami.com/bitnami
@@ -33,51 +36,58 @@ applications:
         helmValues:
           - "$rabbitmq/environments/demo/rabbitmq.yaml"
 
-  - name: demo-gxfs-catalog
-    namespace: demo
+  - name: gxfs-catalog
+    namespace: gxfs
     enabled: true
+    serverName: demo-cluster
     sourcePath: charts/gxfs-catalog
     helmValues:
       - "../../environments/demo/gxfs-catalog.yaml"
 
-  - name: demo-shared-resources
-    namespace: demo
+  - name: shared-resources
+    namespace: merlot
     enabled: true
+    serverName: demo-cluster
     sourcePath: charts/shared-resources
     helmValues:
       - "../../environments/demo/shared-resources.yaml"
 
-  - name: demo-aaam-orchestrator
-    namespace: demo
+  - name: aaam-orchestrator
+    namespace: merlot
     enabled: true
+    serverName: demo-cluster
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/demo/aaam-orchestrator.yaml"
 
-  - name: demo-creation-wizard-api
-    namespace: demo
+  - name: organisations-orchestrator
+    namespace: merlot
     enabled: true
-    sourcePath: charts/orchestrator
-    helmValues:
-      - "../../environments/demo/creation-wizard-api.yaml"
-
-  - name: demo-organisations-orchestrator
-    namespace: demo
-    enabled: true
+    serverName: demo-cluster
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/demo/organisations-orchestrator.yaml"
 
-  - name: demo-serviceoffering-orchestrator
-    namespace: demo
+  - name: creation-wizard-api
+    namespace: merlot
     enabled: true
+    serverName: demo-cluster
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/demo/creation-wizard-api.yaml"
+
+  - name: serviceoffering-orchestrator
+    namespace: merlot
+    enabled: true
+    serverName: demo-cluster
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/demo/serviceoffering-orchestrator.yaml"
 
-  - name: demo-contract-orchestrator
-    namespace: demo
+  - name: contract-orchestrator
+    namespace: merlot
     enabled: true
+    serverName: demo-cluster
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/demo/contract-orchestrator.yaml"

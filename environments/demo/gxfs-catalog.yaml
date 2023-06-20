@@ -10,7 +10,7 @@ catalog:
   envs:
     KEYCLOAK_REALM: gxfscatalog
     KEYCLOAK_AUTH_SERVER_URL: https://sso.demo.merlot-education.eu
-    SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/gxfscatalog
+    SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI: https://sso.demo.merlot-education.eu/realms/gxfscatalog
     FEDERATEDCATALOGUE_VERIFICATION_PARTICIPANT_TYPE: http://w3id.org/gaia-x/core#Participant
     FEDERATEDCATALOGUE_VERIFICATION_SERVICEOFFERING_TYPE: http://w3id.org/gaia-x/core#ServiceOffering
   podAnnotations:
@@ -26,7 +26,7 @@ catalog:
     vault.hashicorp.com/agent-inject-secret-database: "secrets/gxfs-catalog/database"
     vault.hashicorp.com/agent-inject-template-database: |
       {{- with secret "secrets/gxfs-catalog/database" -}}
-      export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}_demo"
+      export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
       export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
       export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
       {{- end }}
