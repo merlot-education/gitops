@@ -9,8 +9,8 @@ podAnnotations:
     export PGADMIN_DEFAULT_PASSWORD="{{ .Data.password }}"
     {{- end }}
 
-command: ["/bin/sh","-c"]
-args: 
+command: ["/bin/sh", "-c"]
+args:
   - source /vault/secrets/admin;
     /entrypoint.sh;
 
@@ -21,7 +21,7 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: "128m"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
   hosts:
     - host: pgadmin.common.merlot-education.eu
       paths:
@@ -30,4 +30,4 @@ ingress:
   tls:
     - hosts:
         - pgadmin.common.merlot-education.eu
-      secretName: pgadmin-certificate
+      secretName: pgadmin-staging-certificate
