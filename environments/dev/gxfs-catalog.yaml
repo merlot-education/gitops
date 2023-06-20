@@ -53,9 +53,9 @@ neo4j:
     vault.hashicorp.com/agent-inject: "true"
     vault.hashicorp.com/tls-skip-verify: "true"
     vault.hashicorp.com/role: "gxfs-catalog"
-    vault.hashicorp.com/agent-inject-secret-config: "secrets/gxfs-catalog/neo4j"
+    vault.hashicorp.com/agent-inject-secret-config: "k8s/dev/gxfs-catalog/neo4j"
     vault.hashicorp.com/agent-inject-template-config: |
-      {{- with secret "secrets/gxfs-catalog/neo4j" -}}
+      {{- with secret "k8s/dev/gxfs-catalog/neo4j" -}}
       export NEO4J_AUTH="{{ .Data.user }}/{{ .Data.password }}"
       {{- end }}
 

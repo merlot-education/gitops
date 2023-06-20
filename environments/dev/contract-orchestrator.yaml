@@ -20,9 +20,9 @@ podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
   vault.hashicorp.com/role: "orchestrator"
-  vault.hashicorp.com/agent-inject-secret-database: "secrets/orchestrator/contract"
+  vault.hashicorp.com/agent-inject-secret-database: "k8s/dev/orchestrator/contract"
   vault.hashicorp.com/agent-inject-template-database: |
-    {{- with secret "secrets/orchestrator/contract" -}}
+    {{- with secret "k8s/dev/orchestrator/contract" -}}
     export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
     export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
     export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
