@@ -36,7 +36,7 @@ projects:
     enabled: true
     destinations:
       - namespace: "*"
-        server: "in-cluster"
+        server: "*"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
