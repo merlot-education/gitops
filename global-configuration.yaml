@@ -55,7 +55,7 @@ projects:
     enabled: true
     destinations:
       - namespace: "*"
-        name: "dev-cluster"
+        name: "in-cluster"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
