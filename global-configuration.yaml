@@ -54,8 +54,10 @@ projects:
   - name: dev
     enabled: true
     destinations:
-      - namespace: "*"
+      - namespace: "argocd"
         name: "in-cluster"
+      - namespace: "*"
+        name: "dev-cluster"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
