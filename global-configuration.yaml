@@ -27,12 +27,13 @@ applications:
     helmValues:
       - ../../environments/dev/configuration.yaml
 
-  #- name: demo
-  #  project: demo
-  #  enabled: true
-  #  sourcePath: charts/app-of-apps
-  #  helmValues:
-  #    - ../../environments/demo/configuration.yaml
+  - name: demo
+    project: demo
+    enabled: true
+    serverName: in-cluster
+    sourcePath: charts/app-of-apps
+    helmValues:
+      - ../../environments/demo/configuration.yaml
 
 projects:
   - name: gitops
@@ -61,11 +62,13 @@ projects:
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
-  #- name: demo
-  #  enabled: true
-  #  destinations:
-  #    - namespace: "*"
-  #      name: "*"
-  #  clusterResourceWhitelist:
-  #    - group: "*"
-  #      kind: "*"
+  - name: demo
+    enabled: true
+    destinations:
+      - namespace: "argocd"
+        name: "in-cluster"
+      - namespace: "*"
+        name: "demo-cluster"
+    clusterResourceWhitelist:
+      - group: "*"
+        kind: "*"
