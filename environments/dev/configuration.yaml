@@ -69,7 +69,7 @@ applications:
       - "../../environments/dev/organisations-orchestrator.yaml"
 
   - name: creation-wizard-api
-    namespace: gxfs
+    namespace: merlot
     enabled: true
     serverName: dev-cluster
     sourcePath: charts/orchestrator
