@@ -27,7 +27,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  {{ if hasKey $app "namespace" }}
+  name: {{ .name }}-{{ $project }}
+  {{- else }}
   name: {{ .name }}
+  {{- end }}
   namespace: {{ $.Release.Namespace }}
   labels:
 {{- if .values }}
@@ -102,6 +106,7 @@ spec:
     {{- end }}
 {{- if or .helmValues .values }}
     helm:
+      releaseName: {{ .name }}
 {{- if .skipCrds }}
       skipCrds: true
 {{- end }}
