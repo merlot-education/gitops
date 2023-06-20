@@ -46,7 +46,11 @@ metadata:
 spec:
   destination:
     namespace: {{ $namespace }}
+    {{- if .serverName }}
+    name: {{ .serverName }}
+    {{- else }}
     server: {{ .k8sAPI | default "https://kubernetes.default.svc" }}
+    {{- end }}
   project: {{ $project }}
 {{- if not .sources }}
   source:
