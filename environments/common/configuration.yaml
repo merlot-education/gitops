@@ -17,7 +17,7 @@ applications:
   - name: pgadmin
     namespace: common
     enabled: true
+    serverName: in-cluster
     sourcePath: charts/pgadmin
     helmValues:
       - "../../environments/common/pgadmin.yaml"
-
