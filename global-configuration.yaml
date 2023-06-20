@@ -24,19 +24,19 @@ applications:
     helmValues:
       - ../../environments/dev/configuration.yaml
 
-  - name: demo
-    project: demo
-    enabled: true
-    sourcePath: charts/app-of-apps
-    helmValues:
-      - ../../environments/demo/configuration.yaml
+  #- name: demo
+  #  project: demo
+  #  enabled: true
+  #  sourcePath: charts/app-of-apps
+  #  helmValues:
+  #    - ../../environments/demo/configuration.yaml
 
 projects:
   - name: gitops
     enabled: true
     destinations:
       - namespace: "*"
-        server: "*"
+        server: "in-cluster"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
@@ -44,7 +44,7 @@ projects:
     enabled: true
     destinations:
       - namespace: "*"
-        server: "*"
+        server: "in-cluster"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
@@ -52,15 +52,15 @@ projects:
     enabled: true
     destinations:
       - namespace: "*"
-        server: "*"
+        server: "dev-cluster"
     clusterResourceWhitelist:
       - group: "*"
         kind: "*"
-  - name: demo
-    enabled: true
-    destinations:
-      - namespace: "*"
-        server: "*"
-    clusterResourceWhitelist:
-      - group: "*"
-        kind: "*"
+  #- name: demo
+  #  enabled: true
+  #  destinations:
+  #    - namespace: "*"
+  #      server: "*"
+  #  clusterResourceWhitelist:
+  #    - group: "*"
+  #      kind: "*"

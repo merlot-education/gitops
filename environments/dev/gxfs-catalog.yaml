@@ -17,22 +17,22 @@ catalog:
     vault.hashicorp.com/agent-inject: "true"
     vault.hashicorp.com/tls-skip-verify: "true"
     vault.hashicorp.com/role: "gxfs-catalog"
-    vault.hashicorp.com/agent-inject-secret-neo4j: "secrets/gxfs-catalog/neo4j"
+    vault.hashicorp.com/agent-inject-secret-neo4j: "k8s/dev/gxfs-catalog/neo4j"
     vault.hashicorp.com/agent-inject-template-neo4j: |
-      {{- with secret "secrets/gxfs-catalog/neo4j" -}}
+      {{- with secret "k8s/dev/gxfs-catalog/neo4j" -}}
       export GRAPHSTORE_USER="{{ .Data.user }}"
       export GRAPHSTORE_PASSWORD="{{ .Data.password }}"
       {{- end }}
-    vault.hashicorp.com/agent-inject-secret-database: "secrets/gxfs-catalog/database"
+    vault.hashicorp.com/agent-inject-secret-database: "k8s/dev/gxfs-catalog/database"
     vault.hashicorp.com/agent-inject-template-database: |
-      {{- with secret "secrets/gxfs-catalog/database" -}}
+      {{- with secret "k8s/dev/gxfs-catalog/database" -}}
       export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
       export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
       export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
       {{- end }}
-    vault.hashicorp.com/agent-inject-secret-keycloak: "secrets/gxfs-catalog/keycloak"
+    vault.hashicorp.com/agent-inject-secret-keycloak: "k8s/dev/gxfs-catalog/keycloak"
     vault.hashicorp.com/agent-inject-template-keycloak: |
-      {{- with secret "secrets/gxfs-catalog/keycloak" -}}
+      {{- with secret "k8s/dev/gxfs-catalog/keycloak" -}}
       export KEYCLOAK_CREDENTIALS_SECRET="{{ .Data.clientSecret }}"
       {{- end }}
 

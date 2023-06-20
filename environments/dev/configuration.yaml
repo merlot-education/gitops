@@ -4,15 +4,15 @@ namespace: argocd
 project: dev
 
 applications:
-  - name: dev-marketplace
-    namespace: dev
+  - name: marketplace
+    namespace: merlot
     enabled: true
     sourcePath: charts/marketplace
     helmValues:
       - "../../environments/dev/marketplace.yaml"
 
-  - name: dev-keycloak
-    namespace: dev
+  - name: keycloak
+    namespace: keycloak
     enabled: true
     sources:
       - ref: keycloak
@@ -22,8 +22,8 @@ applications:
         helmValues:
           - "$keycloak/environments/dev/keycloak.yaml"
 
-  - name: dev-rabbitmq
-    namespace: dev
+  - name: rabbitmq
+    namespace: rabbitmq
     enabled: true
     sources:
       - ref: rabbitmq
@@ -33,50 +33,50 @@ applications:
         helmValues:
           - "$rabbitmq/environments/dev/rabbitmq.yaml"
 
-  - name: dev-gxfs-catalog
-    namespace: dev
+  - name: gxfs-catalog
+    namespace: gxfs
     enabled: true
     sourcePath: charts/gxfs-catalog
     helmValues:
       - "../../environments/dev/gxfs-catalog.yaml"
 
-  - name: dev-shared-resources
-    namespace: dev
+  - name: shared-resources
+    namespace: merlot
     enabled: true
     sourcePath: charts/shared-resources
     helmValues:
       - "../../environments/dev/shared-resources.yaml"
 
-  - name: dev-aaam-orchestrator
-    namespace: dev
+  - name: aaam-orchestrator
+    namespace: merlot
     enabled: true
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/aaam-orchestrator.yaml"
 
-  - name: dev-organisations-orchestrator
-    namespace: dev
+  - name: organisations-orchestrator
+    namespace: merlot
     enabled: true
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/organisations-orchestrator.yaml"
 
-  - name: dev-creation-wizard-api
-    namespace: dev
+  - name: creation-wizard-api
+    namespace: gxfs
     enabled: true
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/creation-wizard-api.yaml"
 
-  - name: dev-serviceoffering-orchestrator
-    namespace: dev
+  - name: serviceoffering-orchestrator
+    namespace: merlot
     enabled: true
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/serviceoffering-orchestrator.yaml"
 
-  - name: dev-contract-orchestrator
-    namespace: dev
+  - name: contract-orchestrator
+    namespace: merlot
     enabled: true
     sourcePath: charts/orchestrator
     helmValues:

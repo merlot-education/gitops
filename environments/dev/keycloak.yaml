@@ -46,20 +46,20 @@ podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
   vault.hashicorp.com/role: "keycloak"
-  vault.hashicorp.com/agent-inject-secret-db: "secrets/keycloak/database"
+  vault.hashicorp.com/agent-inject-secret-db: "k8s/dev/keycloak/database"
   vault.hashicorp.com/agent-inject-template-db: |
     {{`
-    {{- with secret "secrets/keycloak/database" -}}
+    {{- with secret "k8s/dev/keycloak/database" -}}
     export KC_DB="postgres"
     export KC_DB_PASSWORD="{{ .Data.password }}"
     export KC_DB_USERNAME="{{ .Data.username }}"
-    export KC_DB_URL="jdbc:postgresql://{{ .Data.host }}/{{ .Data.database }}_dev"
+    export KC_DB_URL="jdbc:postgresql://{{ .Data.host }}/{{ .Data.database }}"
     {{- end }}
     `}}
-  vault.hashicorp.com/agent-inject-secret-admin: "secrets/keycloak/admin"
+  vault.hashicorp.com/agent-inject-secret-admin: "k8s/dev/keycloak/admin"
   vault.hashicorp.com/agent-inject-template-admin: |
     {{`
-    {{- with secret "secrets/keycloak/admin" -}}
+    {{- with secret "k8s/dev/keycloak/admin" -}}
     export KEYCLOAK_ADMIN={{ .Data.username }}
     export KEYCLOAK_ADMIN_PASSWORD={{ .Data.password }}
     {{- end }}

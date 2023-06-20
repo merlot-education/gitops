@@ -6,9 +6,9 @@ service:
 env:
   SERVER_SERVLET_CONTEXTPATH: /contract
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
-  SERVICEOFFERINGORCHESTRATOR_BASEURI: http://dev-serviceoffering-orchestrator.dev.svc.cluster.local:8084/serviceoffering
-  ORGANIZATIONSORCHESTRATOR_BASEURI: http://dev-organisations-orchestrator.dev.svc.cluster.local:8082/organisations
-  SPRING_RABBITMQ_HOST: dev-rabbitmq.dev.svc.cluster.local
+  SERVICEOFFERINGORCHESTRATOR_BASEURI: http://serviceoffering-orchestrator.merlot.svc.cluster.local:8084/serviceoffering
+  ORGANIZATIONSORCHESTRATOR_BASEURI: http://organisations-orchestrator.merlot.svc.cluster.local:8082/organisations
+  SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
   SPRING_RABBITMQ_PORT: "5672"
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
@@ -23,7 +23,7 @@ podAnnotations:
   vault.hashicorp.com/agent-inject-secret-database: "secrets/orchestrator/contract"
   vault.hashicorp.com/agent-inject-template-database: |
     {{- with secret "secrets/orchestrator/contract" -}}
-    export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}_dev"
+    export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
     export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
     export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
     {{- end }}

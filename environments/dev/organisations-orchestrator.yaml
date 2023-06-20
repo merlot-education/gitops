@@ -6,9 +6,9 @@ service:
 env:
   SERVER_SERVLET_CONTEXTPATH: /organisations
   KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
-  GXFSWIZARD_BASEURI: http://dev-creation-wizard-api.dev.svc.cluster.local:8080
-  GXFSCATALOG_BASEURI: http://dev-gxfs-catalog.dev.svc.cluster.local:8081
-  SPRING_RABBITMQ_HOST: dev-rabbitmq.dev.svc.cluster.local
+  GXFSWIZARD_BASEURI: http://creation-wizard-api.gxfs.svc.cluster.local:8080
+  GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
+  SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
   SPRING_RABBITMQ_PORT: "5672"
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
@@ -19,9 +19,9 @@ podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
   vault.hashicorp.com/role: "orchestrator"
-  vault.hashicorp.com/agent-inject-secret-config: "secrets/orchestrator/keycloak"
+  vault.hashicorp.com/agent-inject-secret-config: "k8s/dev/gxfs-catalog/keycloak"
   vault.hashicorp.com/agent-inject-template-config: |
-    {{- with secret "secrets/orchestrator/keycloak" -}}
+    {{- with secret "k8s/dev/orchestrator/keycloak" -}}
     export KEYCLOAK_GXFSCATALOGUSER="{{ .Data.username }}"
     export KEYCLOAK_GXFSCATALOGPASS="{{ .Data.password }}"
     export KEYCLOAK_CLIENTSECRET="{{ .Data.clientSecret }}"
