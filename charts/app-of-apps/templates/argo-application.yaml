@@ -60,6 +60,7 @@ spec:
   source:
 {{- if or .helmValues .values }}
     helm:
+      releaseName: {{ .name }}
 {{- if .skipCrds }}
       skipCrds: true
 {{- end }}
