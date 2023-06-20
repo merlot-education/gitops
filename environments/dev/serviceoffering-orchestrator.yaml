@@ -6,7 +6,7 @@ service:
 env:
   SERVER_SERVLET_CONTEXT-PATH: /serviceoffering
   KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
-  GXFSWIZARD_BASEURI: http://creation-wizard-api.gxfs.svc.cluster.local:8080
+  GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASE-URI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
