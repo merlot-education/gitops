@@ -27,13 +27,13 @@ applications:
   - name: rabbitmq
     namespace: rabbitmq
     enabled: true
-    serverName: dev-cluster
+    servername: dev-cluster
     sources:
       - ref: rabbitmq
-      - repoURL: https://charts.bitnami.com/bitnami
-        sourceRef: 11.16.2
-        chartName: rabbitmq
-        helmValues:
+      - repourl: https://charts.bitnami.com/bitnami
+        sourceref: 11.16.2
+        chartname: rabbitmq
+        helmvalues:
           - "$rabbitmq/environments/dev/rabbitmq.yaml"
 
   - name: gxfs-catalog
@@ -91,3 +91,19 @@ applications:
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/dev/contract-orchestrator.yaml"
+
+  - name: edc-1
+    namespace: merlot
+    enabled: true
+    serverName: dev-cluster
+    sourcePath: charts/merlot-edc
+    helmValues:
+      - "../../environments/dev/edc-1.yaml"
+
+  - name: edc-2
+    namespace: merlot
+    enabled: true
+    serverName: dev-cluster
+    sourcePath: charts/merlot-edc
+    helmValues:
+      - "../../environments/dev/edc-2.yaml"

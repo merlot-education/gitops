@@ -1,0 +1,27 @@
+fullnameOverride: edc-1
+
+podAnnotations:
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/tls-skip-verify: "true"
+  vault.hashicorp.com/role: "edc"
+  vault.hashicorp.com/agent-inject-secret-properties: "secrets/edc/company1"
+  vault.hashicorp.com/agent-inject-template-properties: |
+    {{- with secret "secrets/edc/company1" -}}
+    export EDC_API_AUTH_KEY="{{ .Data.apiAuthKey }}"
+    export EDC_IONOS_ACCESS_KEY="{{ .Data.ionosAccessKey }}"
+    export EDC_IONOS_SECRET_KEY="{{ .Data.ionosSecretKey }}"
+    export EDC_VAULT_HASHICORP_TOKEN="{{ .Data.vaultToken }}"
+    {{- end }}
+
+command: ["/bin/sh", "-c"]
+args:
+  - source /vault/secrets/properties; java -jar /opt/connector.jar;
+
+serviceAccount:
+  create: false
+  name: edc
+
+env:
+  EDC_PARTICIPANT_ID: edc1
+  EDC_FS_CONFIG: /opt/config/edc.properties
+  EDC_VAULT_HASHICORP_URL: http://vault.vault.svc.cluster.local:8200
