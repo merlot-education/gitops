@@ -30,11 +30,11 @@ applications:
     serverName: dev-cluster
     sources:
       - ref: rabbitmq
-      - repourl: https://charts.bitnami.com/bitnami
-        sourceref: 11.16.2
-        chartname: rabbitmq
-        helmvalues:
-          - "$rabbitmq/environments/dev/rabbitmq.yaml"
+      - repoURL: https://charts.bitnami.com/bitnami
+        sourceRef: 11.16.2
+        chartName: rabbitmq
+        helmValues:
+          - "$rabbitmq/environments/demo/rabbitmq.yaml"
 
   - name: gxfs-catalog
     namespace: gxfs
