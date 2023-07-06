@@ -27,7 +27,7 @@ applications:
   - name: rabbitmq
     namespace: rabbitmq
     enabled: true
-    servername: dev-cluster
+    serverName: dev-cluster
     sources:
       - ref: rabbitmq
       - repourl: https://charts.bitnami.com/bitnami
