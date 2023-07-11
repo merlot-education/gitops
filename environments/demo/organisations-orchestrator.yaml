@@ -8,13 +8,15 @@ env:
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
   GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
+  SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
+  SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
   SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
   SPRING_RABBITMQ_PORT: "5672"
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
 command: ["/bin/sh", "-c"]
 args:
-  - source /vault/secrets/config; java -jar /opt/organisations-orchestrator.jar;
+  - source /vault/secrets/config; source /vault/secrets/database; java -jar /opt/organisations-orchestrator.jar;
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/tls-skip-verify: "true"
@@ -25,4 +27,11 @@ podAnnotations:
     export KEYCLOAK_GXFSCATALOGUSER="{{ .Data.username }}"
     export KEYCLOAK_GXFSCATALOGPASS="{{ .Data.password }}"
     export KEYCLOAK_CLIENTSECRET="{{ .Data.clientSecret }}"
+    {{- end }}
+  vault.hashicorp.com/agent-inject-secret-database: "secrets/orchestrator/organizations"
+  vault.hashicorp.com/agent-inject-template-database: |
+    {{- with secret "secrets/orchestrator/organizations" -}}
+    export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
+    export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
+    export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
     {{- end }}
