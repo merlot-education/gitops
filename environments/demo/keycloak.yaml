@@ -28,42 +28,47 @@ serviceAccount:
   create: true
   name: keycloak
 
-command: ["/bin/sh", "-c"]
-args:
-  - source /vault/secrets/db;
-    source /vault/secrets/admin;
-    /opt/keycloak/bin/kc.sh start-dev;
+command: ["/opt/keycloak/bin/kc.sh", "start"]
 
 extraEnv: |
   - name: "KC_HOSTNAME"
-    value: "sso.demo.merlot-education.eu"
+    value: "sso.dev.merlot-education.eu"
   - name: "KC_PROXY"
     value: "edge"
   - name: "KEYCLOAK_PROXY_ADDRESS_FORWARDING"
     value: "true"
-
-podAnnotations:
-  vault.hashicorp.com/agent-inject: "true"
-  vault.hashicorp.com/tls-skip-verify: "true"
-  vault.hashicorp.com/role: "keycloak"
-  vault.hashicorp.com/agent-inject-secret-db: "secrets/keycloak/database"
-  vault.hashicorp.com/agent-inject-template-db: |
-    {{`
-    {{- with secret "secrets/keycloak/database" -}}
-    export KC_DB="postgres"
-    export KC_DB_PASSWORD="{{ .Data.password }}"
-    export KC_DB_USERNAME="{{ .Data.username }}"
-    export KC_DB_URL="jdbc:postgresql://{{ .Data.host }}/{{ .Data.database }}"
-    {{- end }}
-    `}}
-  vault.hashicorp.com/agent-inject-secret-admin: "secrets/keycloak/admin"
-  vault.hashicorp.com/agent-inject-template-admin: |
-    {{`
-    {{- with secret "secrets/keycloak/admin" -}}
-    export KEYCLOAK_ADMIN={{ .Data.username }}
-    export KEYCLOAK_ADMIN_PASSWORD={{ .Data.password }}
-    {{- end }}
-    `}}
+  - name: "KC_DB"
+    value: "postgres"
+  - name: "KC_DB_URL_HOST"
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-db
+        key: host
+  - name: "KC_DB_URL_DATABASE"
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-db
+        key: database
+  - name: "KC_DB_USERNAME"
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-db
+        key: username
+  - name: "KC_DB_PASSWORD"
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-db
+        key: password
+  - name: "KEYCLOAK_ADMIN"
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-admin
+        key: username
+  - name: "KEYCLOAK_ADMIN_PASSWORD"
+    valueFrom:
+      secretKeyRef:
+        name: keycloak-admin
+        key: password
 
 # Liveness probe configuration
 livenessProbe: |

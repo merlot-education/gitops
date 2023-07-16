@@ -15,24 +15,22 @@ env:
   SPRING_RABBITMQ_PORT: "5672"
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
-command: ["/bin/sh", "-c"]
-args:
-  - source /vault/secrets/config; source /vault/secrets/database; java -jar /opt/serviceoffering-orchestrator.jar;
-podAnnotations:
-  vault.hashicorp.com/agent-inject: "true"
-  vault.hashicorp.com/tls-skip-verify: "true"
-  vault.hashicorp.com/role: "orchestrator"
-  vault.hashicorp.com/agent-inject-secret-config: "secrets/gxfs-catalog/keycloak"
-  vault.hashicorp.com/agent-inject-template-config: |
-    {{- with secret "secrets/gxfs-catalog/keycloak" -}}
-    export KEYCLOAK_GXFSCATALOGUSER="{{ .Data.username }}"
-    export KEYCLOAK_GXFSCATALOGPASS="{{ .Data.password }}"
-    export KEYCLOAK_CLIENTSECRET="{{ .Data.clientSecret }}"
-    {{- end }}
-  vault.hashicorp.com/agent-inject-secret-database: "secrets/orchestrator/serviceoffering"
-  vault.hashicorp.com/agent-inject-template-database: |
-    {{- with secret "secrets/orchestrator/serviceoffering" -}}
-    export SPRING_DATASOURCE_URL="jdbc:postgresql://{{ .Data.host }}:5432/{{ .Data.database }}"
-    export SPRING_DATASOURCE_USERNAME="{{ .Data.username }}"
-    export SPRING_DATASOURCE_PASSWORD="{{ .Data.password }}"
-    {{- end }}
+secretEnv:
+  KEYCLOAK_GXFSCATALOGUSER:
+    name: gxfs-keycloak
+    key: username
+  KEYCLOAK_GXFSCATALOGPASS:
+    name: gxfs-keycloak
+    key: password
+  KEYCLOAK_CLIENTSECRET:
+    name: gxfs-keycloak
+    key: clientSecret
+  SPRING_DATASOURCE_URL:
+    name: serviceoffering-db
+    key: jdbc
+  SPRING_DATASOURCE_USERNAME:
+    name: serviceoffering-db
+    key: username
+  SPRING_DATASOURCE_PASSWORD:
+    name: serviceoffering-db
+    key: password
