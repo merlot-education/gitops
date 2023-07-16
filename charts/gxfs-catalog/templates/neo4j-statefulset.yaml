@@ -42,6 +42,15 @@ spec:
             - name: {{ $key | quote }}
               value: {{ $value | quote }}
             {{- end }} 
+          {{- if .Values.neo4j.secretEnv }}
+            {{- range $key, $value := .Values.neo4j.secretEnv }}
+            - name: "{{ $key }}"
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ $value.name }}"
+                  key: "{{ $value.key }}"
+            {{- end }} 
+          {{- end }}
           command:
             {{- toYaml .Values.neo4j.command | nindent 12 }}
           args:

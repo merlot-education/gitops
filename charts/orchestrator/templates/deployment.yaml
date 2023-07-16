@@ -52,6 +52,15 @@ spec:
             - name: "{{ $key }}"
               value: "{{ $value }}"
             {{- end }} 
+          {{- if .Values.secretEnv }}
+            {{- range $key, $value := .Values.secretEnv }}
+            - name: "{{ $key }}"
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ $value.name }}"
+                  key: "{{ $value.key }}"
+            {{- end }} 
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

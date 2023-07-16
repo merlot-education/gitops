@@ -46,6 +46,15 @@ spec:
             {{- end }} 
             - name: GRAPHSTORE_URI
               value: bolt://{{ include "gxfs-catalog.fullname" . }}-neo4j:7687
+          {{- if .Values.catalog.secretEnv }}
+            {{- range $key, $value := .Values.catalog.secretEnv }}
+            - name: "{{ $key }}"
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ $value.name }}"
+                  key: "{{ $value.key }}"
+            {{- end }} 
+          {{- end }}
           #livenessProbe:
           #  httpGet:
           #    path: /

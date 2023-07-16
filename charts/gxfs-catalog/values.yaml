@@ -8,6 +8,7 @@ catalog:
   command: ["java"]
   args: ["-jar", "/opt/fc-service-server.jar"]
   envs: {}
+  secretEnv: {}
   podAnnotations: {}
 
 neo4j:
@@ -16,6 +17,7 @@ neo4j:
   command: ["java"]
   args: ["-jar", "/opt/fc-service-server.jar"]
   envs: {}
+  secretEnv: {}
   podAnnotations: {}
   persistence:
     size: 8Gi
