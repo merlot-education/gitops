@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/serviceoffering-orchestrator
-  tag: 1.0.0-56cb224
+  tag: 1.0.0-adda19f
 service:
   port: 8084
 env:
