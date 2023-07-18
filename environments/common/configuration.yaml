@@ -11,3 +11,15 @@ applications:
     sourcePath: charts/pgadmin
     helmValues:
       - "../../environments/common/pgadmin.yaml"
+
+  - name: pgadmin
+    namespace: common
+    enabled: true
+    serverName: in-cluster
+    sources:
+      - ref: pgadmin
+      - repoURL: https://helm.runix.net
+        sourceRef: 1.15.4
+        chartName: pgadmin4
+        helmValues:
+          - "$pgadmin/environments/common/pgadmin.yaml"
