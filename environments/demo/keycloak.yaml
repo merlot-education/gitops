@@ -32,7 +32,7 @@ command: ["/opt/keycloak/bin/kc.sh", "start"]
 
 extraEnv: |
   - name: "KC_HOSTNAME"
-    value: "sso.dev.merlot-education.eu"
+    value: "sso.demo.merlot-education.eu"
   - name: "KC_PROXY"
     value: "edge"
   - name: "KEYCLOAK_PROXY_ADDRESS_FORWARDING"
