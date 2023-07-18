@@ -24,7 +24,7 @@ catalog:
     SPRING_DATASOURCE_PASSWORD:
       name: gxfs-db
       key: password
-    KEYCLOAK_CLIENTSECRET:
+    KEYCLOAK_CREDENTIALS_SECRET:
       name: gxfs-keycloak
       key: clientSecret
 
