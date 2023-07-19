@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/organisations-orchestrator
-  tag: 1.0.1-b5dc126
+  tag: 1.0.1-ffababe
 service:
   port: 8082
 env:
