@@ -17,31 +17,32 @@ fullnameOverride: ""
 service:
   type: ClusterIP
   ports:
-    - name: public
-      port: 9191
-    - name: control
-      port: 9192
     - name: api
-      port: 9193
+      port: 9191
+    - name: management
+      port: 9192
     - name: protocol
+      port: 9193
+    - name: public
       port: 9194
-
+    - name: control
+      port: 9195
 edc:
   properties: |
-    edc.dsp.callback.address=http://localhost:9194/protocol
+    edc.dsp.callback.address=http://localhost:9193/protocol
 
     edc.ionos.endpoint=s3-eu-central-1.ionoscloud.com
     edc.vault.hashicorp.timeout.seconds=30
 
     web.http.port=9191
     web.http.path=/api
-    web.http.management.port=9193
+    web.http.management.port=9192
     web.http.management.path=/management
-    web.http.protocol.port=9194
+    web.http.protocol.port=9193
     web.http.protocol.path=/protocol
-    web.http.public.port=9291
+    web.http.public.port=9194
     web.http.public.path=/public
-    web.http.control.port=9192
+    web.http.control.port=9195
     web.http.control.path=/control
 
 serviceAccount:
@@ -54,6 +55,7 @@ serviceAccount:
   name: ""
 
 env: {}
+envFromSecret: {}
 
 podAnnotations: {}
 
