@@ -55,7 +55,7 @@ serviceAccount:
   name: ""
 
 env: {}
-envFromSecret: {}
+envFromSecret: []
 
 podAnnotations: {}
 
