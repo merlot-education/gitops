@@ -16,6 +16,9 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
+  port: 80
+
+edc:
   ports:
     - name: api
       port: 9191
@@ -27,7 +30,6 @@ service:
       port: 9194
     - name: control
       port: 9195
-edc:
   properties: |
     edc.dsp.callback.address=http://localhost:9193/protocol
 
@@ -44,6 +46,10 @@ edc:
     web.http.public.path=/public
     web.http.control.port=9195
     web.http.control.path=/control
+
+nginx:
+  image: nginx
+  tag: 1.25.1
 
 serviceAccount:
   # Specifies whether a service account should be created

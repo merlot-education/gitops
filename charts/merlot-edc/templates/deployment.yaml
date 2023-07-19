@@ -13,8 +13,9 @@ spec:
       {{- include "merlot-edc.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        kubectl.kubernetes.io/default-container: edc
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
@@ -28,13 +29,22 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: reverse-proxy
+          image: {{ .Values.nginx.image }}:{{ .Values.nginx.tag | default "latest" }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          volumeMounts:
+            - name: nginx-conf
+              mountPath: /etc/nginx/conf.d/
+        - name: edc
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            {{- range .Values.service.ports }}
+            {{- range .Values.edc.ports }}
             - name: {{ .name }}
               containerPort: {{ .port }}
               protocol: TCP
@@ -81,6 +91,9 @@ spec:
             items:
             - key: edc.properties
               path: edc.properties
+        - name: nginx-conf
+          configMap:
+            name: {{ .Release.Name }}-nginx-conf
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
