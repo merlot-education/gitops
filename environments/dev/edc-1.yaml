@@ -6,6 +6,7 @@ serviceAccount:
 
 env:
   EDC_PARTICIPANT_ID: edc1
+  EDC_DSP_CALLBACK_ADDRESS: http://edc-1.merlot.svc.cluster.local/protocol
   EDC_FS_CONFIG: /opt/config/edc.properties
 envFromSecret:
   - edc1-config
