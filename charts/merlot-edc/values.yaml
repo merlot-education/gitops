@@ -31,8 +31,6 @@ edc:
     - name: control
       port: 9195
   properties: |
-    edc.dsp.callback.address=http://localhost:9193/protocol
-
     edc.ionos.endpoint=s3-eu-central-1.ionoscloud.com
     edc.vault.hashicorp.timeout.seconds=30
 
