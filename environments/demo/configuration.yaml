@@ -91,3 +91,19 @@ applications:
     sourcePath: charts/orchestrator
     helmValues:
       - "../../environments/demo/contract-orchestrator.yaml"
+
+  - name: edc-1
+    namespace: merlot
+    enabled: true
+    serverName: demo-cluster
+    sourcePath: charts/merlot-edc
+    helmValues:
+      - "../../environments/demo/edc-1.yaml"
+
+  - name: edc-2
+    namespace: merlot
+    enabled: true
+    serverName: demo-cluster
+    sourcePath: charts/merlot-edc
+    helmValues:
+      - "../../environments/demo/edc-2.yaml"
