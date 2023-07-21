@@ -1,5 +1,6 @@
 serviceAccounts:
   - name: orchestrator
+  - name: edc
 
 ingresses:
   - name: orchestrator-api-gateway
