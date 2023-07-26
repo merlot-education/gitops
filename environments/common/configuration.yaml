@@ -8,14 +8,6 @@ applications:
     namespace: common
     enabled: true
     serverName: in-cluster
-    sourcePath: charts/pgadmin
-    helmValues:
-      - "../../environments/common/pgadmin.yaml"
-
-  - name: pgadmin
-    namespace: common
-    enabled: true
-    serverName: in-cluster
     sources:
       - ref: pgadmin
       - repoURL: https://helm.runix.net
