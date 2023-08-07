@@ -13,6 +13,7 @@ env:
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
+  SPRING_PROFILES_ACTIVE: dev
 secretEnv:
   SPRING_DATASOURCE_URL:
     name: contract-orchestrator-db
