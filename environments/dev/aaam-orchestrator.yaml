@@ -11,6 +11,7 @@ env:
   SPRING_RABBITMQ_PORT: "5672"
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
+  SPRING_PROFILES_ACTIVE: dev
 secretEnv:
   KEYCLOAK_USERMGMTUSER:
     name: aaam-orchestrator-keycloak
