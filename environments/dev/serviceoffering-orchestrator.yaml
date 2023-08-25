@@ -8,6 +8,7 @@ env:
   KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
   GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASE-URI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
+  ORGANIZATIONSORCHESTRATOR_BASEURI: http://organisations-orchestrator.merlot.svc.cluster.local:8082/organisations
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
