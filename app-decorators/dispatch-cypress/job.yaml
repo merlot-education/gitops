@@ -2,10 +2,10 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   creationTimestamp: null
-  name: dispatch-cypress
-  #generate-name: dispatch-cypress
-  #annotations:
-  #  argocd.argoproj.io/hook: PostSync
+  #name: dispatch-cypress
+  generate-name: dispatch-cypress-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
 spec:
   template:
     metadata:
