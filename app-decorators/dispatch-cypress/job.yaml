@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  #name: dispatch-cypress
+  generate-name: dispatch-cypress
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - curl
+        - -H
+        - 'Accept: application/vnd.github+json'
+        - -H
+        - 'Authorization: token $(GIT_OPS_TOKEN)'
+        - --data
+        - '{"event_type": "postsync_hook"}'
+        - --request
+        - POST
+        - https://api.github.com/repos/merlot-education/marketplace/dispatches
+        image: alpine/curl
+        name: dispatch-cypress
+        resources: {}
+        env:
+        - name: GIT_OPS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: gitops
+              key: token
+      restartPolicy: Never
+status: {}
