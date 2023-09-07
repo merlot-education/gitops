@@ -1,10 +1,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  #name: dispatch-cypress
-  generate-name: dispatch-cypress-
-  #annotations:
-  #  argocd.argoproj.io/hook: PreSync
+  name: dispatch-cypress
+  #generate-name: dispatch-cypress-
+  annotations:
+    argocd.argoproj.io/hook: PreSync
 spec:
   template:
     spec:
