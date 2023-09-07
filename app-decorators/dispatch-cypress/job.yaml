@@ -1,15 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  creationTimestamp: null
   #name: dispatch-cypress
   generate-name: dispatch-cypress-
-  annotations:
-    argocd.argoproj.io/hook: PostSync
+  #annotations:
+  #  argocd.argoproj.io/hook: PreSync
 spec:
   template:
-    metadata:
-      creationTimestamp: null
     spec:
       containers:
       - command:
@@ -33,4 +30,3 @@ spec:
               name: gitops
               key: token
       restartPolicy: Never
-status: {}
