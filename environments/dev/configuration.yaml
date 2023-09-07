@@ -12,7 +12,7 @@ applications:
       - helmValues:
           - "../../environments/dev/marketplace.yaml"
         sourcePath: charts/marketplace
-      - sourcePath: "../../app-decorators/dispatch-cypress"
+      - sourcePath: "app-decorators/dispatch-cypress"
 
   - name: keycloak
     namespace: keycloak
