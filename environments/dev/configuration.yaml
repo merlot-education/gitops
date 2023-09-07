@@ -7,11 +7,12 @@ applications:
   - name: marketplace
     namespace: merlot
     enabled: true
-    sourcePath: charts/marketplace
     serverName: dev-cluster
-    helmValues:
-      - "../../environments/dev/marketplace.yaml"
-
+    sources:
+      - helmValues:
+          - "../../environments/dev/marketplace.yaml"
+        sourcePath: charts/marketplace
+        name: marketplace
   - name: keycloak
     namespace: keycloak
     enabled: true
