@@ -58,9 +58,11 @@ applications:
     namespace: merlot
     enabled: true
     serverName: dev-cluster
-    sourcePath: charts/orchestrator
-    helmValues:
-      - "../../environments/dev/aaam-orchestrator.yaml"
+    sources:
+      - helmValues:
+          - "../../environments/dev/aaam-orchestrator.yaml"
+        sourcePath: charts/orchestrator
+      - sourcePath: "app-decorators/dispatch-cypress"
 
   - name: organisations-orchestrator
     namespace: merlot
