@@ -92,11 +92,9 @@ applications:
     namespace: merlot
     enabled: true
     serverName: dev-cluster
-    sources:
-      - helmValues:
-          - "../../environments/dev/contract-orchestrator.yaml"
-        sourcePath: charts/orchestrator
-      - sourcePath: "app-decorators/dispatch-cypress"
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/dev/contract-orchestrator.yaml"
 
   - name: edc-1
     namespace: merlot
