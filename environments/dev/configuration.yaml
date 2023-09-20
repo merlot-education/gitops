@@ -86,7 +86,6 @@ applications:
     namespace: merlot
     enabled: true
     serverName: dev-cluster
-    sourcePath: charts/orchestrator
     sources:
       - helmValues:
           - "../../environments/dev/serviceoffering-orchestrator.yaml"
