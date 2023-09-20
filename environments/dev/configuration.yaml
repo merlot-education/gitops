@@ -68,11 +68,9 @@ applications:
     namespace: merlot
     enabled: true
     serverName: dev-cluster
-    sources:
-      - helmValues:
-          - "../../environments/dev/organisations-orchestrator.yaml"
-        sourcePath: charts/orchestrator
-      - sourcePath: "app-decorators/dispatch-cypress"
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/dev/organisations-orchestrator.yaml"
 
   - name: creation-wizard-api
     namespace: merlot
