@@ -87,8 +87,11 @@ applications:
     enabled: true
     serverName: dev-cluster
     sourcePath: charts/orchestrator
-    helmValues:
-      - "../../environments/dev/serviceoffering-orchestrator.yaml"
+    sources:
+      - helmValues:
+          - "../../environments/dev/serviceoffering-orchestrator.yaml"
+        sourcePath: charts/orchestrator
+      - sourcePath: "app-decorators/dispatch-cypress"
 
   - name: contract-orchestrator
     namespace: merlot
