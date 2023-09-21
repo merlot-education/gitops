@@ -63,6 +63,7 @@ applications:
       - helmValues:
           - "../../environments/dev/aaam-orchestrator.yaml"
         sourcePath: charts/orchestrator
+        name: aaam-orchestrator
       - sourcePath: "app-decorators/dispatch-cypress"
 
   - name: organisations-orchestrator
