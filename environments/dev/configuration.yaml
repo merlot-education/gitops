@@ -90,6 +90,7 @@ applications:
       - helmValues:
           - "../../environments/dev/serviceoffering-orchestrator.yaml"
         sourcePath: charts/orchestrator
+        name: serviceoffering-orchestrator
       - sourcePath: "app-decorators/dispatch-cypress"
 
   - name: contract-orchestrator
