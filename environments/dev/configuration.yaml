@@ -70,6 +70,7 @@ applications:
       - helmValues:
           - "../../environments/dev/organisations-orchestrator.yaml"
         sourcePath: charts/orchestrator
+        name: organisations-orchestrator
       - sourcePath: "app-decorators/dispatch-cypress"
 
   - name: creation-wizard-api
