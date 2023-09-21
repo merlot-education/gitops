@@ -85,6 +85,7 @@ applications:
       - helmValues:
           - "../../environments/dev/creation-wizard-api.yaml"
         sourcePath: charts/orchestrator
+        name: creation-wizard-api
       - sourcePath: "app-decorators/dispatch-cypress"
 
   - name: serviceoffering-orchestrator
