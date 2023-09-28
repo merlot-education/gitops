@@ -1,0 +1,30 @@
+image:
+  repository: ghcr.io/merlot-education
+  name: auth-service
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+  hosts:
+    - host: auth-service.dev.merlot-education.eu
+      paths:
+        - path: /
+          port: 9000
+  tls:
+    - hosts:
+        - auth-service.dev.merlot-education.eu
+      secretName: auth-service-certificate
+secretEnv:
+  SPRING_DATASOURCE_URL:
+    name: ssi-auth-service-db
+    key: jdbc
+  SPRING_DATASOURCE_USERNAME:
+    name: ssi-auth-service-db
+    key: username
+  SPRING_DATASOURCE_PASSWORD:
+    name: ssi-auth-service-db
+    key: password
