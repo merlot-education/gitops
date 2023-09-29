@@ -27,7 +27,6 @@ catalog:
     KEYCLOAK_CREDENTIALS_SECRET:
       name: gxfs-keycloak
       key: clientSecret
-
 neo4j:
   repository: neo4j
   tag: 4.4.12
@@ -41,14 +40,12 @@ neo4j:
     NEO4J_dbms_security_procedures_unrestricted: gds.*,apoc.*,n10s.*
     NEO4J_dbms_security_procedures_allowlist: gds.*,apoc.*,n10s.*
   secretEnv:
-    NEO4J_AUTH: 
+    NEO4J_AUTH:
       name: neo4j-db
       key: auth
-
 serviceAccount:
   create: true
   name: gxfs-catalog
-
 ingress:
   enabled: true
   annotations:
@@ -66,3 +63,5 @@ ingress:
     - hosts:
         - gxfscatalog.demo.merlot-education.eu
       secretName: gxfscatalog-certificate
+image:
+  tag: 1.0.1
