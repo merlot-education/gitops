@@ -1,4 +1,4 @@
-fullnameOverride: edc-2
+fullnameOverride: edc-lightcast
 
 image:
   repository: ghcr.io/merlot-education/merlot-edc
