@@ -111,7 +111,7 @@ applications:
   - name: edc-imc
     namespace: merlot
     enabled: true
-    serverName: dev-cluster
+    serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
       - "../../environments/dev/edc-imc.yaml"
@@ -119,7 +119,7 @@ applications:
   - name: edc-chempoint
     namespace: merlot
     enabled: true
-    serverName: dev-cluster
+    serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
       - "../../environments/dev/edc-chempoint.yaml"
@@ -127,7 +127,7 @@ applications:
   - name: edc-headai
     namespace: merlot
     enabled: true
-    serverName: dev-cluster
+    serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
       - "../../environments/dev/edc-headai.yaml"
@@ -135,7 +135,7 @@ applications:
   - name: edc-lightcast
     namespace: merlot
     enabled: true
-    serverName: dev-cluster
+    serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
       - "../../environments/dev/edc-lightcast.yaml"
