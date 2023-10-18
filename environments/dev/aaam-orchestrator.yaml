@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/aaam-orchestrator
-  tag: 1.1.0-0d0369f
+  tag: 1.1.0-6b1948f
 service:
   port: 8083
 env:
