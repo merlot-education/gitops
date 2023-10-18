@@ -1,0 +1,17 @@
+fullnameOverride: edc-headai
+
+image:
+  repository: ghcr.io/merlot-education/merlot-edc
+  pullPolicy: IfNotPresent
+  tag: 43f1465
+
+serviceAccount:
+  create: false
+  name: edc
+
+env:
+  EDC_PARTICIPANT_ID: edc-headai
+  EDC_DSP_CALLBACK_ADDRESS: http://edc-headai.merlot.svc.cluster.local/protocol
+  EDC_FS_CONFIG: /opt/config/edc.properties
+envFromSecret:
+  - edc-headai-config
