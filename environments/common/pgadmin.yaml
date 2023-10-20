@@ -3,6 +3,8 @@ env:
 
 existingSecret: pgadmin
 
+image:
+  tag: 7
 ingress:
   enabled: true
   annotations:
