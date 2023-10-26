@@ -19,7 +19,7 @@ applications:
     sources:
       - ref: keycloak
       - repoURL: https://codecentric.github.io/helm-charts
-        sourceRef: 18.4.0
+        sourceRef: ~18.4.3
         chartName: keycloak
         helmValues:
           - "$keycloak/environments/demo/keycloak.yaml"
