@@ -26,8 +26,8 @@ secretEnv:
     name: contract-orchestrator-db
     key: password
   S3LIBRARY_SECRET:
-    name: edc1-config
-    key: EDC_IONOS_SECRET_KEY
+    name: contract-orchestrator-db
+    key: s3Secret
   S3LIBRARY_ACCESSKEY:
-    name: edc1-config
-    key: EDC_IONOS_ACCESS_KEY
+    name: contract-orchestrator-db
+    key: s3AccessKey
