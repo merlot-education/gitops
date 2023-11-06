@@ -14,6 +14,7 @@ env:
   SPRING_RABBITMQ_PASSWORD: admin
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_PROFILES_ACTIVE: demo
+  S3LIBRARY_SERVICEENDPOINT: s3-eu-central-1.ionoscloud.com
 secretEnv:
   SPRING_DATASOURCE_URL:
     name: contract-orchestrator-db
@@ -24,3 +25,9 @@ secretEnv:
   SPRING_DATASOURCE_PASSWORD:
     name: contract-orchestrator-db
     key: password
+  S3LIBRARY_SECRET:
+    name: contract-orchestrator-db
+    key: s3Secret
+  S3LIBRARY_ACCESSKEY:
+    name: contract-orchestrator-db
+    key: s3AccessKey
