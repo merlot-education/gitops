@@ -58,7 +58,7 @@ spec:
   project: {{ $project }}
 {{- if not .sources }}
   source:
-{{- if or .helmValues .values }}
+{{- if or .helmValues .values .helmExternalValueFiles .values }}
     helm:
       releaseName: {{ .name }}
 {{- if .skipCrds }}
@@ -67,6 +67,10 @@ spec:
 {{- if .helmValues }}
       valueFiles:
 {{- toYaml .helmValues | nindent 8 }}
+{{- end }}
+{{- if .helmExternalValueFiles }}
+      externalValueFiles:
+{{- toYaml .helmExternalValueFiles | nindent 8 }}
 {{- end }}
 {{- if .values }}
       values: |
