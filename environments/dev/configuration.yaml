@@ -158,12 +158,12 @@ applications:
     helmValues:
       - "../../environments/dev/edc-lightcast.yaml"
 
-  - name: auth-service
+  - name: ssi-auth-service
     namespace: ssi-aas
     enabled: true
     serverName: dev-cluster
     sourcePath: deploy/helm/Integration
-    source: git@gitlab.eclipse.org:mjuergenscg/authenticationauthorization.git
+    source: https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git
     sourceRef: feature/generalized-helm-chart
     helmValues:
       - "../../environments/dev/ssi/auth-service.yaml"
