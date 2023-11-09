@@ -162,11 +162,14 @@ applications:
     namespace: ssi-aas
     enabled: true
     serverName: dev-cluster
-    sourcePath: deploy/helm/Integration
-    source: https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git
-    sourceRef: feature/generalized-helm-chart
-    helmExternalValueFiles:
-      - repoURL: https://github.com/merlot-education/gitops.git
+    sources:
+      - name: ssi-auth-service
+        helmValues:
+          - "values.yaml"
+          - "$values/environments/dev/ssi/auth-service.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git'
+        sourcePath: deploy/helm/Integration
+        sourceRef: feature/generalized-helm-chart
+      - repoURL: 'https://github.com/merlot-education/gitops.git'
         targetRevision: main
-        valueFiles:
-          - "environments/dev/ssi/auth-service.yaml"
+        ref: values
