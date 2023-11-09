@@ -162,8 +162,11 @@ applications:
     namespace: ssi-aas
     enabled: true
     serverName: dev-cluster
-    sourcePath: deploy/helm/Integration
-    source: https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git
-    sourceRef: feature/generalized-helm-chart
-    helmValues:
-      - "../../environments/dev/ssi/auth-service.yaml"
+    sources:
+      - sourcePath: deploy/helm/Integration
+        repoURL: https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git
+        sourceRef: "feature/generalized-helm-chart"
+      - sourcePath: "environments/dev/ssi"
+        name: contract-orchestrator
+        helmValues:
+          - "auth-service.yaml"
