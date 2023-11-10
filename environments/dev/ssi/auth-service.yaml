@@ -27,7 +27,7 @@ properties:
       version: "1.0"
       duration: 30000
     oidc:
-      issuer: http://auth-service.dev.merlot-education.eu
+      issuer: https://auth-service.dev.merlot-education.eu
 
 secretEnv:
   SPRING_DATASOURCE_URL:
