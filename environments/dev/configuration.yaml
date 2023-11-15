@@ -256,3 +256,13 @@ applications:
       - repoURL: https://marketplace.azurecr.io/helm/v1/repo
         sourceRef: ~17.3.11
         chartName: redis
+
+  - name: ssi-tsa-nats
+    namespace: ssi-tsa
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: nats
+      - repoURL: https://nats-io.github.io/k8s/helm/charts/
+        sourceRef: ~1.1.5
+        chartName: nats
