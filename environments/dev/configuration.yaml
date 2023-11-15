@@ -268,7 +268,7 @@ applications:
         chartName: nats
 
   - name: ssi-tsa-vault
-    namespace: ssi-vault
+    namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
@@ -278,3 +278,15 @@ applications:
         chartName: vault
         helmValues:
           - $vault/environments/dev/ssi/tsa-vault.yaml
+
+  - name: ssi-tsa-mongodb
+    namespace: ssi-tsa
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: mongodb
+      - repoURL: https://marketplace.azurecr.io/helm/v1/repo
+        sourceRef: ~13.4.1
+        chartName: mongodb
+        helmValues:
+          - $vault/environments/dev/ssi/tsa-mongodb.yaml
