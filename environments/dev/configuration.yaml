@@ -158,7 +158,7 @@ applications:
     helmValues:
       - "../../environments/dev/edc-lightcast.yaml"
 
-  - name: ssi-auth-service
+  - name: ssi-aas-auth-service
     namespace: ssi-aas
     enabled: true
     serverName: dev-cluster
@@ -180,6 +180,21 @@ applications:
       - name: ssi-tsa-cache
         helmValues:
           - "$values/environments/dev/ssi/tsa-cache.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
+        sourcePath: deployment/helm
+        sourceRef: feature/generalized-helm-chart
+      - repoURL: 'https://github.com/merlot-education/gitops.git'
+        targetRevision: main
+        ref: values
+
+  - name: ssi-tsa-infohub
+    namespace: ssi-tsa
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - name: ssi-tsa-infohub
+        helmValues:
+          - "$values/environments/dev/ssi/tsa-infohub.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
