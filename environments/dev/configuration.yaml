@@ -267,7 +267,7 @@ applications:
         sourceRef: ~1.1.5
         chartName: nats
         helmValues:
-          - $nats/environments/dev/ssi/tsa-vault.yaml
+          - $nats/environments/dev/ssi/tsa-nats.yaml
 
   - name: ssi-tsa-vault
     namespace: ssi-tsa
