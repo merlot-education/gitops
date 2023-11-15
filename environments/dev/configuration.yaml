@@ -246,3 +246,12 @@ applications:
       - repoURL: 'https://github.com/merlot-education/gitops.git'
         targetRevision: main
         ref: values
+
+  - name: ssi-tsa-redis
+    namespace: ssi-tsa
+    serverName: dev-cluster
+    sources:
+      - ref: redis
+      - repoURL: https://marketplace.azurecr.io/helm/v1/repo
+        sourceRef: ~17.3.12
+        chartName: redis
