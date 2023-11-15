@@ -181,7 +181,7 @@ applications:
         helmValues:
           - "$values/environments/dev/ssi/ssi-tsa-cache.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
-        sourcePath: deploy/helm/Integration
+        sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
       - repoURL: 'https://github.com/merlot-education/gitops.git'
         targetRevision: main
