@@ -171,3 +171,18 @@ applications:
       - repoURL: 'https://github.com/merlot-education/gitops.git'
         targetRevision: main
         ref: values
+
+  - name: ssi-tsa-cache
+    namespace: ssi-tsa
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - name: ssi-tsa-cache
+        helmValues:
+          - "$values/environments/dev/ssi/ssi-tsa-cache.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
+        sourcePath: deploy/helm/Integration
+        sourceRef: feature/generalized-helm-chart
+      - repoURL: 'https://github.com/merlot-education/gitops.git'
+        targetRevision: main
+        ref: values
