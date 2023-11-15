@@ -195,7 +195,7 @@ applications:
       - name: ssi-tsa-infohub
         helmValues:
           - "$values/environments/dev/ssi/tsa-infohub.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/infohub.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
       - repoURL: 'https://github.com/merlot-education/gitops.git'
