@@ -254,5 +254,5 @@ applications:
     sources:
       - ref: redis
       - repoURL: https://marketplace.azurecr.io/helm/v1/repo
-        sourceRef: ~17.3.12
+        sourceRef: ~18.3.3
         chartName: redis
