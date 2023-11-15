@@ -179,7 +179,7 @@ applications:
     sources:
       - name: ssi-tsa-cache
         helmValues:
-          - "$values/environments/dev/ssi/ssi-tsa-cache.yaml"
+          - "$values/environments/dev/ssi/tsa-cache.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
