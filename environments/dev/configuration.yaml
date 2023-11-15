@@ -249,6 +249,7 @@ applications:
 
   - name: ssi-tsa-redis
     namespace: ssi-tsa
+    enabled: true
     serverName: dev-cluster
     sources:
       - ref: redis
