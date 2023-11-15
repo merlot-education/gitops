@@ -286,7 +286,7 @@ applications:
     sources:
       - ref: mongodb
       - repoURL: https://marketplace.azurecr.io/helm/v1/repo
-        sourceRef: ~13.4.1
+        sourceRef: ~13.3.1
         chartName: mongodb
         helmValues:
           - $vault/environments/dev/ssi/tsa-mongodb.yaml
