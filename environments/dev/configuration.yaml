@@ -289,4 +289,4 @@ applications:
         sourceRef: ~13.3.1
         chartName: mongodb
         helmValues:
-          - $vault/environments/dev/ssi/tsa-mongodb.yaml
+          - $mongodb/environments/dev/ssi/tsa-mongodb.yaml
