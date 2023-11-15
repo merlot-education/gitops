@@ -266,6 +266,8 @@ applications:
       - repoURL: https://nats-io.github.io/k8s/helm/charts/
         sourceRef: ~1.1.5
         chartName: nats
+        helmValues:
+          - $nats/environments/dev/ssi/tsa-vault.yaml
 
   - name: ssi-tsa-vault
     namespace: ssi-tsa
