@@ -266,3 +266,15 @@ applications:
       - repoURL: https://nats-io.github.io/k8s/helm/charts/
         sourceRef: ~1.1.5
         chartName: nats
+
+  - name: ssi-tsa-vault
+    namespace: ssi-vault
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: vault
+      - repoURL: https://helm.releases.hashicorp.com
+        sourceRef: ~0.26.1
+        chartName: vault
+        helmValues:
+          - $vault/environments/dev/ssi/tsa-vault.yaml
