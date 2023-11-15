@@ -1,2 +1,3 @@
 architecture: replicaset
 replicaCount: 1
+fullnameOverride: mongodb
