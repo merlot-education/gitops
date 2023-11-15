@@ -231,3 +231,18 @@ applications:
       - repoURL: 'https://github.com/merlot-education/gitops.git'
         targetRevision: main
         ref: values
+
+  - name: ssi-tsa-task
+    namespace: ssi-tsa
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - name: ssi-tsa-policy
+        helmValues:
+          - "$values/environments/dev/ssi/tsa-signer.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/signer.git'
+        sourcePath: deployment/helm
+        sourceRef: feature/generalized-helm-chart
+      - repoURL: 'https://github.com/merlot-education/gitops.git'
+        targetRevision: main
+        ref: values
