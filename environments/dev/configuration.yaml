@@ -256,6 +256,8 @@ applications:
       - repoURL: https://marketplace.azurecr.io/helm/v1/repo
         sourceRef: ~17.3.11
         chartName: redis
+        helmValues:
+          - $redis/environments/dev/ssi/tsa-redis.yaml
 
   - name: ssi-tsa-nats
     namespace: ssi-tsa
