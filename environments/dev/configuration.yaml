@@ -166,9 +166,8 @@ applications:
       - name: ssi-auth-service
         helmValues:
           - "$values/environments/dev/ssi/aas-auth-service.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/authenticationauthorization.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git'
         sourcePath: deploy/helm/Integration
-        sourceRef: feature/generalized-helm-chart
       - repoURL: 'https://github.com/merlot-education/gitops.git'
         targetRevision: main
         ref: values
