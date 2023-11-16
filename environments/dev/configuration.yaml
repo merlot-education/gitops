@@ -118,7 +118,7 @@ applications:
       - helmValues:
           - "../../environments/dev/contract-orchestrator.yaml"
         sourcePath: charts/orchestrator
-        name: contract-orchestrator
+        name: pdfservice
 
   - name: edc-1
     namespace: merlot
