@@ -158,79 +158,71 @@ applications:
     helmValues:
       - "../../environments/dev/edc-lightcast.yaml"
 
+  # SSI application definition starts here
+
   - name: ssi-aas-auth-service
     namespace: ssi-aas
     enabled: true
     serverName: dev-cluster
     sources:
+      - ref: values
       - name: ssi-auth-service
         helmValues:
           - "$values/environments/dev/ssi/aas-auth-service.yaml"
         repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git'
         sourcePath: deploy/helm/Integration
-      - repoURL: 'https://github.com/merlot-education/gitops.git'
-        targetRevision: main
-        ref: values
 
   - name: ssi-tsa-cache
     namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
+      - ref: values
       - name: ssi-tsa-cache
         helmValues:
           - "$values/environments/dev/ssi/tsa-cache.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
-      - repoURL: 'https://github.com/merlot-education/gitops.git'
-        targetRevision: main
-        ref: values
 
   - name: ssi-tsa-infohub
     namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
+      - ref: values
       - name: ssi-tsa-infohub
         helmValues:
           - "$values/environments/dev/ssi/tsa-infohub.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/infohub.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
-      - repoURL: 'https://github.com/merlot-education/gitops.git'
-        targetRevision: main
-        ref: values
 
   - name: ssi-tsa-policy
     namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
+      - ref: values
       - name: ssi-tsa-policy
         helmValues:
           - "$values/environments/dev/ssi/tsa-policy.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/policy.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
-      - repoURL: 'https://github.com/merlot-education/gitops.git'
-        targetRevision: main
-        ref: values
 
   - name: ssi-tsa-signer
     namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
+      - ref: values
       - name: ssi-tsa-policy
         helmValues:
           - "$values/environments/dev/ssi/tsa-signer.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/signer.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
-      - repoURL: 'https://github.com/merlot-education/gitops.git'
-        targetRevision: main
-        ref: values
 
   - name: ssi-tsa-task
     namespace: ssi-tsa
