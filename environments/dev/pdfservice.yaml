@@ -1,0 +1,6 @@
+fullnameOverride: pdfservice
+image:
+  repository: ghcr.io/merlot-education/pdfservice
+  tag: 0.0.1-a9857b4
+service:
+  port: 8080

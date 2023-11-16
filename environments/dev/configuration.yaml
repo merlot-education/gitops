@@ -110,6 +110,16 @@ applications:
         name: contract-orchestrator
       - sourcePath: "app-decorators/dispatch-cypress"
 
+  - name: pdfservice
+    namespace: merlot
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - helmValues:
+          - "../../environments/dev/contract-orchestrator.yaml"
+        sourcePath: charts/orchestrator
+        name: contract-orchestrator
+
   - name: edc-1
     namespace: merlot
     enabled: true
