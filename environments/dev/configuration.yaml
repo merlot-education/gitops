@@ -116,7 +116,7 @@ applications:
     serverName: dev-cluster
     sources:
       - helmValues:
-          - "../../environments/dev/contract-orchestrator.yaml"
+          - "../../environments/dev/pdfservice.yaml"
         sourcePath: charts/orchestrator
         name: pdfservice
 
