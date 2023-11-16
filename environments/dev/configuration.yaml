@@ -242,45 +242,45 @@ applications:
     enabled: true
     serverName: dev-cluster
     sources:
-      - ref: redis
+      - ref: values
       - repoURL: https://marketplace.azurecr.io/helm/v1/repo
         sourceRef: ~17.3.11
         chartName: redis
         helmValues:
-          - $redis/environments/dev/ssi/tsa-redis.yaml
+          - $values/environments/dev/ssi/tsa-redis.yaml
 
   - name: ssi-tsa-nats
     namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
-      - ref: nats
+      - ref: values
       - repoURL: https://nats-io.github.io/k8s/helm/charts/
         sourceRef: ~1.1.5
         chartName: nats
         helmValues:
-          - $nats/environments/dev/ssi/tsa-nats.yaml
+          - $values/environments/dev/ssi/tsa-nats.yaml
 
   - name: ssi-tsa-vault
     namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
-      - ref: vault
+      - ref: values
       - repoURL: https://helm.releases.hashicorp.com
         sourceRef: ~0.26.1
         chartName: vault
         helmValues:
-          - $vault/environments/dev/ssi/tsa-vault.yaml
+          - $values/environments/dev/ssi/tsa-vault.yaml
 
   - name: ssi-tsa-mongodb
     namespace: ssi-tsa
     enabled: true
     serverName: dev-cluster
     sources:
-      - ref: mongodb
+      - ref: values
       - repoURL: https://marketplace.azurecr.io/helm/v1/repo
         sourceRef: ~13.3.1
         chartName: mongodb
         helmValues:
-          - $mongodb/environments/dev/ssi/tsa-mongodb.yaml
+          - $values/environments/dev/ssi/tsa-mongodb.yaml
