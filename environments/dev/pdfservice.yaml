@@ -3,4 +3,4 @@ image:
   repository: ghcr.io/merlot-education/pdfservice
   tag: 0.0.2-fc045a3
 service:
-  port: 8080
+  port: 5154
