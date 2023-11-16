@@ -237,15 +237,13 @@ applications:
     enabled: true
     serverName: dev-cluster
     sources:
+      - ref: values
       - name: ssi-tsa-task
         helmValues:
           - "$values/environments/dev/ssi/tsa-task.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/task.git'
         sourcePath: deployment/helm
         sourceRef: feature/generalized-helm-chart
-      - repoURL: 'https://github.com/merlot-education/gitops.git'
-        targetRevision: main
-        ref: values
 
   - name: ssi-tsa-redis
     namespace: ssi-tsa
