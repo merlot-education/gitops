@@ -215,7 +215,7 @@ applications:
       - name: ssi-tsa-policy
         helmValues:
           - "$values/environments/dev/ssi/tsa-policy.yaml"
-        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/signer.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git'
         sourcePath: deployment/helm
 
   - name: ssi-tsa-signer
@@ -224,12 +224,11 @@ applications:
     serverName: dev-cluster
     sources:
       - ref: values
-      - name: ssi-tsa-policy
+      - name: ssi-tsa-signer
         helmValues:
           - "$values/environments/dev/ssi/tsa-signer.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/signer.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/signer.git'
         sourcePath: deployment/helm
-        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-tsa-task
     namespace: ssi-tsa
