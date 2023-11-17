@@ -1,3 +1,5 @@
 architecture: replicaset
 replicaCount: 1
 fullnameOverride: mongodb
+auth:
+  existingSecret: ssi-tsa-mongodb
