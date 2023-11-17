@@ -7,7 +7,7 @@ mongo:
   addr: {}
   user: {}
   pass: {}
-  dbname: infohub
+#  dbname: infohub
 
 #secretEnv:
 #  MONGO_ADDR:
