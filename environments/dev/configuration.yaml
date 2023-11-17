@@ -191,9 +191,8 @@ applications:
       - name: ssi-tsa-cache
         helmValues:
           - "$values/environments/dev/ssi/tsa-cache.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/cache.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/cache.git'
         sourcePath: deployment/helm
-        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-tsa-infohub
     namespace: ssi-tsa
@@ -204,9 +203,8 @@ applications:
       - name: ssi-tsa-infohub
         helmValues:
           - "$values/environments/dev/ssi/tsa-infohub.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/infohub.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/infohub.git'
         sourcePath: deployment/helm
-        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-tsa-policy
     namespace: ssi-tsa
@@ -217,9 +215,8 @@ applications:
       - name: ssi-tsa-policy
         helmValues:
           - "$values/environments/dev/ssi/tsa-policy.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/policy.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/signer.git'
         sourcePath: deployment/helm
-        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-tsa-signer
     namespace: ssi-tsa
@@ -243,9 +240,8 @@ applications:
       - name: ssi-tsa-task
         helmValues:
           - "$values/environments/dev/ssi/tsa-task.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/task.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/task.git'
         sourcePath: deployment/helm
-        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-tsa-redis
     namespace: ssi-tsa
