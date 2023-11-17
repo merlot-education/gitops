@@ -25,6 +25,8 @@ mongo:
 extraVars:
   -  name: POLICY_REPOSITORY_CLONE_URL
      value: "https://github.com/merlot-education/ssi-tsa-policies.git"
+  -  name: NATS_ADDR
+     value: "nats"
 
 addresses:
   ocm: http://213.165.77.158:3007
