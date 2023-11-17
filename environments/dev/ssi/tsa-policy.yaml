@@ -9,16 +9,20 @@ mongo:
   pass: {}
   dbname: infohub
 
-secretEnv:
-  MONGO_ADDR:
-    name: ssi-tsa-mongodb
-    key: addr
-  MONGO_USER:
-    name: ssi-tsa-mongodb
-    key: user
-  MONGO_PASS:
-    name: ssi-tsa-mongodb
-    key: mongodb-root-password
+#secretEnv:
+#  MONGO_ADDR:
+#    name: ssi-tsa-mongodb
+#    key: addr
+#  MONGO_USER:
+#    name: ssi-tsa-mongodb
+#    key: user
+#  MONGO_PASS:
+#    name: ssi-tsa-mongodb
+#    key: mongodb-root-password
+
+extraVars:
+  -  name: POLICY_REPOSITORY_CLONE_URL
+     value: "https://github.com/merlot-education/ssi-tsa-policies.git"
 
 addresses:
   ocm: http://213.165.77.158:3007

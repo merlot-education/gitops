@@ -215,8 +215,9 @@ applications:
       - name: ssi-tsa-policy
         helmValues:
           - "$values/environments/dev/ssi/tsa-policy.yaml"
-        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git'
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/policy.git'
         sourcePath: deployment/helm
+        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-tsa-signer
     namespace: ssi-tsa
