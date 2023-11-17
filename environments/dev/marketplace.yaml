@@ -1,6 +1,6 @@
 image:
   pullPolicy: IfNotPresent
-  tag: 1.9.3-069c36f
+  tag: 1.9.3-7a5aa21
 ingress:
   enabled: true
   annotations:
