@@ -18,7 +18,7 @@ secretEnv:
     key: user
   MONGO_PASS:
     name: ssi-tsa-mongodb
-    key: pass
+    key: mongodb-root-password
 
 addresses:
   ocm: http://213.165.77.158:3007

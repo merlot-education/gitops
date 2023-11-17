@@ -18,7 +18,7 @@ secretEnv:
     key: user
   MONGO_PASS:
     name: ssi-tsa-mongodb
-    key: pass
+    key: mongodb-root-password
 
 ingress:
   frontendDomain: tsa.dev.merlot-education.eu
