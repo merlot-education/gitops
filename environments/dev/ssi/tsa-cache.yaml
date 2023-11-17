@@ -17,7 +17,7 @@ secretEnv:
     key: user
   REDIS_PASS:
     name: ssi-tsa-redis
-    key: pass
+    key: redis-password
 
 cache:
   nats:
