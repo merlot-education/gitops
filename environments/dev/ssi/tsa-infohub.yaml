@@ -21,10 +21,11 @@ secretEnv:
     key: mongodb-root-password
 
 ingress:
-  frontendDomain: tsa.dev.merlot-education.eu
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-production"
+  enabled: false
+#  frontendDomain: tsa.dev.merlot-education.eu
+#  annotations:
+#    kubernetes.io/ingress.class: "nginx"
+#    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+#    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+#    cert-manager.io/cluster-issuer: "letsencrypt-production"
