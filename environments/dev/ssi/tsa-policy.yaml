@@ -37,11 +37,11 @@ addresses:
   ocm: http://213.165.77.158:3007
 
 ingress:
-  enabled: false
-#  frontendDomain: tsa.dev.merlot-education.eu
-#  annotations:
-#    kubernetes.io/ingress.class: "nginx"
-#    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
-#    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-#    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-#    cert-manager.io/cluster-issuer: "letsencrypt-production"
+  enabled: true
+  frontendDomain: tsa.dev.merlot-education.eu
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
