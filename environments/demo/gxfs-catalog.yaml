@@ -32,11 +32,11 @@ neo4j:
   tag: 4.4.12
   command: ["/bin/sh", "-c"]
   args:
-    - tini -g -- /startup/docker-entrypoint.sh neo4j;
+    - wget https://github.com/neo4j-labs/neosemantics/releases/download/4.4.0.3/neosemantics-4.4.0.3.jar -O /var/lib/neo4j/plugins/n10s.jar && tini -g -- /startup/docker-entrypoint.sh neo4j;
   envs:
     NEO4J_dbms_connector_http_listen__address: :7474
     NEO4J_dbms_connector_bolt_listen__address: :7687
-    NEO4JLABS_PLUGINS: '["apoc", "graph-data-science", "n10s"]'
+    NEO4JLABS_PLUGINS: '["apoc", "graph-data-science"]'
     NEO4J_dbms_security_procedures_unrestricted: gds.*,apoc.*,n10s.*
     NEO4J_dbms_security_procedures_allowlist: gds.*,apoc.*,n10s.*
   secretEnv:
