@@ -34,7 +34,7 @@ policy:
     url: nats
 
 addresses:
-  ocm: http://213.165.77.158:3007
+  ocm: https://ocm.dev.merlot-education.eu/proof
 
 ingress:
   enabled: true
