@@ -29,6 +29,17 @@ properties:
       duration: 30000
     oidc:
       issuer: https://auth-service.dev.merlot-education.eu
+    scopes:
+      openid:
+        - subjectDID
+        - issuerDID
+      profile:
+        - Vorname
+        - Nachname
+        - Organisation
+        - Role
+      email:
+        - ID
 
 secretEnv:
   SPRING_DATASOURCE_URL:
