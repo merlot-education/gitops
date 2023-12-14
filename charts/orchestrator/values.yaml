@@ -73,4 +73,4 @@ tolerations: []
 affinity: {}
 
 secretVolumes: {}
-#  - secretName: { }
+#  - secretName: secret-a
