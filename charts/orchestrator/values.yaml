@@ -37,21 +37,6 @@ service:
   port: 80
 
 ingress:
-  enabled: flase
-  annotations: {}
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-env: {}
-
-ingress:
   enabled: false
   className: ""
   annotations:
@@ -86,3 +71,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secretVolumes: {}
+#  - secretName: { }

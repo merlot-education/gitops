@@ -63,6 +63,13 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+          {{- with .Values.secretVolumes }}
+            {{- range . }}
+            - name: {{ .secretName }}
+              mountPath: /mnt/secrets
+            {{- end }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -75,3 +82,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+          {{- with .Values.secretVolumes }}
+          {{- range . }}
+          - name: {{ .secretName }}
+            secret:
+              secretName: {{ .secretName }}
+          {{- end }}
+          {{- end }}
