@@ -67,7 +67,7 @@ spec:
           {{- with .Values.secretVolumes }}
             {{- range . }}
             - name: {{ .secretName }}
-              mountPath: /mnt/secrets
+              mountPath: /mnt/secrets/{{ .secretName }}
             {{- end }}
           {{- end }}
       {{- with .Values.nodeSelector }}
