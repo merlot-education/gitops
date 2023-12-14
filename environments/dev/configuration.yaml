@@ -193,6 +193,7 @@ applications:
           - "$values/environments/dev/ssi/tsa-cache.yaml"
         repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/cache.git'
         sourcePath: deployment/helm
+        sourceRef: 4ff9154c
 
   - name: ssi-tsa-infohub
     namespace: ssi-tsa
