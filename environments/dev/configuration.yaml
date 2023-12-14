@@ -181,6 +181,7 @@ applications:
           - "$values/environments/dev/ssi/aas-auth-service.yaml"
         repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git'
         sourcePath: deploy/helm/Integration
+        sourceRef: b8d81a87
 
   - name: ssi-tsa-cache
     namespace: ssi-tsa
@@ -206,6 +207,7 @@ applications:
           - "$values/environments/dev/ssi/tsa-infohub.yaml"
         repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/infohub.git'
         sourcePath: deployment/helm
+        sourceRef: 088ec431
 
   - name: ssi-tsa-policy
     namespace: ssi-tsa
@@ -216,9 +218,9 @@ applications:
       - name: ssi-tsa-policy
         helmValues:
           - "$values/environments/dev/ssi/tsa-policy.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/policy.git'
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git'
         sourcePath: deployment/helm
-        sourceRef: feature/generalized-helm-chart
+        sourceRef: dc0120c3
 
   - name: ssi-tsa-signer
     namespace: ssi-tsa
@@ -231,6 +233,7 @@ applications:
           - "$values/environments/dev/ssi/tsa-signer.yaml"
         repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/signer.git'
         sourcePath: deployment/helm
+        sourceRef: 01f6b12b
 
   - name: ssi-tsa-task
     namespace: ssi-tsa
@@ -243,6 +246,7 @@ applications:
           - "$values/environments/dev/ssi/tsa-task.yaml"
         repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/task.git'
         sourcePath: deployment/helm
+        sourceRef: f3fdb126
 
   - name: ssi-tsa-redis
     namespace: ssi-tsa
