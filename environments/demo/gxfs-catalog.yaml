@@ -32,6 +32,7 @@ neo4j:
   tag: 4.4.12
   command: ["/bin/sh", "-c"]
   args:
+    # modification to force download of neosemantic plugin 4.X (NEO4JLABS_PLUGINS usage unstable)
     - wget https://github.com/neo4j-labs/neosemantics/releases/download/4.4.0.3/neosemantics-4.4.0.3.jar -O /var/lib/neo4j/plugins/n10s.jar && tini -g -- /startup/docker-entrypoint.sh neo4j;
   envs:
     NEO4J_dbms_connector_http_listen__address: :7474
