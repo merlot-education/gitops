@@ -32,5 +32,3 @@ secretEnv:
   S3LIBRARY_ACCESSKEY:
     name: contract-orchestrator-db
     key: s3AccessKey
-secretVolumes:
-  - secretName: orchestrator-common
