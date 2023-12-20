@@ -31,13 +31,16 @@ properties:
       issuer: https://auth-service.dev.merlot-education.eu
     scopes:
       openid:
-        - subjectDID
-        - issuerDID
+        - sub
+        - iss
+        - auth_time
       profile:
         - Vorname
         - Nachname
         - Organisation
         - Role
+        - subjectDID
+        - issuerDID
       email:
         - ID
 
