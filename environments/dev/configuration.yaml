@@ -295,3 +295,15 @@ applications:
         chartName: mongodb
         helmValues:
           - $values/environments/dev/ssi/tsa-mongodb.yaml
+
+  - name: ssi-ocm-nats
+    namespace: ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - repoURL: https://nats-io.github.io/k8s/helm/charts/
+        sourceRef: ~1.1.5
+        chartName: nats
+        helmValues:
+          - $values/environments/dev/ssi/ocm-nats.yaml
