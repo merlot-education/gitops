@@ -296,18 +296,18 @@ applications:
         helmValues:
           - $values/environments/dev/ssi/tsa-mongodb.yaml
 
-#  - name: ssi-ocm-attestation-manager
-#    namespace: ssi-ocm
-#    enabled: true
-#    serverName: dev-cluster
-#    sources:
-#      - ref: values
-#      - name: ssi-ocm-attestation-manager
-#        helmValues:
-#          - "$values/environments/dev/ssi/ocm-attestation-manager.yaml"
-#        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
-#        sourcePath: apps/attestation-manager/deployment/helm
-#        sourceRef: 2d5b29d4
+  - name: ssi-ocm-attestation-manager
+    namespace: ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-attestation-manager
+        helmValues:
+          - "$values/environments/dev/ssi/ocm-attestation-manager.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        sourcePath: apps/attestation-manager/deployment/helm
+        sourceRef: 2d5b29d4
 #
 #  - name: ssi-ocm-connection-manager
 #    namespace: ssi-ocm
