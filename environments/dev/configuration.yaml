@@ -307,7 +307,7 @@ applications:
           - "$values/environments/dev/ssi/ocm-attestation-manager.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
         sourcePath: apps/attestation-manager/deployment/helm
-        sourceRef: c4034b00
+        sourceRef: feature/generalized-helm-chart
 #
 #  - name: ssi-ocm-connection-manager
 #    namespace: ssi-ocm
@@ -320,7 +320,7 @@ applications:
 #          - "$values/environments/dev/ssi/ocm-connection-manager.yaml"
 #        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
 #        sourcePath: apps/connection-manager/deployment/helm
-#        sourceRef: 2d5b29d4
+#        sourceRef: feature/generalized-helm-chart
 #
 #  - name: ssi-ocm-proof-manager
 #    namespace: ssi-ocm
@@ -333,7 +333,7 @@ applications:
 #          - "$values/environments/dev/ssi/ocm-proof-manager.yaml"
 #        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
 #        sourcePath: apps/proof-manager/deployment/helm
-#        sourceRef: 2d5b29d4
+#        sourceRef: feature/generalized-helm-chart
 #
 #  - name: ssi-ocm-ssi-abstraction
 #    namespace: ssi-ocm
@@ -346,7 +346,7 @@ applications:
 #          - "$values/environments/dev/ssi/ocm-ssi-abstraction.yaml"
 #        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
 #        sourcePath: apps/ssi-abstraction/deployment/helm
-#        sourceRef: 2d5b29d4
+#        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-ocm-nats
     namespace: ssi-ocm
