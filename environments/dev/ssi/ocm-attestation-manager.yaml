@@ -8,10 +8,10 @@ attestationManager:
     connectionManager: https://ocm.dev.merlot-education.eu/connection
     attestationManager: https://ocm.dev.merlot-education.eu/attestation
   database:
-    host: $DB_HOST
-    user: $DB_USERNAME
+    host: ${DB_HOST}
+    user: ${DB_USERNAME}
     db: ocm
-    password: $DB_PASSWORD
+    password: ${DB_PASSWORD}
 secretEnv:
   DB_HOST:
     name: ssi-ocm-db
