@@ -1,0 +1,34 @@
+image:
+  repository: ghcr.io/merlot-education/ssi-build/ocm
+  name: ssi-abstraction
+  tag: latest
+ssiAbstraction:
+  agent:
+    name: ssi-abstraction-agent
+    host: ocm.dev.merlot-education.eu
+    protocol: https
+    peerPort: 443
+    urlPath: /ssi-ocm/didcomm
+  database:
+    host: $DB_HOST
+    user: $DB_USERNAME
+    db: ocm
+    password: $DB_PASSWORD
+secretEnv:
+  DB_HOST:
+    name: ssi-ocm-db
+    key: host
+  DB_USERNAME:
+    name: ssi-ocm-db
+    key: username
+  DB_PASSWORD:
+    name: ssi-ocm-db
+    key: password
+ingress:
+  frontendDomain: ocm.dev.merlot-education.eu
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
