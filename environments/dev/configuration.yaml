@@ -307,7 +307,7 @@ applications:
           - "$values/environments/dev/ssi/ocm-attestation-manager.yaml"
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
         sourcePath: apps/attestation-manager/deployment/helm
-        sourceRef: 2d5b29d4
+        sourceRef: c4034b00
 #
 #  - name: ssi-ocm-connection-manager
 #    namespace: ssi-ocm
