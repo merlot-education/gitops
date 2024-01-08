@@ -4,12 +4,12 @@ image:
   tag: "0e12539"
 connectionManager:
   database:
-    host: {}
-    user: {}
-    password: {}
-    port: {}
-    schema: {}
-    db: {}
+    host: []
+    user: []
+    password: []
+    port: []
+    schema: []
+    db: []
 secretEnv:
   DATABASE_URL:
     name: ssi-ocm-db
