@@ -11,15 +11,9 @@ proofManager:
     schema: {}
     db: {}
 secretEnv:
-  DB_HOST:
+  DATABASE_URL:
     name: ssi-ocm-db
-    key: host
-  DB_USERNAME:
-    name: ssi-ocm-db
-    key: username
-  DB_PASSWORD:
-    name: ssi-ocm-db
-    key: password
+    key: url-proof
 ingress:
   frontendDomain: ocm.dev.merlot-education.eu
   annotations:

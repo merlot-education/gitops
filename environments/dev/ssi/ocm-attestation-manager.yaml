@@ -17,7 +17,7 @@ attestationManager:
 secretEnv:
   DATABASE_URL:
     name: ssi-ocm-db
-    key: url
+    key: url-attestation
 ingress:
   frontendDomain: ocm.dev.merlot-education.eu
   annotations:

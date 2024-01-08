@@ -11,15 +11,9 @@ connectionManager:
     schema: {}
     db: {}
 secretEnv:
-  DB_HOST:
+  DATABASE_URL:
     name: ssi-ocm-db
-    key: host
-  DB_USERNAME:
-    name: ssi-ocm-db
-    key: username
-  DB_PASSWORD:
-    name: ssi-ocm-db
-    key: password
+    key: url-connection
 extraVars:
   - name: CONNECTION_MANAGER_URL
     value: https://ocm.dev.merlot-education.eu
