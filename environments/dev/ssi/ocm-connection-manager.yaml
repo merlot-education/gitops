@@ -16,7 +16,7 @@ secretEnv:
     key: url-connection
 extraVars:
   - name: CONNECTION_MANAGER_URL
-    value: https://ocm.dev.merlot-education.eu
+    value: https://ocm.dev.merlot-education.eu/connection
 ingress:
   frontendDomain: ocm.dev.merlot-education.eu
   annotations:
