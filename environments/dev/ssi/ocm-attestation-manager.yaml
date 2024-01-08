@@ -8,12 +8,12 @@ attestationManager:
     connectionManager: https://ocm.dev.merlot-education.eu/connection
     attestationManager: https://ocm.dev.merlot-education.eu/attestation
   database:
-    host: {}
-    user: {}
-    password: {}
-    port: {}
-    schema: {}
-    db: {}
+    host: []
+    user: []
+    password: []
+    port: []
+    schema: []
+    db: []
 secretEnv:
   DATABASE_URL:
     name: ssi-ocm-db
