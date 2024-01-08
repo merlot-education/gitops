@@ -3,7 +3,7 @@ fullnameOverride: edc-chempoint
 image:
   repository: ghcr.io/merlot-education/merlot-edc
   pullPolicy: IfNotPresent
-  tag: "7df30b1"
+  tag: "7b31c6d"
 
 serviceAccount:
   create: false
