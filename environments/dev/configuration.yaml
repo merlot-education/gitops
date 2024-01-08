@@ -335,18 +335,18 @@ applications:
         sourcePath: apps/proof-manager/deployment/helm
         sourceRef: feature/generalized-helm-chart
 
-#  - name: ssi-ocm-ssi-abstraction
-#    namespace: ssi-ocm
-#    enabled: true
-#    serverName: dev-cluster
-#    sources:
-#      - ref: values
-#      - name: ssi-ocm-ssi-abstraction
-#        helmValues:
-#          - "$values/environments/dev/ssi/ocm-ssi-abstraction.yaml"
-#        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
-#        sourcePath: apps/ssi-abstraction/deployment/helm
-#        sourceRef: feature/generalized-helm-chart
+  - name: ssi-ocm-ssi-abstraction
+    namespace: ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-ssi-abstraction
+        helmValues:
+          - "$values/environments/dev/ssi/ocm-ssi-abstraction.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        sourcePath: apps/ssi-abstraction/deployment/helm
+        sourceRef: feature/generalized-helm-chart
 
   - name: ssi-ocm-nats
     namespace: ssi-ocm
