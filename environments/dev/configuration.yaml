@@ -308,19 +308,19 @@ applications:
         repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
         sourcePath: apps/attestation-manager/deployment/helm
         sourceRef: feature/generalized-helm-chart
-#
-#  - name: ssi-ocm-connection-manager
-#    namespace: ssi-ocm
-#    enabled: true
-#    serverName: dev-cluster
-#    sources:
-#      - ref: values
-#      - name: ssi-ocm-connection-manager
-#        helmValues:
-#          - "$values/environments/dev/ssi/ocm-connection-manager.yaml"
-#        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
-#        sourcePath: apps/connection-manager/deployment/helm
-#        sourceRef: feature/generalized-helm-chart
+
+  - name: ssi-ocm-connection-manager
+    namespace: ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-connection-manager
+        helmValues:
+          - "$values/environments/dev/ssi/ocm-connection-manager.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        sourcePath: apps/connection-manager/deployment/helm
+        sourceRef: feature/generalized-helm-chart
 #
 #  - name: ssi-ocm-proof-manager
 #    namespace: ssi-ocm
