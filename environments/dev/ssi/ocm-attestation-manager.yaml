@@ -5,8 +5,8 @@ image:
 attestationManager:
   url:
     tsa: https://tsa.dev.merlot-education.eu/policy/policy/example
-    connectionManager: https://ocm.dev.merlot-education.eu/connection
-    attestationManager: https://ocm.dev.merlot-education.eu/attestation
+    connectionManager: http://connection-manager:3003
+    attestationManager: http://attestation-manager:3005
   database:
     host: []
     user: []
