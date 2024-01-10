@@ -4,9 +4,9 @@ image:
   tag: d4caff8
 
 mongo:
-  addr: {}
-  user: {}
-  pass: {}
+  addr: []
+  user: []
+  pass: []
   dbname: infohub
 
 secretEnv:

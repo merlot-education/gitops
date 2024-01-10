@@ -4,11 +4,11 @@ image:
   tag: e6d8654
 
 mongo:
-  addr: {}
-  user: {}
-  pass: {}
-#  collection: {}
-#  dbname: {}
+  addr: []
+  user: []
+  pass: []
+#  collection: []
+#  dbname: []
   dbname: policy
 
 

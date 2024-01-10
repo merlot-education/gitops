@@ -4,9 +4,9 @@ image:
   tag: 366f204
 
 mongo:
-  addr: {}
-  user: {}
-  pass: {}
+  addr: []
+  user: []
+  pass: []
   dbname: task
 
 secretEnv:
