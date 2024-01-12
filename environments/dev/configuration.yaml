@@ -37,7 +37,7 @@ applications:
         sourceRef: 11.16.2
         chartName: rabbitmq
         helmValues:
-          - "$rabbitmq/environments/demo/rabbitmq.yaml"
+          - "$rabbitmq/environments/dev/rabbitmq.yaml"
 
   - name: gxfs-catalog
     namespace: gxfs
