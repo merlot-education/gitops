@@ -92,6 +92,14 @@ applications:
     helmValues:
       - "../../environments/demo/contract-orchestrator.yaml"
 
+  - name: pdfservice
+    namespace: merlot
+    enabled: true
+    serverName: demo-cluster
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/demo/pdfservice.yaml"
+
   - name: edc-1
     namespace: merlot
     enabled: true
