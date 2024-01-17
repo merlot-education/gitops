@@ -3,7 +3,7 @@ fullnameOverride: edc-lightcast
 image:
   repository: ghcr.io/merlot-education/merlot-edc
   pullPolicy: IfNotPresent
-  tag: "7b31c6d"
+  tag: "4bcd696"
 
 serviceAccount:
   create: false
