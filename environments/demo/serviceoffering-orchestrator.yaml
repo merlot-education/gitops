@@ -8,6 +8,8 @@ env:
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
   GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASE-URI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
+  GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
+  GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
   ORGANIZATIONSORCHESTRATOR_BASEURI: http://organisations-orchestrator.merlot.svc.cluster.local:8082/organisations
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/POC1
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
@@ -36,3 +38,5 @@ secretEnv:
   SPRING_DATASOURCE_PASSWORD:
     name: serviceoffering-db
     key: password
+secretVolumes:
+  - secretName: orchestrator-common

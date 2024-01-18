@@ -9,6 +9,8 @@ env:
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/POC1
   GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
+  GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
+  GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
   SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
@@ -35,3 +37,5 @@ secretEnv:
   SPRING_DATASOURCE_PASSWORD:
     name: organisations-db
     key: password
+secretVolumes:
+  - secretName: orchestrator-common

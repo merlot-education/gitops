@@ -15,6 +15,7 @@ env:
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_PROFILES_ACTIVE: demo
   S3LIBRARY_SERVICEENDPOINT: s3-eu-central-1.ionoscloud.com
+  PDFSERVICE_BASEURI: http://pdfservice.merlot.svc.cluster.local:8080
 secretEnv:
   SPRING_DATASOURCE_URL:
     name: contract-orchestrator-db
