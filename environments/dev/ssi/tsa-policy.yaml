@@ -33,8 +33,11 @@ policy:
   nats:
     url: nats
 
+#addresses:
+#  ocm: https://ocm.dev.merlot-education.eu/proof
+
 addresses:
-  ocm: https://ocm.dev.merlot-education.eu/proof
+  ocm: http://213.165.77.158:3007/v1/credentialDef
 
 ingress:
   enabled: true
