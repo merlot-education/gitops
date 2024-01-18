@@ -22,7 +22,7 @@ ssiAbstraction:
 secretEnv:
   DATABASE_URL:
     name: ssi-ocm-db
-    key: url-ssi-abstraction
+    key: url-ssi-proof
 ingress:
   frontendDomain: ocm.dev.merlot-education.eu
   annotations:
