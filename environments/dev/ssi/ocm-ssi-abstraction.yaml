@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/merlot-education/ssi-build/ocm
   name: ssi-abstraction
-  tag: "af6df03"
+  tag: "0e12539"
 log:
   level: 'DEBUG'
   encoding: json
@@ -22,7 +22,7 @@ ssiAbstraction:
 secretEnv:
   DATABASE_URL:
     name: ssi-ocm-db
-    key: url-proof
+    key: url-ssi-proof
 ingress:
   frontendDomain: ocm.dev.merlot-education.eu
   annotations:

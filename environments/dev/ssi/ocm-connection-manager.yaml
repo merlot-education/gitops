@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/merlot-education/ssi-build/ocm
   name: connection-manager
-  tag: "2c4535e"
+  tag: "0e12539"
 log:
   level: 'DEBUG'
   encoding: json
