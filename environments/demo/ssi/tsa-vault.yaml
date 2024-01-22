@@ -1,0 +1,19 @@
+fullnameOverride: vault
+
+injector:
+  enabled: false
+
+vault:
+  standalone:
+    enabled: true
+
+server:
+  authDelegator:
+    enabled: false
+  dev:
+    enabled: true
+  serviceAccount:
+    create: false
+
+ui:
+  enabled: false

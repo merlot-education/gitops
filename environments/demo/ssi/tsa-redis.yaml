@@ -1,0 +1,3 @@
+fullnameOverride: redis
+auth:
+  existingSecret: ssi-tsa-redis

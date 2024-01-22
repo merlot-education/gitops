@@ -147,3 +147,195 @@ applications:
     sourcePath: charts/merlot-edc
     helmValues:
       - "../../environments/dev/edc-lightcast.yaml"
+
+# SSI application definition starts here
+
+  - name: ssi-aas-auth-service
+    namespace: ssi-aas
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-auth-service
+        helmValues:
+          - "$values/environments/demo/ssi/aas-auth-service.yaml"
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git'
+        sourcePath: deploy/helm/Integration
+        sourceRef: b8d81a87
+
+  - name: ssi-tsa-cache
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-tsa-cache
+        helmValues:
+          - "$values/environments/demo/ssi/tsa-cache.yaml"
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/cache.git'
+        sourcePath: deployment/helm
+        sourceRef: 4ff9154c
+
+  - name: ssi-tsa-infohub
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-tsa-infohub
+        helmValues:
+          - "$values/environments/demo/ssi/tsa-infohub.yaml"
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/infohub.git'
+        sourcePath: deployment/helm
+        sourceRef: 088ec431
+
+  - name: ssi-tsa-policy
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-tsa-policy
+        helmValues:
+          - "$values/environments/demo/ssi/tsa-policy.yaml"
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git'
+        sourcePath: deployment/helm
+        sourceRef: dc0120c3
+
+  - name: ssi-tsa-signer
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-tsa-signer
+        helmValues:
+          - "$values/environments/demo/ssi/tsa-signer.yaml"
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/signer.git'
+        sourcePath: deployment/helm
+        sourceRef: 01f6b12b
+
+  - name: ssi-tsa-task
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-tsa-task
+        helmValues:
+          - "$values/environments/demo/ssi/tsa-task.yaml"
+        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/task.git'
+        sourcePath: deployment/helm
+        sourceRef: f3fdb126
+
+  - name: ssi-tsa-redis
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - repoURL: https://marketplace.azurecr.io/helm/v1/repo
+        sourceRef: ~17.3.11
+        chartName: redis
+        helmValues:
+          - $values/environments/demo/ssi/tsa-redis.yaml
+
+  - name: ssi-tsa-nats
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - repoURL: https://nats-io.github.io/k8s/helm/charts/
+        sourceRef: ~1.1.5
+        chartName: nats
+        helmValues:
+          - $values/environments/demo/ssi/tsa-nats.yaml
+
+  - name: ssi-tsa-vault
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - repoURL: https://helm.releases.hashicorp.com
+        sourceRef: ~0.26.1
+        chartName: vault
+        helmValues:
+          - $values/environments/demo/ssi/tsa-vault.yaml
+
+  - name: ssi-tsa-mongodb
+    namespace: ssi-tsa
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - repoURL: https://marketplace.azurecr.io/helm/v1/repo
+        sourceRef: ~13.3.1
+        chartName: mongodb
+        helmValues:
+          - $values/environments/demo/ssi/tsa-mongodb.yaml
+
+  - name: ssi-ocm-attestation-manager
+    namespace: ssi-ocm
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-attestation-manager
+        helmValues:
+          - "$values/environments/demo/ssi/ocm-attestation-manager.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        sourcePath: apps/attestation-manager/deployment/helm
+        sourceRef: feature/generalized-helm-chart
+
+  - name: ssi-ocm-connection-manager
+    namespace: ssi-ocm
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-connection-manager
+        helmValues:
+          - "$values/environments/demo/ssi/ocm-connection-manager.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        sourcePath: apps/connection-manager/deployment/helm
+        sourceRef: feature/generalized-helm-chart
+
+  - name: ssi-ocm-proof-manager
+    namespace: ssi-ocm
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-proof-manager
+        helmValues:
+          - "$values/environments/demo/ssi/ocm-proof-manager.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        sourcePath: apps/proof-manager/deployment/helm
+        sourceRef: feature/generalized-helm-chart
+
+  - name: ssi-ocm-ssi-abstraction
+    namespace: ssi-ocm
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-ssi-abstraction
+        helmValues:
+          - "$values/environments/demo/ssi/ocm-ssi-abstraction.yaml"
+        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        sourcePath: apps/ssi-abstraction/deployment/helm
+        sourceRef: feature/generalized-helm-chart
+
+  - name: ssi-ocm-nats
+    namespace: ssi-ocm
+    enabled: true
+    serverName: demo-cluster
+    sources:
+      - ref: values
+      - repoURL: https://nats-io.github.io/k8s/helm/charts/
+        sourceRef: ~1.1.5
+        chartName: nats
+        helmValues:
+          - $values/environments/demo/ssi/ocm-nats.yaml
