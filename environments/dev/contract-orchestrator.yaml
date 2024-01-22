@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/contract-orchestrator
-  tag: 1.10.3-e1b939d
+  tag: 1.10.3-7887d3f
 service:
   port: 8086
 env:
