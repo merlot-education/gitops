@@ -11,7 +11,7 @@ applications:
     sources:
       - ref: pgadmin
       - repoURL: https://helm.runix.net
-        sourceRef: ~1.18.0
+        sourceRef: ~1.23.0
         chartName: pgadmin4
         helmValues:
           - "$pgadmin/environments/common/pgadmin.yaml"
