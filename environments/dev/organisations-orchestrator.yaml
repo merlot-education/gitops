@@ -7,7 +7,7 @@ env:
   SERVER_SERVLET_CONTEXTPATH: /organisations
   KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
-  GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
+  GXFSWIZARDAPI_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
   GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
   GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
