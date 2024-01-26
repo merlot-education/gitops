@@ -1,6 +1,6 @@
 catalog:
-  repository: ghcr.io/merlot-education/gxfs-catalog
-  tag: 1.0.1
+  repository: ghcr.io/merlot-education/catalog-shapes/gxfs-catalog
+  tag: "d57b417"
   command: ["java", "-jar", "/opt/fc-service-server.jar"]
   envs:
     KEYCLOAK_REALM: gxfscatalog
