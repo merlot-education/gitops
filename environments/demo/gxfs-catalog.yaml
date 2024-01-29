@@ -65,4 +65,4 @@ ingress:
         - gxfscatalog.demo.merlot-education.eu
       secretName: gxfscatalog-certificate
 image:
-  tag: 1.0.1
+  tag: 63bbee2
