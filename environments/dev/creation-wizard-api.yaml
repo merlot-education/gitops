@@ -1,7 +1,7 @@
 fullnameOverride: creation-wizard-api
 image:
   repository: ghcr.io/merlot-education/catalog-shapes/sd-creation-wizard-api
-  tag: "1d19c69"
+  tag: "a73c81e"
 service:
   port: 8080
 ingress:
