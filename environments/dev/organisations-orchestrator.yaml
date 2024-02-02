@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/organisations-orchestrator
-  tag: 1.6.2-1f7d1e6
+  tag: 1.6.1-73ccc0f
 service:
   port: 8082
 env:
@@ -11,6 +11,8 @@ env:
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
   GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
   GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
+  INITDATA_ORGANISATIONS: /mnt/secrets/organisations-db/initial-orgas.json
+  INITDATA_CONNECTORS: /mnt/secrets/organisations-db/initial-orga-connectors.json
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
   SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
@@ -39,3 +41,4 @@ secretEnv:
     key: password
 secretVolumes:
   - secretName: orchestrator-common
+  - secretName: organisations-db
