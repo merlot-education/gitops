@@ -122,7 +122,7 @@ applications:
     serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
-      - "../../environments/dev/edc-imc.yaml"
+      - "../../environments/demo/edc-imc.yaml"
 
   - name: edc-chempoint
     namespace: merlot
@@ -130,7 +130,7 @@ applications:
     serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
-      - "../../environments/dev/edc-chempoint.yaml"
+      - "../../environments/demo/edc-chempoint.yaml"
 
   - name: edc-headai
     namespace: merlot
@@ -138,7 +138,7 @@ applications:
     serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
-      - "../../environments/dev/edc-headai.yaml"
+      - "../../environments/demo/edc-headai.yaml"
 
   - name: edc-lightcast
     namespace: merlot
@@ -146,7 +146,7 @@ applications:
     serverName: demo-cluster
     sourcePath: charts/merlot-edc
     helmValues:
-      - "../../environments/dev/edc-lightcast.yaml"
+      - "../../environments/demo/edc-lightcast.yaml"
 
 # SSI application definition starts here
 
