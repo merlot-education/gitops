@@ -15,6 +15,17 @@ applications:
         name: marketplace
       - sourcePath: "app-decorators/dispatch-cypress"
 
+  - name: credential-issuer-frontend
+    namespace: merlot
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - helmValues:
+          - "../../environments/dev/credential-issuer-frontend.yaml"
+        sourcePath: charts/credential-issuer-frontend
+        name: credential-issuer-frontend
+      - sourcePath: "app-decorators/dispatch-cypress"
+
   - name: keycloak
     namespace: keycloak
     enabled: true
