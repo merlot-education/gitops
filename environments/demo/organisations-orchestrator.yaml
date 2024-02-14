@@ -11,6 +11,7 @@ env:
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
   GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
   GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
+  GXFSCATALOG_VERIFICATIONMETHOD: did:web:merlot-education.eu
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
   SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
