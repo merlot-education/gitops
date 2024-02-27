@@ -40,6 +40,12 @@ secretEnv:
   SPRING_DATASOURCE_PASSWORD:
     name: organisations-db
     key: password
+  EDCTOKENS_EDC1:
+    name: edc1-config
+    key: EDC_API_AUTH_KEY
+  EDCTOKENS_EDC2:
+    name: edc2-config
+    key: EDC_API_AUTH_KEY
 secretVolumes:
   - secretName: orchestrator-common
   - secretName: organisations-db
