@@ -12,7 +12,7 @@ env:
   GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
   GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
   GXFSCATALOG_VERIFICATIONMETHOD: did:web:marketplace.dev.merlot-education.eu
-  INITDATA_ORGANISATIONS: /mnt/secrets/organisations-db/initial-orgas.json
+  INITDATA_ORGANISATIONS: /opt/initdata/organisations/
   INITDATA_CONNECTORS: /mnt/secrets/organisations-db/initial-orga-connectors.json
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
