@@ -1,0 +1,45 @@
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      location  /auth {
+        rewrite /auth/(.*) /$1  break;
+        proxy_pass         http://daps-server.daps.svc.cluster.local:4567;
+        proxy_redirect     off;
+      }
+
+      location /.well-known {
+          rewrite /\.well-known/oauth-authorization-server/auth /auth/.well-known/oauth-authorization-server last;
+          rewrite /\.well-known/openid-configuration/auth       /auth/.well-known/openid-configuration       last;
+          rewrite /\.well-known/webfinger                       /auth/.well-known/webfinger                  last;
+          rewrite /\.well-known/jwks.json                       /auth/jwks.json                              last;
+      }      
+  hosts:
+    - host: daps.dev.merlot-education.eu
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - daps.dev.merlot-education.eu
+      secretName: daps-certificate
+
+persistence:
+  enabled: true
+  storageClass: "ionos-enterprise-ssd"  
+  accessMode: []  
+  storageSize: "2Gi"
+
+env:
+  OMEJDN_ISSUER: "https://daps.dev.merlot-education.eu/auth"
+  OMEJDN_FRONT_URL: "https://daps.dev.merlot-education.eu/auth"
+  OMEJDN_OPENID: true
+  OMEJDN_ENVIRONMENT: "development"
+  OMEJDN_ACCEPT_AUDIENCE: "idsc:IDS_CONNECTORS_ALL"
+  OMEJDN_DEFAULT_AUDIENCE: "idsc:IDS_CONNECTORS_ALL"
+  OMEJDN_ADMIN: "admin:merlot"
