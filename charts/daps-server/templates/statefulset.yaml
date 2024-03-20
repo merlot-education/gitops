@@ -1,13 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "daps-server.fullname" . }}
   labels:
     {{- include "daps-server.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  serviceName: "{{ include "daps-server.fullname" . }}"
   selector:
     matchLabels:
       {{- include "daps-server.selectorLabels" . | nindent 6 }}
@@ -77,11 +75,7 @@ spec:
             subPath: keys
           - name: config
             mountPath: /opt/script
-            subPath: script
-      volumes:
-      - name: config
-        persistentVolumeClaim:
-          claimName: {{ include "daps-server.fullname" . }}      
+            subPath: script      
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -94,3 +88,17 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  volumeClaimTemplates:
+    - apiVersion: v1	
+      kind: PersistentVolumeClaim
+      metadata:
+        name: config
+        labels:
+          {{- include "daps-server.labels" . | nindent 8 }}
+      spec:
+        accessModes:
+          - {{ .Values.persistence.accessMode | default "ReadWriteOnce" }}
+        storageClassName: {{ .Values.persistence.storageClass }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.storageSize }}  
