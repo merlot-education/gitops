@@ -110,6 +110,17 @@ applications:
         name: serviceoffering-orchestrator
       - sourcePath: "app-decorators/dispatch-cypress"
 
+  - name: didservice-orchestrator
+    namespace: merlot
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - helmValues:
+          - "../../environments/dev/didservice-orchestrator.yaml"
+        sourcePath: charts/orchestrator
+        name: didservice-orchestrator
+      - sourcePath: "app-decorators/dispatch-cypress"
+
   - name: contract-orchestrator
     namespace: merlot
     enabled: true
@@ -186,7 +197,7 @@ applications:
     sourcePath: charts/daps-server
     helmValues:
       - "../../environments/dev/daps-server.yaml"
-      
+
   # SSI application definition starts here
 
   - name: ssi-aas-auth-service

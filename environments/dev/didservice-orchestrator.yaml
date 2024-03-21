@@ -1,0 +1,25 @@
+image:
+  repository: ghcr.io/merlot-education/did-service
+  tag: 0.0.1-f8a9bbd
+service:
+  port: 8088
+env:
+  SERVER_SERVLET_CONTEXT-PATH: /did-service    
+  SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
+  SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
+  SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
+  SPRING_RABBITMQ_PORT: "5672"
+  SPRING_RABBITMQ_USERNAME: admin
+  SPRING_RABBITMQ_PASSWORD: admin
+  SPRING_PROFILES_ACTIVE: dev
+secretEnv:
+  SPRING_DATASOURCE_URL:
+    name: did-service-db
+    key: jdbc
+  SPRING_DATASOURCE_USERNAME:
+    name: did-service-db
+    key: username
+  SPRING_DATASOURCE_PASSWORD:
+    name: did-service-db
+    key: password
+
