@@ -32,7 +32,7 @@ ingresses:
           - path: /did-service
             pathType: ImplementationSpecific
             serviceName: didservice-orchestrator
-            servicePort: 8088
+            servicePort: 443
     tls:
       - hosts:
           - api.dev.merlot-education.eu
