@@ -2,7 +2,7 @@ image:
   repository: ghcr.io/merlot-education/did-service
   tag: 0.0.1-0a460be
 service:
-  port: 443
+  port: 8088
 env:
   SERVER_SERVLET_CONTEXT-PATH: /did-service    
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
