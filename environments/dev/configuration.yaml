@@ -26,6 +26,17 @@ applications:
         name: credential-issuer-frontend
       - sourcePath: "app-decorators/dispatch-cypress"
 
+  - name: mock-ses
+    namespace: merlot
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - helmValues:
+          - "../../environments/dev/mock-ses.yaml"
+        sourcePath: charts/mock-ses
+        name: mock-ses
+      - sourcePath: "app-decorators/dispatch-cypress"
+  
   - name: keycloak
     namespace: keycloak
     enabled: true
