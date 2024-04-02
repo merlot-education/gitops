@@ -25,7 +25,6 @@ server:
   OMEJDN_ENVIRONMENT: "development"
   OMEJDN_ACCEPT_AUDIENCE: "idsc:IDS_CONNECTORS_ALL"
   OMEJDN_DEFAULT_AUDIENCE: "idsc:IDS_CONNECTORS_ALL"
-  OMEJDN_ADMIN: "admin:merlot"
   # volumeMounts:
   #   - name: config-volume
   #     mountPath: /opt/config
