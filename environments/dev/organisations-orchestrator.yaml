@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/organisations-orchestrator
-  tag: 1.6.9-2a3a3d1
+  tag: 1.6.9-99294a3
 service:
   port: 8082
 env:
