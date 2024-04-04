@@ -12,7 +12,7 @@ ingress:
     nginx.ingress.kubernetes.io/server-snippet: |
       location  /auth {
         rewrite /auth/(.*) /$1  break;
-        proxy_pass         http://daps-server.daps.svc.cluster.local:4567;
+        proxy_pass         http://daps-server.merlot.svc.cluster.local:4567;
         proxy_redirect     off;
       }
 
