@@ -202,7 +202,7 @@ applications:
       - "../../environments/dev/edc-lightcast.yaml"
 
   - name: daps-server
-    namespace: daps
+    namespace: merlot
     enabled: true
     serverName: dev-cluster
     sourcePath: charts/daps-server
