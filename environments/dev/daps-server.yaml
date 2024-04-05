@@ -28,6 +28,7 @@ env:
   OMEJDN_ISSUER: "https://daps.dev.merlot-education.eu/auth"
   OMEJDN_FRONT_URL: "https://daps.dev.merlot-education.eu/auth"
   OMEJDN_OPENID: true
+  OMEJDN_PLUGINS: "config/plugins.yml"
   OMEJDN_ENVIRONMENT: "development"
   OMEJDN_ACCEPT_AUDIENCE: "idsc:IDS_CONNECTORS_ALL"
   OMEJDN_DEFAULT_AUDIENCE: "idsc:IDS_CONNECTORS_ALL"

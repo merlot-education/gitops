@@ -72,10 +72,7 @@ spec:
             subPath: config
           - name: config
             mountPath: /opt/keys
-            subPath: keys
-          - name: config
-            mountPath: /opt/script
-            subPath: script      
+            subPath: keys          
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
