@@ -9,7 +9,27 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    nginx.ingress.kubernetes.io/server-snippet: "location  /auth {\n  rewrite /auth/(.*) /$1  break;\n  proxy_pass         http://daps-server.merlot.svc.cluster.local:4567;\n  proxy_redirect     off;\n}\n\nlocation /.well-known {\n    rewrite /\\.well-known/oauth-authorization-server/auth /auth/.well-known/oauth-authorization-server last;\n    rewrite /\\.well-known/openid-configuration/auth       /auth/.well-known/openid-configuration       last;\n    rewrite /\\.well-known/webfinger                       /auth/.well-known/webfinger                  last;\n    rewrite /\\.well-known/jwks.json                       /auth/jwks.json                              last;\n}      \n"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      location  /auth {
+        rewrite /auth/(.*) /$1  break;
+        proxy_pass         http://daps-server.merlot.svc.cluster.local:4567;
+        proxy_redirect     off;
+      }
+
+      location /.well-known {
+          rewrite /\.well-known/oauth-authorization-server/auth /auth/.well-known/oauth-authorization-server last;
+          rewrite /\.well-known/openid-configuration/auth       /auth/.well-known/openid-configuration       last;
+          rewrite /\.well-known/webfinger                       /auth/.well-known/webfinger                  last;
+          rewrite /\.well-known/jwks.json                       /auth/jwks.json                              last;
+      }
+
+      location /api/v1/connectors {        
+        allow 10.0.0.0/8;
+        deny all;
+
+        proxy_pass         http://daps-server.merlot.svc.cluster.local:4567;
+        proxy_redirect     off;
+      }      
   hosts:
     - host: daps.dev.merlot-education.eu
       paths:
