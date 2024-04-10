@@ -3,15 +3,24 @@ fullnameOverride: edc-1
 image:
   repository: ghcr.io/merlot-education/merlot-edc
   pullPolicy: IfNotPresent
-  tag: "554ff72"
+  tag: "b6368e1"
 
 serviceAccount:
   create: false
   name: edc
 
 env:
-  EDC_PARTICIPANT_ID: edc1
-  EDC_DSP_CALLBACK_ADDRESS: http://edc-1.merlot.svc.cluster.local/protocol
+  EDC_DSP_CALLBACK_ADDRESS: https://daps.dev.merlot-education.eu/auth/token
   EDC_FS_CONFIG: /opt/config/edc.properties
+  EDC_KEYSTORE: /mnt/secrets/edc1-config/keystore.pfx
+  EDC_VAULT: /opt/vault.properties
+  EDC_OAUTH_PROVIDER_JWKS_URL: https://daps.dev.merlot-education.eu/auth/jwks.json
+  EDC_OAUTH_TOKEN_URL: DAPS_TOKEN_URL
+  EDC_OAUTH_PROVIDER_AUDIENCE: idsc:IDS_CONNECTORS_ALL
+  EDC_IAM_TOKEN_SCOPE: idsc:IDS_CONNECTOR_ATTRIBUTES_ALL
+  EDC_OAUTH_CERTIFICATE_ALIAS: 1
+  EDC_OAUTH_PRIVATE_KEY_ALIAS: 1
 envFromSecret:
   - edc1-config
+secretVolumes:
+  - secretName: edc1-config
