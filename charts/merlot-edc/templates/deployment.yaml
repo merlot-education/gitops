@@ -34,11 +34,11 @@ spec:
           command:
             - "sh"
             - "-c"
-            - >
-              echo "Starting...";
+            - |
+              echo "Starting..."
               file_path=$(find /mnt/secrets -name "keystore.pfx" -print -quit);              
               if [ -n "$file_path" ]; then
-                echo "Found certificate at $file_path";
+                echo "Found certificate"
                 base64 -d "$file_path" > "/mnt/secrets/keystore_decoded.pfx" 2>/dev/null || cp "$file_path" "/mnt/secrets/keystore_decoded.pfx";
               fi
               echo "Done...";
