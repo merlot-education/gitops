@@ -118,3 +118,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secretVolumes: {}
+#  - secretName: secret-a

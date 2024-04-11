@@ -82,9 +82,22 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+          {{- with .Values.secretVolumes }}
+            {{- range . }}
+            - name: {{ .secretName }}
+              mountPath: /mnt/secrets/{{ .secretName }}
+            {{- end }}
+          {{- end }}
             - name: properties
               mountPath: /opt/config
       volumes:
+      {{- with .Values.secretVolumes }}
+        {{- range . }}
+        - name: {{ .secretName }}
+          secret:
+            secretName: {{ .secretName }}
+        {{- end }}
+      {{- end }}
         - name: properties
           configMap:
             name: {{ include "merlot-edc.fullname" . }}
