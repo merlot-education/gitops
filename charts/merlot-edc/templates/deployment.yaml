@@ -28,6 +28,26 @@ spec:
       serviceAccountName: {{ include "merlot-edc.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: init-decode-secret
+          image: busybox
+          command:
+            - "sh"
+            - "-c"
+            - >
+              file_path=$(find /mnt/secrets -name "keystore.pfx" -print -quit);
+              if [ -n "$file_path" ]; then
+                base64 -d "$file_path" > "/mnt/secrets/keystore_decoded.pfx" 2>/dev/null || cp "$file_path" "/mnt/secrets/keystore_decoded.pfx";
+              fi
+          volumeMounts:
+          {{- with .Values.secretVolumes }}
+            {{- range . }}
+            - name: {{ .secretName }}
+              mountPath: /mnt/secrets/{{ .secretName }}
+            {{- end }}            
+          {{- end }}
+            - name: decoded-secret
+              mountPath: /mnt/decoded
       containers:
         - name: reverse-proxy
           image: {{ .Values.nginx.image }}:{{ .Values.nginx.tag | default "latest" }}
@@ -86,8 +106,10 @@ spec:
             {{- range . }}
             - name: {{ .secretName }}
               mountPath: /mnt/secrets/{{ .secretName }}
-            {{- end }}
+            {{- end }}            
           {{- end }}
+            - name: decoded-secret
+              mountPath: /mnt/decoded
             - name: properties
               mountPath: /opt/config
       volumes:
@@ -96,8 +118,10 @@ spec:
         - name: {{ .secretName }}
           secret:
             secretName: {{ .secretName }}
-        {{- end }}
+        {{- end }}        
       {{- end }}
+        - name: decoded-secret
+          emptyDir: {}
         - name: properties
           configMap:
             name: {{ include "merlot-edc.fullname" . }}
