@@ -12,7 +12,7 @@ serviceAccount:
 env:
   EDC_DSP_CALLBACK_ADDRESS: https://daps.dev.merlot-education.eu/auth/token
   EDC_FS_CONFIG: /opt/config/edc.properties
-  EDC_KEYSTORE: /mnt/secrets/edc1-config/keystore.pfx
+  EDC_KEYSTORE: /mnt/decoded/keystore.pfx
   EDC_VAULT: /opt/vault.properties
   EDC_OAUTH_PROVIDER_JWKS_URL: https://daps.dev.merlot-education.eu/auth/jwks.json
   EDC_OAUTH_TOKEN_URL: DAPS_TOKEN_URL
