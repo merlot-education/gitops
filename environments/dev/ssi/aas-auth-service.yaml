@@ -10,8 +10,6 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: "128m"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:4200, https://localhost:4200, https://marketplace.dev.merlot-education.eu/"
     cert-manager.io/cluster-issuer: "letsencrypt-production"
   hosts:
     - host: auth-service.dev.merlot-education.eu
