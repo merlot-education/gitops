@@ -2,7 +2,7 @@ externalSecrets: true
 image:
   repository: ghcr.io/merlot-education/ssi-build/aas
   name: auth-service
-  tag: c64580ea37990711a0e675f0b3ba19cfbbf908bd
+  tag: efac4b8a762669021570ba2d0293bb4abeb4d6ba
 ingress:
   enabled: true
   annotations:
