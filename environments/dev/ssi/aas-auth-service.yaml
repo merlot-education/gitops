@@ -4,7 +4,7 @@ image:
   name: auth-service
   tag: 74f1ef5
 env:
-  CORS_GLOBAL_ORIGINS: "*"
+  CORS_GLOBAL_ORIGINS: https://marketplace.dev.merlot-education.eu
   POSTLOGOUTREDIRECTURI: https://marketplace.dev.merlot-education.eu
 ingress:
   enabled: true
