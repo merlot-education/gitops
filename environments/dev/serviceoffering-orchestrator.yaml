@@ -12,7 +12,6 @@ env:
   GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
   GXFSCATALOG_VERIFICATIONMETHOD: did:web:marketplace.dev.merlot-education.eu
   ORGANIZATIONSORCHESTRATOR_BASEURI: http://organisations-orchestrator.merlot.svc.cluster.local:8082/organisations
-  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.dev.merlot-education.eu/realms/POC1
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
   SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
