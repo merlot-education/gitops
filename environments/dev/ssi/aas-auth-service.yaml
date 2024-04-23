@@ -2,7 +2,9 @@ externalSecrets: true
 image:
   repository: ghcr.io/merlot-education/ssi-build/aas
   name: auth-service
-  tag: efac4b8a762669021570ba2d0293bb4abeb4d6ba
+  tag: 7d629cd
+env:
+  CORS_GLOBAL_ORIGINS: https://marketplace.demo.merlot-education.eu
 ingress:
   enabled: true
   annotations:
@@ -11,8 +13,6 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://marketplace.dev.merlot-education.eu/"
   hosts:
     - host: auth-service.dev.merlot-education.eu
       paths:
