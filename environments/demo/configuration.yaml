@@ -84,6 +84,14 @@ applications:
     helmValues:
       - "../../environments/demo/serviceoffering-orchestrator.yaml"
 
+  - name: didservice-orchestrator
+    namespace: merlot
+    enabled: true
+    serverName: demo-cluster
+    sourcePath: charts/orchestrator
+    helmValues:
+      - "../../environments/demo/didservice-orchestrator.yaml"    
+
   - name: contract-orchestrator
     namespace: merlot
     enabled: true
