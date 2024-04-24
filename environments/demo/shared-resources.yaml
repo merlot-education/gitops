@@ -29,6 +29,10 @@ ingresses:
             pathType: ImplementationSpecific
             serviceName: contract-orchestrator
             servicePort: 8086
+          - path: /did-service
+            pathType: ImplementationSpecific
+            serviceName: didservice-orchestrator
+            servicePort: 8088
     tls:
       - hosts:
           - api.demo.merlot-education.eu
