@@ -148,6 +148,14 @@ applications:
     helmValues:
       - "../../environments/demo/edc-lightcast.yaml"
 
+  - name: daps-server
+    namespace: merlot
+    enabled: true
+    serverName: demo-cluster
+    sourcePath: charts/daps-server
+    helmValues:
+      - "../../environments/demo/daps-server.yaml"
+
 # SSI application definition starts here
 
   - name: ssi-aas-auth-service
