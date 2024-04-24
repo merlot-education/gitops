@@ -12,6 +12,22 @@ applications:
     helmValues:
       - "../../environments/demo/marketplace.yaml"
 
+  - name: credential-issuer-frontend
+    namespace: merlot
+    enabled: true
+    sourcePath: charts/credential-issuer-frontend
+    serverName: demo-cluster
+    helmValues:
+      - "../../environments/demo/credential-issuer-frontend.yaml"
+  
+  - name: mock-ses
+    namespace: merlot
+    enabled: true
+    sourcePath: charts/mock-ses
+    serverName: demo-cluster
+    helmValues:
+      - "../../environments/demo/mock-ses.yaml"      
+
   - name: keycloak
     namespace: keycloak
     enabled: true
