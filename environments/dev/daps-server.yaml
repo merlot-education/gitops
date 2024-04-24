@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/omejdn-plugins
-  tag: 0.0.1-70cb288
+  tag: 0.1.0-75dedb4
 ingress:
   enabled: true
   annotations:
