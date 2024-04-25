@@ -7,11 +7,16 @@ env:
   SERVER_SERVLET_CONTEXTPATH: /organisations
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
   SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/POC1
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI: https://sso.demo.merlot-education.eu/realms/POC1/protocol/openid-connect/certs
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_USERINFOURI:
+  JWTAUTHCONVERTER: keycloakJwtAuthConverter
   GXFSWIZARD_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
   GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
   GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
-  GXFSCATALOG_VERIFICATIONMETHOD: did:web:merlot-education.eu
+  GXFSCATALOG_VERIFICATIONMETHOD: did:web:marketplace.demo.merlot-education.eu
+  INITDATA_ORGANISATIONS: /opt/initdata/organisations/
+  INITDATA_CONNECTORS: /mnt/secrets/organisations-db/initial-orga-connectors.json
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
   SPRING_JPA_DATABASEPLATFORM: org.hibernate.dialect.PostgreSQLDialect
   SPRING_RABBITMQ_HOST: rabbitmq.rabbitmq.svc.cluster.local
@@ -38,5 +43,14 @@ secretEnv:
   SPRING_DATASOURCE_PASSWORD:
     name: organisations-db
     key: password
+  DB_ENCRYPTION_KEY:
+    name: organisations-db
+    key: encryptionKey
+  EDCTOKENS_EDC1:
+    name: edc1-config
+    key: EDC_API_AUTH_KEY
+  EDCTOKENS_EDC2:
+    name: edc2-config
+    key: EDC_API_AUTH_KEY
 secretVolumes:
   - secretName: orchestrator-common
