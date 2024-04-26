@@ -1,6 +1,6 @@
 catalog:
-  repository: ghcr.io/merlot-education/gxfs-catalog
-  tag: 1.0.1
+  repository: ghcr.io/merlot-education/catalog-shapes/gxfs-catalog
+  tag: "916d293"
   command: ["java", "-jar", "/opt/fc-service-server.jar"]
   envs:
     KEYCLOAK_REALM: gxfscatalog
@@ -8,6 +8,7 @@ catalog:
     SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI: https://sso.demo.merlot-education.eu/realms/gxfscatalog
     FEDERATEDCATALOGUE_VERIFICATION_PARTICIPANT_TYPE: http://w3id.org/gaia-x/core#Participant
     FEDERATEDCATALOGUE_VERIFICATION_SERVICEOFFERING_TYPE: http://w3id.org/gaia-x/core#ServiceOffering
+    FEDERATEDCATALOGUE_VERIFICATION_TRUSTANCHORURL: ""
   secretEnv:
     GRAPHSTORE_USER:
       name: neo4j-db
