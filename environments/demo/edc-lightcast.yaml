@@ -3,15 +3,23 @@ fullnameOverride: edc-lightcast
 image:
   repository: ghcr.io/merlot-education/merlot-edc
   pullPolicy: IfNotPresent
-  tag: "4bcd696"
+  tag: "b6368e1"
 
 serviceAccount:
   create: false
   name: edc
 
 env:
-  EDC_PARTICIPANT_ID: edc-lightcast
   EDC_DSP_CALLBACK_ADDRESS: http://edc-lightcast.merlot.svc.cluster.local/protocol
   EDC_FS_CONFIG: /opt/config/edc.properties
+  EDC_KEYSTORE: /mnt/decoded/keystore.pfx
+  EDC_VAULT: /opt/vault.properties
+  EDC_OAUTH_PROVIDER_JWKS_URL: https://daps.demo.merlot-education.eu/auth/jwks.json
+  EDC_OAUTH_TOKEN_URL: https://daps.demo.merlot-education.eu/auth/token
+  EDC_OAUTH_PROVIDER_AUDIENCE: idsc:IDS_CONNECTORS_ALL
+  EDC_OAUTH_CERTIFICATE_ALIAS: 1
+  EDC_OAUTH_PRIVATE_KEY_ALIAS: 1
 envFromSecret:
   - edc-lightcast-config
+secretVolumes:
+  - secretName: edc-lightcast-config
