@@ -54,3 +54,4 @@ secretEnv:
     key: EDC_API_AUTH_KEY
 secretVolumes:
   - secretName: orchestrator-common
+  - secretName: organisations-db
