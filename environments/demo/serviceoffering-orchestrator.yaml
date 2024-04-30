@@ -6,6 +6,10 @@ service:
 env:
   SERVER_SERVLET_CONTEXT-PATH: /serviceoffering
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://sso.demo.merlot-education.eu/realms/POC1
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI: https://sso.demo.merlot-education.eu/realms/POC1/protocol/openid-connect/certs
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_USERINFOURI:
+  JWTAUTHCONVERTER: keycloakJwtAuthConverter
   GXFSWIZARDAPI_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASE-URI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
   GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
