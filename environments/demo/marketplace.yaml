@@ -1,6 +1,6 @@
 image:
   pullPolicy: IfNotPresent
-  tag: 1.11.4
+  tag: 1.11.5-demo-keycloak
 ingress:
   enabled: true
   annotations:
