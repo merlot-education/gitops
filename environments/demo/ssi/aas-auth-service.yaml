@@ -25,6 +25,13 @@ ingress:
       secretName: auth-service-certificate
 
 properties:
+logging:
+    level:
+      root: DEBUG
+      tsclaims: DEBUG
+      org.springframework.web: DEBUG
+      org.springframework.security: DEBUG
+      eu.gaiax.difs.aas: DEBUG
   aas:
     tsa:
       url: http://policy.ssi-tsa:8080
