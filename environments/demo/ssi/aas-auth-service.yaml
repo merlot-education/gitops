@@ -34,13 +34,12 @@ properties:
       eu.gaiax.difs.aas: DEBUG
   aas:
     tsa:
-      url: http://policy.ssi-tsa:8080
+      url: http://policy.ssi-tsa:8080/policy
       group: example
       action: evaluation
-      version: 1.0
       version: "1.0"
       duration: 30000
-      delay: 500 # in milliseconds
+      delay: 5000
       request:
         count: 2
       statuses:
@@ -49,6 +48,8 @@ properties:
       
     oidc:
       issuer: https://auth-service.demo.merlot-education.eu
+    token:
+      ttl: 5m
     scopes:
       openid:
         - sub
