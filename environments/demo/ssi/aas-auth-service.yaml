@@ -34,7 +34,7 @@ properties:
       eu.gaiax.difs.aas: DEBUG
   aas:
     tsa:
-      url: http://policy.ssi-tsa:8080/policy/policy
+      url: http://policy.ssi-tsa:8080/policy
       group: example
       action: evaluation
       version: "1.0"
