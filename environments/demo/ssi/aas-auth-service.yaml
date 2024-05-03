@@ -36,6 +36,7 @@ properties:
     tsa:
       url: http://policy.ssi-tsa:8080/policy
       group: example
+      repo: policy
       action: evaluation
       version: "1.0"
       duration: 30000
