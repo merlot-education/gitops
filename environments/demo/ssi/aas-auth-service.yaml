@@ -40,7 +40,7 @@ properties:
       action: evaluation
       version: "1.0"
       duration: 30000
-      delay: 5000
+      delay: 500
       request:
         count: 2
       statuses:
