@@ -35,8 +35,18 @@ properties:
   aas:
     tsa:
       url: http://policy.ssi-tsa:8080
+      group: example
+      action: evaluation
+      version: 1.0
       version: "1.0"
       duration: 30000
+      delay: 500 # in milliseconds
+      request:
+        count: 2
+      statuses:
+        GetLoginProofResult: ACCEPTED
+        GetIatProofResult: ACCEPTED
+      
     oidc:
       issuer: https://auth-service.demo.merlot-education.eu
     scopes:
