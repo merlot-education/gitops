@@ -25,7 +25,7 @@ ingress:
       secretName: auth-service-certificate
 
 properties:
-logging:
+  logging:
     level:
       root: DEBUG
       tsclaims: DEBUG
