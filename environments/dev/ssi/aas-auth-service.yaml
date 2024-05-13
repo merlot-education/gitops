@@ -2,8 +2,8 @@ externalSecrets: true
 image:
   repository: ghcr.io/merlot-education/ssi-build/aas
   name: auth-service
-  tag: d2cfaeabeab994a9d7d766fd54bd9f95612540aa
-  #tag: cf7572c
+  #tag: d2cfaeabeab994a9d7d766fd54bd9f95612540aa
+  tag: cf7572c
 env:
   CORS_GLOBAL_ORIGINS: https://marketplace.dev.merlot-education.eu
   POSTLOGOUTREDIRECTURI: https://marketplace.dev.merlot-education.eu
