@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/did-service
-  tag: 0.1.0-b4d32de
+  tag: 0.1.0-5e2e828
 service:
   port: 8088
 env:
