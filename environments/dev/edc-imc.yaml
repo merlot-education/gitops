@@ -3,7 +3,7 @@ fullnameOverride: edc-imc
 image:
   repository: ghcr.io/merlot-education/merlot-edc
   pullPolicy: IfNotPresent
-  tag: "b6368e1"
+  tag: "6dfb03c"
 
 serviceAccount:
   create: false
