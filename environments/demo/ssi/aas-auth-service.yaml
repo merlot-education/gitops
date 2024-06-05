@@ -39,7 +39,7 @@ properties:
       group: example
       action: evaluation
       version: "1.0"
-      duration: 30000
+      duration: 60000
       delay: 500
       request:
         count: 2
