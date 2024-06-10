@@ -11,6 +11,8 @@ env:
   GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/merlotLetsEncryptPrivateKey
   GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/merlotLetsEncryptCert
   GXFSCATALOG_VERIFICATIONMETHOD: did:web:marketplace.dev.merlot-education.eu#JWK2020
+  GXDCHSERVICES_MAXRETRIES: 10
+  GXDCHSERVICES_RETRYDELAY: 5000
   INITDATA_ORGANISATIONS: /opt/initdata/organisations/
   INITDATA_CONNECTORS: /mnt/secrets/organisations-db/initial-orga-connectors.json
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
