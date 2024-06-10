@@ -5,7 +5,6 @@ service:
   port: 8082
 env:
   SERVER_SERVLET_CONTEXTPATH: /organisations
-  LOGGING_LEVEL_ROOT: DEBUG
   KEYCLOAK_BASEURI: https://sso.dev.merlot-education.eu
   GXFSWIZARDAPI_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
