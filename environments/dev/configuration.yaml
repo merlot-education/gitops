@@ -400,3 +400,13 @@ applications:
         chartName: nats
         helmValues:
           - $values/environments/dev/ssi/ocm-nats.yaml
+
+  - name: ocm-command-center
+    namespace: ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - helmValues:
+          - "../../environments/dev/ocm-command-center.yaml"
+        sourcePath: charts/ocm-command-center
+        name: ocm-command-center
