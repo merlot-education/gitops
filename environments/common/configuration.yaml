@@ -15,3 +15,12 @@ applications:
         chartName: pgadmin4
         helmValues:
           - "$pgadmin/environments/common/pgadmin.yaml"
+  - name: ocm-command-center
+    namespace: common
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - helmValues:
+          - "../../environments/common/ocm-command-center.yaml"
+        sourcePath: charts/ocm-command-center
+        name: ocm-command-center
