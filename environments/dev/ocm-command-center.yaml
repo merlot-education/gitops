@@ -9,11 +9,11 @@ ingress:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-production"
   hosts:
-    - host: occ.common.merlot-education.eu
+    - host: occ.dev.merlot-education.eu
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
     - hosts:
-        - occ.common.merlot-education.eu
+        - occ.dev.merlot-education.eu
       secretName: occ-certificate
