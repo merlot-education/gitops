@@ -8,6 +8,9 @@ log:
 ssiAbstraction:
   agent:
     name: merlot-agent-dev
+    wallet:
+      id: merlot-agent-dev-wallet-id
+      key: merlot-agent-dev-wallet-key
     host: ocm.dev.merlot-education.eu
     protocol: https
     peerPort: 443
