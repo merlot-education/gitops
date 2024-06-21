@@ -23,7 +23,7 @@ secretEnv:
     name: ssi-tsa-mongodb
     key: mongodb-root-password
 
-extraVars:
+env:
   - name: BASEURL
     value: "https://api.dev.merlot-education.eu"
   - name: PATHURL
