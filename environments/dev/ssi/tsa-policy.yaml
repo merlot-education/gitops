@@ -22,12 +22,12 @@ secretEnv:
   MONGO_PASS:
     name: ssi-tsa-mongodb
     key: mongodb-root-password
-
-env:
-  - name: BASEURL
-    value: "https://api.dev.merlot-education.eu"
-  - name: PATHURL
-    value: "organisations/organization/agentDids"
+  BASEURL:
+    name: ssi-tsa-mongodb
+    key: mpo-api-baseurl
+  PATHURL:
+    name: ssi-tsa-mongodb
+    key: mpo-api-pathurl
 
 
 #  -  name: POLICY_REPOSITORY_CLONE_URL
