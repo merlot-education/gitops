@@ -23,9 +23,11 @@ secretEnv:
     name: ssi-tsa-mongodb
     key: mongodb-root-password
 
-env:
-  BASEURL: "https://api.dev.merlot-education.eu"
-  PATHURL: "organisations/organization/agentDids"
+extraVars:
+  - name: BASEURL
+    value: "https://api.dev.merlot-education.eu"
+  - name: PATHURL
+    value: "organisations/organization/agentDids"
 
 
 #  -  name: POLICY_REPOSITORY_CLONE_URL
