@@ -7,11 +7,7 @@ log:
   encoding: json
 ssiAbstraction:
   agent:
-    name: merlot-agent-demo
     ledgerId: BCOVRIN_TEST
-    wallet:
-      id: merlot-agent-demo-wallet-id
-      key: merlot-agent-demo-wallet-key
     host: ocm.demo.merlot-education.eu
     protocol: https
     peerPort: 443
