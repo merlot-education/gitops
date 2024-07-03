@@ -8,9 +8,9 @@ env:
   KEYCLOAK_BASEURI: https://sso.demo.merlot-education.eu
   GXFSWIZARDAPI_BASEURI: http://creation-wizard-api.merlot.svc.cluster.local:8080
   GXFSCATALOG_BASEURI: http://gxfs-catalog.gxfs.svc.cluster.local:8081
-  GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/privateKey
-  GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/cert
-  GXFSCATALOG_VERIFICATIONMETHOD: did:web:marketplace.demo.merlot-education.eu
+  GXFSCATALOG_PRIVATEKEYPATH: /mnt/secrets/orchestrator-common/merlotLetsEncryptPrivateKey
+  GXFSCATALOG_CERTPATH: /mnt/secrets/orchestrator-common/merlotLetsEncryptCert
+  GXFSCATALOG_VERIFICATIONMETHOD: did:web:marketplace.demo.merlot-education.eu#JWK2020
   INITDATA_ORGANISATIONS: /opt/initdata/organisations/
   INITDATA_CONNECTORS: /mnt/secrets/organisations-db/initial-orga-connectors.json
   SPRING_DATASOURCE_DRIVERCLASSNAME: org.postgresql.Driver
