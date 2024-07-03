@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/did-service
-  tag: 0.1.0
+  tag: 2.0.0
 service:
   port: 8088
 env:
@@ -12,6 +12,7 @@ env:
   SPRING_RABBITMQ_USERNAME: admin
   SPRING_RABBITMQ_PASSWORD: admin
   SPRING_PROFILES_ACTIVE: demo
+  MERLOTCERTPATH: /mnt/secrets/orchestrator-common/merlotLetsEncryptCert
 secretEnv:
   SPRING_DATASOURCE_URL:
     name: did-service-db
@@ -22,3 +23,5 @@ secretEnv:
   SPRING_DATASOURCE_PASSWORD:
     name: did-service-db
     key: password
+secretVolumes:
+  - secretName: orchestrator-common
