@@ -3,7 +3,7 @@ fullnameOverride: edc-headai
 image:
   repository: ghcr.io/merlot-education/merlot-edc
   pullPolicy: IfNotPresent
-  tag: "6dfb03c"
+  tag: "1998a78"
 
 serviceAccount:
   create: false
