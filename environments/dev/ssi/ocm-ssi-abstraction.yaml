@@ -8,7 +8,7 @@ log:
 ssiAbstraction:
   agent:
     ledgerId: BCOVRIN_TEST
-    publicDidSeed: 6b8b882e2618fa5d45ee7229ca880055
+    #publicDidSeed: 6b8b882e2618fa5d45ee7229ca880055
     host: ocm.dev.merlot-education.eu
     protocol: https
     peerPort: 443
