@@ -8,7 +8,7 @@ log:
 ssiAbstraction:
   agent:
     ledgerId: BCOVRIN_TEST
-    publicDidSeed: 6b8b882e2618fa5d45ee7229ca880055
+    #publicDidSeed: 6b8b882e2618fa5d45ee7229ca880055
     host: ocm.dev.merlot-education.eu
     protocol: https
     peerPort: 443
@@ -24,9 +24,9 @@ secretEnv:
   DATABASE_URL:
     name: ssi-ocm-db
     key: url-proof
-  #AGENT_PUBLIC_DID_SEED:
-    #name: ssi-ocm-db
-    #key: did-seed
+  AGENT_PUBLIC_DID_SEED:
+    name: ssi-ocm-db
+    key: did-seed
 ingress:
   frontendDomain: ocm.dev.merlot-education.eu
   annotations:
