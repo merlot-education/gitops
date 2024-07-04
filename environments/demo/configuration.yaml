@@ -191,7 +191,7 @@ applications:
       - name: ssi-auth-service
         helmValues:
           - "$values/environments/demo/ssi/aas-auth-service.yaml"
-        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/authenticationauthorization.git'
+        repoURL: 'https://github.com/merlot-education/merlot-aas.git'
         sourcePath: deploy/helm/Integration
         sourceRef: b8d81a87
 
@@ -230,7 +230,7 @@ applications:
       - name: ssi-tsa-policy
         helmValues:
           - "$values/environments/demo/ssi/tsa-policy.yaml"
-        repoURL: 'https://gitlab.eclipse.org/eclipse/xfsc/tsa/policy.git'
+        repoURL: 'https://github.com/merlot-education/merlot-tsa-policy.git'
         sourcePath: deployment/helm
         sourceRef: dc0120c3
 
@@ -317,7 +317,7 @@ applications:
       - name: ssi-ocm-attestation-manager
         helmValues:
           - "$values/environments/demo/ssi/ocm-attestation-manager.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/attestation-manager/deployment/helm
         sourceRef: feature/generalized-helm-chart
 
@@ -330,7 +330,7 @@ applications:
       - name: ssi-ocm-connection-manager
         helmValues:
           - "$values/environments/demo/ssi/ocm-connection-manager.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/connection-manager/deployment/helm
         sourceRef: feature/generalized-helm-chart
 
@@ -343,7 +343,7 @@ applications:
       - name: ssi-ocm-proof-manager
         helmValues:
           - "$values/environments/demo/ssi/ocm-proof-manager.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/proof-manager/deployment/helm
         sourceRef: feature/generalized-helm-chart
 
@@ -356,7 +356,7 @@ applications:
       - name: ssi-ocm-ssi-abstraction
         helmValues:
           - "$values/environments/demo/ssi/ocm-ssi-abstraction.yaml"
-        repoURL: 'https://gitlab.eclipse.org/mjuergenscg/ocm-engine.git'
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/ssi-abstraction/deployment/helm
         sourceRef: feature/generalized-helm-chart
 
