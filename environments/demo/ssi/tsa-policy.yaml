@@ -22,10 +22,10 @@ secretEnv:
   MONGO_PASS:
     name: ssi-tsa-mongodb
     key: mongodb-root-password
-  BASEURL:
+  BASEURL_DID_AUTH:
     name: ssi-tsa-mongodb
     key: mpo-api-baseurl
-  PATHURL:
+  PATHURL_DID_AUTH:
     name: ssi-tsa-mongodb
     key: mpo-api-pathurl
 
