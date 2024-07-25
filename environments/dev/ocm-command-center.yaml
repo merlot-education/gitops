@@ -1,5 +1,5 @@
 image:
-  tag: 0.0.0-4517dbe
+  tag: 0.0.0-3487906
 ingress:
   enabled: true
   annotations:
