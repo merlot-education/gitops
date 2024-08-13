@@ -1,22 +1,46 @@
-# Default values for merlot-edc.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 1
 
 image:
   repository: ghcr.io/merlot-education/merlot-edc
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: 773a952
-
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+  tag: e6190ae
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   port: 80
+
+env:
+  EDC_PARTICIPANT_ID: # DAPS Client ID
+  WEB_HTTP_PORT: 9191
+  WEB_HTTP_PATH: /api
+  WEB_HTTP_MANAGEMENT_PORT: 9192
+  WEB_HTTP_MANAGEMENT_PATH: /management
+  WEB_HTTP_PROTOCOL_PORT: 9193
+  WEB_HTTP_PROTOCOL_PATH: /protocol
+  WEB_HTTP_PUBLIC_PORT: 9194
+  WEB_HTTP_PUBLIC_PATH: /public
+  WEB_HTTP_CONTROL_PORT: 9195
+  WEB_HTTP_CONTROL_PATH: /control
+  EDC_DSP_CALLBACK_ADDRESS: http://localhost:9193/protocol
+  EDC_VAULT: /opt/vault/vault.properties
+  EDC_KEYSTORE: /opt/config/keystore.pfx
+  EDC_OAUTH_CLIENT_ID: # DAPS Client ID
+  EDC_OAUTH_PROVIDER_JWKS_URL: # DAPS JWKS URL
+  EDC_OAUTH_TOKEN_URL: # DAPS Token URL
+  EDC_OAUTH_PROVIDER_AUDIENCE: idsc:IDS_CONNECTORS_ALL
+  EDC_OAUTH_CERTIFICATE_ALIAS: 1
+  EDC_OAUTH_PRIVATE_KEY_ALIAS: 1
+  EDC_IAM_TOKEN_SCOPE: idsc:IDS_CONNECTOR_ATTRIBUTES_ALL
+  EDC_IONOS_ENDPOINT: # IONOS S3 Endpoint
+envFromSecret:
+  - merlot-edc-config
+
+secrets:
+  EDC_API_AUTH_KEY: # Connector API Auth Key
+  EDC_KEYSTORE_PASSWORD: # Keystore Password
+  EDC_IONOS_ACCESS_KEY: # IONOS S3 Access Key
+  EDC_IONOS_SECRET_KEY: # IONOS S3 Secret Key
+  EDC_IONOS_TOKEN: # IONOS API Token
 
 edc:
   ports:
@@ -30,94 +54,12 @@ edc:
       port: 9194
     - name: control
       port: 9195
-  properties: |
-    edc.ionos.endpoint=s3-eu-central-1.ionoscloud.com
-    edc.vault.hashicorp.timeout.seconds=30
-
-    web.http.port=9191
-    web.http.path=/api
-    web.http.management.port=9192
-    web.http.management.path=/management
-    web.http.protocol.port=9193
-    web.http.protocol.path=/protocol
-    web.http.public.port=9194
-    web.http.public.path=/public
-    web.http.control.port=9195
-    web.http.control.path=/control
+  keystore: # Keystore encoded as Base64
 
 nginx:
   image: nginx
   tag: 1.25.1
 
 serviceAccount:
-  # Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
-env: {}
-envFromSecret: []
-
-podAnnotations: {}
-
-podSecurityContext:
-  {}
-  # fsGroup: 2000
-
-securityContext:
-  {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
-ingress:
-  enabled: false
-  className: ""
-  annotations:
-    {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
-resources:
-  {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
-secretVolumes: {}
-#  - secretName: secret-a
+  name: merlot-edc

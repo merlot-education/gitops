@@ -27,30 +27,14 @@ spec:
       {{- end }}
       serviceAccountName: {{ include "merlot-edc.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}      
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-        - name: init-decode-secret
+        - name: init-vault
           image: busybox
-          command:
-            - "sh"
-            - "-c"
-            - |
-              echo "Starting..."
-              file_path=$(find /mnt/secrets -name "keystore.pfx" -print -quit);              
-              if [ -n "$file_path" ]; then
-                echo "Found certificate"
-                base64 -d "$file_path" > "/mnt/decoded/keystore.pfx" 2>/dev/null || cp "$file_path" "/mnt/decoded/keystore.pfx";
-              fi
-              echo "Done...";
+          command: ["touch", "/opt/vault/vault.properties"]
           volumeMounts:
-          {{- with .Values.secretVolumes }}
-            {{- range . }}
-            - name: {{ .secretName }}
-              mountPath: /mnt/secrets/{{ .secretName }}
-            {{- end }}            
-          {{- end }}
-            - name: decoded-secret
-              mountPath: /mnt/decoded
+            - name: vault
+              mountPath: /opt/vault
       containers:
         - name: reverse-proxy
           image: {{ .Values.nginx.image }}:{{ .Values.nginx.tag | default "latest" }}
@@ -80,14 +64,18 @@ spec:
           args:
             {{- toYaml .Values.args | nindent 12 }}
           {{- end }}
-          #livenessProbe:
-          #  httpGet:
-          #    path: /
-          #    port: http
-          #readinessProbe:
-          #  httpGet:
-          #    path: /
-          #    port: http
+          livenessProbe:
+            httpGet:
+              path: /api/check/health
+              port: api
+            initialDelaySeconds: 60
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/check/health
+              port: api
+            initialDelaySeconds: 60
+            periodSeconds: 30
           {{- if .Values.env }}
           env:
             {{- range $key, $value := .Values.env }}
@@ -105,32 +93,17 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-          {{- with .Values.secretVolumes }}
-            {{- range . }}
-            - name: {{ .secretName }}
-              mountPath: /mnt/secrets/{{ .secretName }}
-            {{- end }}            
-          {{- end }}
-            - name: decoded-secret
-              mountPath: /mnt/decoded
-            - name: properties
-              mountPath: /opt/config
+            - name: vault
+              mountPath: /opt/vault
+            - name: keystore
+              mountPath: /opt/config/keystore.pfx
+              subPath: keystore.pfx
       volumes:
-      {{- with .Values.secretVolumes }}
-        {{- range . }}
-        - name: {{ .secretName }}
-          secret:
-            secretName: {{ .secretName }}
-        {{- end }}        
-      {{- end }}
-        - name: decoded-secret
+        - name: vault          
           emptyDir: {}
-        - name: properties
-          configMap:
-            name: {{ include "merlot-edc.fullname" . }}
-            items:
-            - key: edc.properties
-              path: edc.properties
+        - name: keystore
+          secret:
+            secretName: {{ include "merlot-edc.fullname" . }}-keystore
         - name: nginx-conf
           configMap:
             name: {{ .Release.Name }}-nginx-conf
