@@ -5,5 +5,5 @@ metadata:
   labels:
     {{- include "merlot-edc.labels" . | nindent 4 }}
 data:
-  edc.properties: |
-    {{ .Values.edc.properties | indent 4 | trim }}
+  vault.properties: |
+    {}
