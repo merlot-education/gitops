@@ -26,3 +26,6 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-production"
+service:
+  type: ExternalName
+  externalName: 212.132.93.196
