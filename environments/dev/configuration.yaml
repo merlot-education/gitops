@@ -348,7 +348,7 @@ applications:
           - "$values/environments/dev/ssi/ocm-attestation-manager.yaml"
         repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/attestation-manager/deployment/helm
-        sourceRef: feature/generalized-helm-chart
+        sourceRef: TempVM
 
   - name: ssi-ocm-connection-manager
     namespace: ssi-ocm
@@ -361,7 +361,7 @@ applications:
           - "$values/environments/dev/ssi/ocm-connection-manager.yaml"
         repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/connection-manager/deployment/helm
-        sourceRef: feature/generalized-helm-chart
+        sourceRef: TempVM
 
   - name: ssi-ocm-proof-manager
     namespace: ssi-ocm
@@ -374,7 +374,7 @@ applications:
           - "$values/environments/dev/ssi/ocm-proof-manager.yaml"
         repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/proof-manager/deployment/helm
-        sourceRef: feature/generalized-helm-chart
+        sourceRef: TempVM
 
   - name: ssi-ocm-ssi-abstraction
     namespace: ssi-ocm
@@ -387,7 +387,7 @@ applications:
           - "$values/environments/dev/ssi/ocm-ssi-abstraction.yaml"
         repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
         sourcePath: apps/ssi-abstraction/deployment/helm
-        sourceRef: feature/generalized-helm-chart
+        sourceRef: TempVM
 
   - name: ssi-ocm-nats
     namespace: ssi-ocm

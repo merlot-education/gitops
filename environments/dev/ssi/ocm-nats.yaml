@@ -1,1 +1,4 @@
 fullnameOverride: nats
+service:
+  type: ExternalName
+  externalName: 212.132.93.196
