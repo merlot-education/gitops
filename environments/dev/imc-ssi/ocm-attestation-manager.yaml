@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/merlot-education/ssi-build/ocm
-  name: imc-attestation-manager
+  name: attestation-manager
   tag: "003cf18"
 attestationManager:
   url:
