@@ -20,13 +20,13 @@ ssiAbstraction:
     port: []
     schema: []
     db: []
-# secretEnv:
-#   DATABASE_URL:
-#     name: ssi-ocm-db
-#     key: url-proof
-#   AGENT_PUBLIC_DID_SEED:
-#     name: ssi-ocm-db
-#     key: did-seed
+secretEnv:
+  DATABASE_URL:
+    name: ssi-ocm-db
+    key: url-proof
+  AGENT_PUBLIC_DID_SEED:
+    name: ssi-ocm-db
+    key: did-seed
 ingress:
   frontendDomain: ocm.dev.imc-merlot-education.eu
   annotations:

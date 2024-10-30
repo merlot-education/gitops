@@ -13,10 +13,10 @@ connectionManager:
     port: []
     schema: []
     db: []
-# secretEnv:
-#   DATABASE_URL:
-#     name: ssi-ocm-db
-#     key: url-connection
+secretEnv:
+  DATABASE_URL:
+    name: ssi-ocm-db
+    key: url-connection
 extraVars:
   - name: CONNECTION_MANAGER_URL
     value: https://ocm.dev.imc-merlot-education.eu/connection

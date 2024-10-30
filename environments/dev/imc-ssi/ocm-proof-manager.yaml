@@ -10,10 +10,10 @@ proofManager:
     port: []
     schema: []
     db: []
-# secretEnv:
-#   DATABASE_URL:
-#     name: ssi-ocm-db
-#     key: url-proof
+secretEnv:
+  DATABASE_URL:
+    name: ssi-ocm-db
+    key: url-proof
 ingress:
   frontendDomain: ocm.dev.imc-merlot-education.eu
   annotations:

@@ -14,10 +14,10 @@ attestationManager:
     port: []
     schema: []
     db: []
-# secretEnv:
-#   DATABASE_URL:
-#     name: ssi-ocm-db
-#     key: url-attestation
+secretEnv:
+  DATABASE_URL:
+    name: ssi-ocm-db
+    key: url-attestation
 ingress:
   frontendDomain: ocm.dev.imc-merlot-education.eu
   annotations:
