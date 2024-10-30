@@ -1,4 +1,4 @@
-fullnameOverride: nats
+fullnameOverride: imc-nats
 service:
   type: ExternalName
   externalName: 85.215.209.63
