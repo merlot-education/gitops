@@ -414,65 +414,65 @@ applications:
 # IMC definition starts here
 
   - name: imc-ssi-ocm-attestation-manager
-      namespace: imc-ssi-ocm
-      enabled: true
-      serverName: dev-cluster
-      sources:
-        - ref: values
-        - name: ssi-ocm-attestation-manager
-          helmValues:
-            - "$values/environments/dev/imc-ssi/ocm-attestation-manager.yaml"
-          repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
-          sourcePath: apps/attestation-manager/deployment/helm
-          sourceRef: IMC
+    namespace: imc-ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-attestation-manager
+        helmValues:
+          - "$values/environments/dev/imc-ssi/ocm-attestation-manager.yaml"
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
+        sourcePath: apps/attestation-manager/deployment/helm
+        sourceRef: IMC
 
-    - name: imc-ssi-ocm-connection-manager
-      namespace: imc-ssi-ocm
-      enabled: true
-      serverName: dev-cluster
-      sources:
-        - ref: values
-        - name: ssi-ocm-connection-manager
-          helmValues:
-            - "$values/environments/dev/imc-ssi/ocm-connection-manager.yaml"
-          repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
-          sourcePath: apps/connection-manager/deployment/helm
-          sourceRef: IMC
+  - name: imc-ssi-ocm-connection-manager
+    namespace: imc-ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-connection-manager
+        helmValues:
+          - "$values/environments/dev/imc-ssi/ocm-connection-manager.yaml"
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
+        sourcePath: apps/connection-manager/deployment/helm
+        sourceRef: IMC
 
-    - name: imc-ssi-ocm-proof-manager
-      namespace: imc-ssi-ocm
-      enabled: true
-      serverName: dev-cluster
-      sources:
-        - ref: values
-        - name: ssi-ocm-proof-manager
-          helmValues:
-            - "$values/environments/dev/imc-ssi/ocm-proof-manager.yaml"
-          repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
-          sourcePath: apps/proof-manager/deployment/helm
-          sourceRef: IMC
+  - name: imc-ssi-ocm-proof-manager
+    namespace: imc-ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-proof-manager
+        helmValues:
+          - "$values/environments/dev/imc-ssi/ocm-proof-manager.yaml"
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
+        sourcePath: apps/proof-manager/deployment/helm
+        sourceRef: IMC
 
-    - name: imc-ssi-ocm-ssi-abstraction
-      namespace: imc-ssi-ocm
-      enabled: true
-      serverName: dev-cluster
-      sources:
-        - ref: values
-        - name: ssi-ocm-ssi-abstraction
-          helmValues:
-            - "$values/environments/dev/imc-ssi/ocm-ssi-abstraction.yaml"
-          repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
-          sourcePath: apps/ssi-abstraction/deployment/helm
-          sourceRef: IMC
+  - name: imc-ssi-ocm-ssi-abstraction
+    namespace: imc-ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - name: ssi-ocm-ssi-abstraction
+        helmValues:
+          - "$values/environments/dev/imc-ssi/ocm-ssi-abstraction.yaml"
+        repoURL: 'https://github.com/merlot-education/merlot-ocm.git'
+        sourcePath: apps/ssi-abstraction/deployment/helm
+        sourceRef: IMC
 
-    - name: imc-ssi-ocm-nats
-      namespace: imc-ssi-ocm
-      enabled: true
-      serverName: dev-cluster
-      sources:
-        - ref: values
-        - repoURL: https://nats-io.github.io/k8s/helm/charts/
-          sourceRef: ~1.1.5
-          chartName: nats
-          helmValues:
-            - $values/environments/dev/imc-ssi/ocm-nats.yaml
+  - name: imc-ssi-ocm-nats
+    namespace: imc-ssi-ocm
+    enabled: true
+    serverName: dev-cluster
+    sources:
+      - ref: values
+      - repoURL: https://nats-io.github.io/k8s/helm/charts/
+        sourceRef: ~1.1.5
+        chartName: nats
+        helmValues:
+          - $values/environments/dev/imc-ssi/ocm-nats.yaml
