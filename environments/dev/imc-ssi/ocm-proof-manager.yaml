@@ -17,6 +17,7 @@ secretEnv:
 ingress:
   frontendDomain: imc-ocm.dev.imc-merlot-education.eu
   frontendTlsSecretName: imc-cert-manager-tls
+  pathOverride: "proof"
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/proxy-body-size: "128m"
