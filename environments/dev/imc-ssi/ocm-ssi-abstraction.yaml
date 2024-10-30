@@ -1,0 +1,37 @@
+image:
+  repository: ghcr.io/merlot-education/ssi-build/ocm
+  name: ssi-abstraction
+  tag: "b38fcb9"
+log:
+  level: 'DEBUG'
+  encoding: json
+ssiAbstraction:
+  agent:
+    ledgerId: BCOVRIN_TEST
+    #publicDidSeed: 6b8b882e2618fa5d45ee7229ca880055
+    host: ocm.dev.imc-merlot-education.eu
+    protocol: https
+    peerPort: 443
+    urlPath: /ssi-ocm/didcomm
+  database:
+    host: []
+    user: []
+    password: []
+    port: []
+    schema: []
+    db: []
+# secretEnv:
+#   DATABASE_URL:
+#     name: ssi-ocm-db
+#     key: url-proof
+#   AGENT_PUBLIC_DID_SEED:
+#     name: ssi-ocm-db
+#     key: did-seed
+ingress:
+  frontendDomain: ocm.dev.imc-merlot-education.eu
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: "128m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
