@@ -414,7 +414,7 @@ applications:
 # IMC definition starts here
 
   - name: imc-ssi-ocm-attestation-manager
-    namespace: imc-ssi-ocm
+    namespace: ssi-ocm
     enabled: true
     serverName: dev-cluster
     sources:
@@ -427,7 +427,7 @@ applications:
         sourceRef: IMC
 
   - name: imc-ssi-ocm-connection-manager
-    namespace: imc-ssi-ocm
+    namespace: ssi-ocm
     enabled: true
     serverName: dev-cluster
     sources:
@@ -440,7 +440,7 @@ applications:
         sourceRef: IMC
 
   - name: imc-ssi-ocm-proof-manager
-    namespace: imc-ssi-ocm
+    namespace: ssi-ocm
     enabled: true
     serverName: dev-cluster
     sources:
@@ -453,7 +453,7 @@ applications:
         sourceRef: IMC
 
   - name: imc-ssi-ocm-ssi-abstraction
-    namespace: imc-ssi-ocm
+    namespace: ssi-ocm
     enabled: true
     serverName: dev-cluster
     sources:
@@ -466,7 +466,7 @@ applications:
         sourceRef: IMC
 
   - name: imc-ssi-ocm-nats
-    namespace: imc-ssi-ocm
+    namespace: ssi-ocm
     enabled: true
     serverName: dev-cluster
     sources:
