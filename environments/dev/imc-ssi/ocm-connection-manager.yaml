@@ -19,9 +19,9 @@ secretEnv:
     key: url-connection
 extraVars:
   - name: CONNECTION_MANAGER_URL
-    value: https://imc-ocm.dev.imc-merlot-education.eu/connection
+    value: https://ocm.dev.imc-merlot-education.eu/connection
 ingress:
-  frontendDomain: imc-ocm.dev.imc-merlot-education.eu
+  frontendDomain: ocm.dev.imc-merlot-education.eu
   frontendTlsSecretName: imc-cert-manager-tls
   annotations:
     kubernetes.io/ingress.class: "nginx"

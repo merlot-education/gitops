@@ -9,7 +9,7 @@ ssiAbstraction:
   agent:
     ledgerId: BCOVRIN_TEST
     #publicDidSeed: 6b8b882e2618fa5d45ee7229ca880055
-    host: imc-ocm.dev.imc-merlot-education.eu
+    host: ocm.dev.imc-merlot-education.eu
     protocol: https
     peerPort: 443
     urlPath: /ssi-ocm/didcomm
@@ -28,7 +28,7 @@ secretEnv:
     name: ssi-ocm-db
     key: did-seed
 ingress:
-  frontendDomain: imc-ocm.dev.imc-merlot-education.eu
+  frontendDomain: ocm.dev.imc-merlot-education.eu
   frontendTlsSecretName: imc-cert-manager-tls
   annotations:
     kubernetes.io/ingress.class: "nginx"
