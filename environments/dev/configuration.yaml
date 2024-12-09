@@ -295,7 +295,7 @@ applications:
     serverName: dev-cluster
     sources:
       - ref: values
-      - repoURL: https://marketplace.azurecr.io/helm/v1/repo
+      - repoURL: https://charts.bitnami.com/bitnami
         sourceRef: ~17.3.11
         chartName: redis
         helmValues:
@@ -331,7 +331,7 @@ applications:
     serverName: dev-cluster
     sources:
       - ref: values
-      - repoURL: https://marketplace.azurecr.io/helm/v1/repo
+      - repoURL: https://charts.bitnami.com/bitnami
         sourceRef: ~13.3.1
         chartName: mongodb
         helmValues:
